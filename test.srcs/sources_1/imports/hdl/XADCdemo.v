@@ -62,6 +62,10 @@ module XADCdemo(
    reg down;
    reg left;
    reg right;
+   reg up2;
+   reg down2;
+   reg left2;
+   reg right2;
    
 
 
@@ -198,25 +202,25 @@ module XADCdemo(
         0:  begin
         Address_in <= 8'h16;
         Vrx1 <= data[15:12];
-        Vry1 <= 4'b0;
+//        Vry1 <= 4'b0101;
         end
         
         1: begin
         Address_in <= 8'h1e;
         Vry1<=data[15:12];
-        Vrx1<=4'b0;
+//        Vrx1<=4'b0101;
         end
         
         2: begin
         Address_in <= 8'h17;
         Vrx2 <=data[15:12];
-        Vry2<=4'b0101;
+//        Vry2<=4'b0101;
         end
         
         3: begin
         Address_in <= 8'h1f;
         Vry2 <=data[15:12];
-        Vrx2<=4'b0101;
+//        Vrx2<=4'b0101;
         end
         endcase
       
@@ -232,7 +236,7 @@ module XADCdemo(
       left<=0;
       right<=0;
       end
-      else if (Vry2<5)
+      else if (Vry1<5)
       begin
       down<=1;
       up<=0;
@@ -247,7 +251,7 @@ module XADCdemo(
       down<=0;
       up<=0;
       end
-      else if (Vrx2<5)
+      else if (Vrx1<5)
       begin
       left<=1;
       right<=0;
@@ -255,7 +259,59 @@ module XADCdemo(
       up<=0;
       end
       
+      else
+      begin
+      left<=0;
+      right<=0;
+      down<=0;
+      up<=0;
       end
+      
+      end
+      
+      
+      always @(posedge(CLK100MHZ))
+      begin
+      if (Vry2 > 8)
+      begin
+      up2<=1;
+      down2<=0;
+      left2<=0;
+      right2<=0;
+      end
+      else if (Vry2<5)
+      begin
+      down<=1;
+      up<=0;
+      left<=0;
+      right<=0;
+      end
+      
+      else if (Vrx2 > 8)
+      begin
+      right2<=1;
+      left2<=0;
+      down2<=0;
+      up2<=0;
+      end
+      else if (Vrx2<5)
+      begin
+      left2<=1;
+      right2<=0;
+      down2<=0;
+      up2<=0;
+      end
+      
+      else
+      begin
+      left2<=0;
+      right2<=0;
+      down2<=0;
+      up2<=0;
+      end
+      
+      end
+      
       
       
       

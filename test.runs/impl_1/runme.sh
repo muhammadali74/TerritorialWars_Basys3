@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/test/test.runs/impl_1'
+HD_PWD='C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
