@@ -31,7 +31,12 @@ module XADCdemo(
    output reg [15:0] LED,
    output [3:0] an,
    output dp,
-   output [6:0] seg 
+   output [6:0] seg,
+   input rst,
+   output hsync,
+   output vsync,
+   output [11:0] rgb
+   
  );
    
    wire enable;  
@@ -52,6 +57,11 @@ module XADCdemo(
    reg [3:0] Vry2;
    reg [1:0] sw;
    reg [32:0] delay;
+   
+   reg up;
+   reg down;
+   reg left;
+   reg right;
    
 
 
@@ -170,7 +180,7 @@ module XADCdemo(
       
       always @(posedge(CLK100MHZ))
       begin
-        if (delay == 100000000) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
+        if (delay == 10) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
             begin
             sw = (sw == 2'b11) ? 0 : sw+1; 
             delay = 0;
@@ -200,18 +210,57 @@ module XADCdemo(
         2: begin
         Address_in <= 8'h17;
         Vrx2 <=data[15:12];
-        Vry2<=4'b0;
+        Vry2<=4'b0101;
         end
         
         3: begin
         Address_in <= 8'h1f;
         Vry2 <=data[15:12];
-        Vrx2<=4'b0;
+        Vrx2<=4'b0101;
         end
         endcase
       
       
       end
+      
+      always @(posedge(CLK100MHZ))
+      begin
+      if (Vry1 > 8)
+      begin
+      up<=1;
+      down<=0;
+      left<=0;
+      right<=0;
+      end
+      else if (Vry2<5)
+      begin
+      down<=1;
+      up<=0;
+      left<=0;
+      right<=0;
+      end
+      
+      else if (Vrx1 > 8)
+      begin
+      right<=1;
+      left<=0;
+      down<=0;
+      up<=0;
+      end
+      else if (Vrx2<5)
+      begin
+      left<=1;
+      right<=0;
+      down<=0;
+      up<=0;
+      end
+      
+      end
+      
+      
+      
+      // The game logic + vga
+      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
       
       // This is for debugging and testing the values
       DigitToSeg segment1(.in1(dig3),
@@ -225,5 +274,7 @@ module XADCdemo(
                          .mclk(CLK100MHZ),
                          .an(an),
                          .dp(dp),
-                         .seg(seg));  
+                         .seg(seg));
+                         
+       
 endmodule
