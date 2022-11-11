@@ -124,6 +124,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 1
+  set_param synth.incrementalSynthesisCache C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/.Xil/Vivado-12000-Muhammads/incrSyn
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1

@@ -281,10 +281,10 @@ module XADCdemo(
       end
       else if (Vry2<5)
       begin
-      down<=1;
-      up<=0;
-      left<=0;
-      right<=0;
+      down2<=1;
+      up2<=0;
+      left2<=0;
+      right2<=0;
       end
       
       else if (Vrx2 > 8)

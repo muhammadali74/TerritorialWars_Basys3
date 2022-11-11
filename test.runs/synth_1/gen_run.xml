@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668081355">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668082646">
   <File Type="PA-TCL" Name="XADCdemo.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="XADCdemo_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="XADCdemo_reports.tcl"/>
