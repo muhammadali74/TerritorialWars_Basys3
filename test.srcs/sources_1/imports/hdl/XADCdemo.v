@@ -184,7 +184,7 @@ module XADCdemo(
       
       always @(posedge(CLK100MHZ))
       begin
-        if (delay == 10) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
+        if (delay == 10000000) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
             begin
             sw = (sw == 2'b11) ? 0 : sw+1; 
             delay = 0;
@@ -196,78 +196,138 @@ module XADCdemo(
         
       
       
-      always @(posedge(CLK100MHZ))
+    always @(posedge(CLK100MHZ))
       begin
         case(sw)
         0:  begin
         Address_in <= 8'h16;
-        Vrx1 <= data[15:12];
-//        Vry1 <= 4'b0101;
+        Vry1 <= data[15:12];
+        if (Vry1 > 9)
+      begin
+      up<=1;
+      down<=0;
+//      left<=0;
+//      right<=0;
+      end
+      else if (Vry1<4)
+      begin
+      down<=1;
+      up<=0;
+//      left<=0;
+//      right<=0;
+      end
+      
+      else if (Vry1<8 && Vry1>5)
+      begin
+//      left<=0;
+//      right<=0;
+      down<=0;
+      up<=0;
+      end
+        
+//        Vrx1 <= Vrx1;
+//        Vrx2 <= 4'b0111;
+//        Vry2 <= 4'b0111;
+        
+
         end
         
         1: begin
         Address_in <= 8'h1e;
-        Vry1<=data[15:12];
-//        Vrx1<=4'b0101;
+        Vrx1<=data[15:12];
+//        Vry1<=Vry1;
+//        Vry2 <= 4'b0111;
+//        Vrx2 <= 4'b0111;
+        if (Vrx1 > 9)
+      begin
+//      up<=1;
+//      down<=0;
+      left<=1;
+      right<=0;
+      end
+      else if (Vrx1<4)
+      begin
+//      down<=1;
+//      up<=0;
+      left<=0;
+      right<=1;
+      end
+      
+      else if (Vrx1<8 && Vrx1>5)
+      begin
+      left<=0;
+      right<=0;
+//      down<=0;
+//      up<=0;
+      end
         end
         
         2: begin
         Address_in <= 8'h17;
-        Vrx2 <=data[15:12];
+//        Vrx2 <=data[15:12];
 //        Vry2<=4'b0101;
+//        Vrx1 <= 4'b0101;
+//        Vry1 <= 4'b0101;
         end
         
         3: begin
         Address_in <= 8'h1f;
-        Vry2 <=data[15:12];
+//        Vry2 <=data[15:12];
 //        Vrx2<=4'b0101;
+//        Vry1 <= 4'b0101;
+//        Vrx1 <= 4'b0101;
         end
         endcase
       
       
       end
       
-      always @(posedge(CLK100MHZ))
-      begin
-      if (Vry1 > 8)
-      begin
-      up<=1;
-      down<=0;
-      left<=0;
-      right<=0;
-      end
-      else if (Vry1<5)
-      begin
-      down<=1;
-      up<=0;
-      left<=0;
-      right<=0;
-      end
+//      always @(posedge(CLK100MHZ))
+//      begin
+//      if (Vry1 > 9)
+//      begin
+//      up<=1;
+//      down<=0;
+
+//      end
+//      else if (Vry1<4)
+//      begin
+//      down<=1;
+//      up<=0;
+
+//      end
       
-      else if (Vrx1 > 8)
-      begin
-      right<=1;
-      left<=0;
-      down<=0;
-      up<=0;
-      end
-      else if (Vrx1<5)
-      begin
-      left<=1;
-      right<=0;
-      down<=0;
-      up<=0;
-      end
+//      else if (Vry1<8 && Vry1>5)
+//      begin
+
+//      down<=0;
+//      up<=0;
+//      end
       
-      else
-      begin
-      left<=0;
-      right<=0;
-      down<=0;
-      up<=0;
-      end
+////      if (Vrx1 > 9)
+////      begin
+////      right<=0;
+////      left<=1;
+////      down<=0;
+////      up<=0;
+////      end
+////      else if (Vrx1<4)
+////      begin
+////      left<=0;
+////      right<=1;
+////      down<=0;
+////      up<=0;
+////      end
       
-      end
+////      else
+////      begin
+////      left<=0;
+////      right<=0;
+////      down<=0;
+////      up<=0;
+////      end
+      
+//      end
       
       
       always @(posedge(CLK100MHZ))
