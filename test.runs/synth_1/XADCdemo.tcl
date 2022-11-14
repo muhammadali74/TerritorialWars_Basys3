@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -87,8 +86,6 @@ set_property ip_output_repo {d:/OneDrive - Habib University/HABIB/Semester-3/DLD
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files -quiet C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.runs/impl_1/top_routed.dcp
-set_property used_in_implementation false [get_files C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.runs/impl_1/top_routed.dcp]
 read_verilog -library xil_defaultlib {
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v

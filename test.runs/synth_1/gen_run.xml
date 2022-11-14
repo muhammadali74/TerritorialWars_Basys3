@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668392728">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668422334">
   <File Type="PA-TCL" Name="XADCdemo.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="XADCdemo_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="XADCdemo_reports.tcl"/>
@@ -11,14 +11,6 @@
   <File Type="VDS-TIMING-PB" Name="XADCdemo_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/Game_screen/Game_screen.runs/impl_1/top_routed.dcp">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/Game_screen/Game_screen.runs/impl_1/top_routed.dcp"/>
-        <Attr Name="ImportTime" Val="1668052321"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/ip/xadc_wiz_0_1/xadc_wiz_0.xci"/>
@@ -116,6 +108,15 @@
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Game_screen/Game_screen.runs/impl_1/top_routed.dcp">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/Game_screen/Game_screen.runs/impl_1/top_routed.dcp"/>
+        <Attr Name="ImportTime" Val="1668052321"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/hdl/UART_TX_CTRL.vhd">

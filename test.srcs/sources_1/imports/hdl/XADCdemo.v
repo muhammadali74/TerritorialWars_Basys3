@@ -332,14 +332,14 @@ module XADCdemo(
       
       always @(posedge(CLK100MHZ))
       begin
-      if (Vry2 > 8)
+      if (Vry2 > 9)
       begin
       up2<=1;
       down2<=0;
       left2<=0;
       right2<=0;
       end
-      else if (Vry2<5)
+      else if (Vry2<4)
       begin
       down2<=1;
       up2<=0;
@@ -347,14 +347,14 @@ module XADCdemo(
       right2<=0;
       end
       
-      else if (Vrx2 > 8)
+      else if (Vrx2 > 9)
       begin
       right2<=1;
       left2<=0;
       down2<=0;
       up2<=0;
       end
-      else if (Vrx2<5)
+      else if (Vrx2<4)
       begin
       left2<=1;
       right2<=0;
@@ -376,7 +376,8 @@ module XADCdemo(
       
       
       // The game logic + vga
-      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
+//      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
+        top_new game(CLK100MHZ, rst, rst, up, down, left, right,up2, down2,left2,right2, hsync, vsync, rgb);
       
       // This is for debugging and testing the values
       DigitToSeg segment1(.in1(dig3),
