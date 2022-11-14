@@ -184,7 +184,7 @@ module XADCdemo(
       
       always @(posedge(CLK100MHZ))
       begin
-        if (delay == 10000000) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
+        if (delay == 100000) // the huge value of this delay is for testing purposes. for using the joystick in the game, teh value should be reduced to check x and y values more frequently.
             begin
             sw = (sw == 2'b11) ? 0 : sw+1; 
             delay = 0;
@@ -199,7 +199,7 @@ module XADCdemo(
     always @(posedge(CLK100MHZ))
       begin
         case(sw)
-        0:  begin
+      0:  begin
         Address_in <= 8'h16;
         Vry1 <= data[15:12];
         if (Vry1 > 9)
@@ -262,8 +262,40 @@ module XADCdemo(
       end
         end
         
+     
+        
+        
         2: begin
-        Address_in <= 8'h17;
+        Address_in <= 8'h1f;
+        Vry2 <= data[15:12];
+        if (Vry2 > 9)
+      begin
+      up2<=1;
+      down2<=0;
+//      left<=0;
+//      right<=0;
+      end
+      else if (Vry2<4)
+      begin
+      down2<=1;
+      up2<=0;
+//      left<=0;
+//      right<=0;
+      end
+      
+      else if (Vry2<8 && Vry2>5)
+      begin
+//      left<=0;
+//      right<=0;
+      down2<=0;
+      up2<=0;
+      end
+        
+//        Vrx1 <= Vrx1;
+//        Vrx2 <= 4'b0111;
+//        Vry2 <= 4'b0111;
+        
+        
 //        Vrx2 <=data[15:12];
 //        Vry2<=4'b0101;
 //        Vrx1 <= 4'b0101;
@@ -271,8 +303,33 @@ module XADCdemo(
         end
         
         3: begin
-        Address_in <= 8'h1f;
-//        Vry2 <=data[15:12];
+        Address_in <= 8'h17;
+        Vrx2 <=data[15:12];
+//        Vry1<=Vry1;
+//        Vry2 <= 4'b0111;
+//        Vrx2 <= 4'b0111;
+        if (Vrx2 > 9)
+      begin
+//      up<=1;
+//      down<=0;
+      left2<=1;
+      right2<=0;
+      end
+      else if (Vrx2<4)
+      begin
+//      down<=1;
+//      up<=0;
+      left2<=0;
+      right2<=1;
+      end
+      
+      else if (Vrx2<8 && Vrx2>5)
+      begin
+      left2<=0;
+      right2<=0;
+//      down<=0;
+//      up<=0;
+      end
 //        Vrx2<=4'b0101;
 //        Vry1 <= 4'b0101;
 //        Vrx1 <= 4'b0101;
@@ -330,54 +387,54 @@ module XADCdemo(
 //      end
       
       
-      always @(posedge(CLK100MHZ))
-      begin
-      if (Vry2 > 9)
-      begin
-      up2<=1;
-      down2<=0;
-      left2<=0;
-      right2<=0;
-      end
-      else if (Vry2<4)
-      begin
-      down2<=1;
-      up2<=0;
-      left2<=0;
-      right2<=0;
-      end
+//      always @(posedge(CLK100MHZ))
+//      begin
+//      if (Vry2 > 9)
+//      begin
+//      up2<=1;
+//      down2<=0;
+//      left2<=0;
+//      right2<=0;
+//      end
+//      else if (Vry2<4)
+//      begin
+//      down2<=1;
+//      up2<=0;
+//      left2<=0;
+//      right2<=0;
+//      end
       
-      else if (Vrx2 > 9)
-      begin
-      right2<=1;
-      left2<=0;
-      down2<=0;
-      up2<=0;
-      end
-      else if (Vrx2<4)
-      begin
-      left2<=1;
-      right2<=0;
-      down2<=0;
-      up2<=0;
-      end
+//      else if (Vrx2 > 9)
+//      begin
+//      right2<=1;
+//      left2<=0;
+//      down2<=0;
+//      up2<=0;
+//      end
+//      else if (Vrx2<4)
+//      begin
+//      left2<=1;
+//      right2<=0;
+//      down2<=0;
+//      up2<=0;
+//      end
       
-      else
-      begin
-      left2<=0;
-      right2<=0;
-      down2<=0;
-      up2<=0;
-      end
+//      else
+//      begin
+//      left2<=0;
+//      right2<=0;
+//      down2<=0;
+//      up2<=0;
+//      end
       
-      end
+//      end
       
       
       
       
       // The game logic + vga
 //      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
-        top_new game(CLK100MHZ, rst, rst, up, down, left, right,up2, down2,left2,right2, hsync, vsync, rgb);
+        top_new game(CLK100MHZ, rst, rst, up, down, right, left,up2, down2,right2,left2, hsync, vsync, rgb);
       
       // This is for debugging and testing the values
       DigitToSeg segment1(.in1(dig3),
