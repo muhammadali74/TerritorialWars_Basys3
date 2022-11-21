@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/impl_1/XADCdemo.tcl"
+  variable script "C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/impl_1/XADCdemo.tcl"
   variable category "vivado_impl"
 }
 
@@ -114,9 +114,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "Implementation" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -125,7 +122,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache C:/Users/needs/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-17232-Muhammads/incrSyn
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
@@ -133,16 +129,16 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.cache/wt [current_project]
-  set_property parent.project_path C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.xpr [current_project]
+  set_property webtalk.parent_dir C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.xpr [current_project]
   set_property ip_output_repo {{D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/test/test.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.dcp
-  read_ip -quiet C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
+  add_files -quiet C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.dcp
+  read_ip -quiet C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
+  read_xdc C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

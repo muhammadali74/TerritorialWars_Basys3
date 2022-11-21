@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.tcl"
+  variable script "C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,11 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param synth.incrementalSynthesisCache C:/Users/needs/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-17232-Muhammads/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -83,8 +79,8 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.cache/wt [current_project]
-set_property parent.project_path C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.cache/wt [current_project]
+set_property parent.project_path C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo {d:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/test/test.cache/ip} [current_project]
@@ -92,21 +88,20 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/FSM_block.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v
+  C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v
 }
-read_ip -quiet C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc]
+read_ip -quiet C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -117,8 +112,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
-set_property used_in_implementation false [get_files C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc]
+read_xdc C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
+set_property used_in_implementation false [get_files C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.srcs/constrs_1/imports/constraints/Basys3_Master.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

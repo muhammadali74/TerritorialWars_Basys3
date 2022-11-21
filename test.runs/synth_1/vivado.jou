@@ -2,11 +2,11 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sat Nov 19 17:35:57 2022
-# Process ID: 20268
-# Current directory: C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1
+# Start of session at: Mon Nov 21 18:46:02 2022
+# Process ID: 9024
+# Current directory: C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1
 # Command line: vivado.exe -log XADCdemo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source XADCdemo.tcl
-# Log file: C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.vds
-# Journal file: C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1\vivado.jou
+# Log file: C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.vds
+# Journal file: C:/Users/Tajdar/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source XADCdemo.tcl -notrace

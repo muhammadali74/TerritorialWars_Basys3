@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668861349">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1669038357">
   <File Type="BITSTR-BMM" Name="XADCdemo_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="XADCdemo_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="XADCdemo_timing_summary_init.rpt"/>
@@ -95,13 +95,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/FSM_block.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/hdl/counter3bit.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/counter3bit.v"/>
@@ -178,6 +171,14 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/XADCdemo.v"/>
         <Attr Name="ImportTime" Val="1667495509"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/FSM_block.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
