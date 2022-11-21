@@ -1,4 +1,5 @@
 # TerritorialWars_Basys3
 
 ## References:
-- \href{https://github.com/Digilent}{Diligent Basys3 Official Repositories}
+- [Diligent Basys3 Official Repositories](https://github.com/Digilent)
+- [Interfacing Joystick using XADC](https://github.com/muhammadali74/Basys3-Joystick-Interfacing)
