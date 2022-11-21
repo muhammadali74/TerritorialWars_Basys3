@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668426771">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668861349">
   <File Type="BITSTR-BMM" Name="XADCdemo_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="XADCdemo_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="XADCdemo_timing_summary_init.rpt"/>
@@ -95,6 +95,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/FSM_block.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/hdl/counter3bit.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/counter3bit.v"/>
@@ -185,6 +192,16 @@
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation.v"/>
+        <Attr Name="ImportTime" Val="1668052322"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/hdl/UART_TX_CTRL.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -228,16 +245,6 @@
         <Attr Name="ImportTime" Val="1668052321"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="D:/OneDrive - Habib University/HABIB/Semester-3/DLD/Labs/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation.v"/>
-        <Attr Name="ImportTime" Val="1668052322"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
