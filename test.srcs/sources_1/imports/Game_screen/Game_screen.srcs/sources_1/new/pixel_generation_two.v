@@ -671,7 +671,16 @@ assign tr24_0_on = (gr_x_24_0 <= x) && (x <= gr_x_24_0+18) && (gr_y_24_0 <= y) &
     assign black_on1 = (x==95) && (y>=15 && y<=465);
     assign black_on2 = (x>=95 && x<=545) && (y==465);
 //     new square position
-    always@(posedge clk)      
+
+    wire [11:0] rgb_wire;
+//    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+//    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+    tortrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+//    winrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+//    win2rom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+//    drawrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
+
+    always@(posedge clk)
       begin
     if (refresh_tick)
         if (up1)
@@ -1151,22 +1160,23 @@ end
         if(~video_on)
             rgb = 12'h000;          // black(no value) outside display area
         else
-            if(sq1_on)
-                rgb = SQ1_RGB;       // yellow square
-            else if(sq2_on)
-                rgb = SQ2_RGB;
-            else if(black_on1)
-                rgb = BLACK;
-            else if (black_on2)
-                rgb = BLACK;
-            else if (black_on)
-                rgb = BLACK;
-            else if ((tr0_0_on && gr0_0_on == 2'd1) | (tr1_0_on && gr1_0_on == 2'd1) | (tr2_0_on && gr2_0_on == 2'd1) | (tr3_0_on && gr3_0_on == 2'd1) | (tr4_0_on && gr4_0_on == 2'd1) | (tr5_0_on && gr5_0_on == 2'd1) | (tr6_0_on && gr6_0_on == 2'd1) | (tr7_0_on && gr7_0_on == 2'd1) | (tr8_0_on && gr8_0_on == 2'd1) | (tr9_0_on && gr9_0_on == 2'd1) | (tr10_0_on && gr10_0_on == 2'd1) | (tr11_0_on && gr11_0_on == 2'd1) | (tr12_0_on && gr12_0_on == 2'd1) | (tr13_0_on && gr13_0_on == 2'd1) | (tr14_0_on && gr14_0_on == 2'd1) | (tr15_0_on && gr15_0_on == 2'd1) | (tr16_0_on && gr16_0_on == 2'd1) | (tr17_0_on && gr17_0_on == 2'd1) | (tr18_0_on && gr18_0_on == 2'd1) | (tr19_0_on && gr19_0_on == 2'd1) | (tr20_0_on && gr20_0_on == 2'd1) | (tr21_0_on && gr21_0_on == 2'd1) | (tr22_0_on && gr22_0_on == 2'd1) | (tr23_0_on && gr23_0_on == 2'd1) | (tr24_0_on && gr24_0_on == 2'd1))
-                rgb = trail1;
-            else if ((tr0_0_on && gr0_0_on == 2'd2) | (tr1_0_on && gr1_0_on == 2'd2) | (tr2_0_on && gr2_0_on == 2'd2) | (tr3_0_on && gr3_0_on == 2'd2) | (tr4_0_on && gr4_0_on == 2'd2) | (tr5_0_on && gr5_0_on == 2'd2) | (tr6_0_on && gr6_0_on == 2'd2) | (tr7_0_on && gr7_0_on == 2'd2) | (tr8_0_on && gr8_0_on == 2'd2) | (tr9_0_on && gr9_0_on == 2'd2) | (tr10_0_on && gr10_0_on == 2'd2) | (tr11_0_on && gr11_0_on == 2'd2) | (tr12_0_on && gr12_0_on == 2'd2) | (tr13_0_on && gr13_0_on == 2'd2) | (tr14_0_on && gr14_0_on == 2'd2) | (tr15_0_on && gr15_0_on == 2'd2) | (tr16_0_on && gr16_0_on == 2'd2) | (tr17_0_on && gr17_0_on == 2'd2) | (tr18_0_on && gr18_0_on == 2'd2) | (tr19_0_on && gr19_0_on == 2'd2) | (tr20_0_on && gr20_0_on == 2'd2) | (tr21_0_on && gr21_0_on == 2'd2) | (tr22_0_on && gr22_0_on == 2'd2) | (tr23_0_on && gr23_0_on == 2'd2) | (tr24_0_on && gr24_0_on == 2'd2))
-                rgb = trail2;
-            else
-                rgb= BG_RGB;       // blue background
+            rgb= rgb_wire;
+//            if(sq1_on)
+//                rgb = SQ1_RGB;       // yellow square
+//            else if(sq2_on)
+//                rgb = SQ2_RGB;
+//            else if(black_on1)
+//                rgb = BLACK;
+//            else if (black_on2)
+//                rgb = BLACK;
+//            else if (black_on)
+//                rgb = BLACK;
+//            else if ((tr0_0_on && gr0_0_on == 2'd1) | (tr1_0_on && gr1_0_on == 2'd1) | (tr2_0_on && gr2_0_on == 2'd1) | (tr3_0_on && gr3_0_on == 2'd1) | (tr4_0_on && gr4_0_on == 2'd1) | (tr5_0_on && gr5_0_on == 2'd1) | (tr6_0_on && gr6_0_on == 2'd1) | (tr7_0_on && gr7_0_on == 2'd1) | (tr8_0_on && gr8_0_on == 2'd1) | (tr9_0_on && gr9_0_on == 2'd1) | (tr10_0_on && gr10_0_on == 2'd1) | (tr11_0_on && gr11_0_on == 2'd1) | (tr12_0_on && gr12_0_on == 2'd1) | (tr13_0_on && gr13_0_on == 2'd1) | (tr14_0_on && gr14_0_on == 2'd1) | (tr15_0_on && gr15_0_on == 2'd1) | (tr16_0_on && gr16_0_on == 2'd1) | (tr17_0_on && gr17_0_on == 2'd1) | (tr18_0_on && gr18_0_on == 2'd1) | (tr19_0_on && gr19_0_on == 2'd1) | (tr20_0_on && gr20_0_on == 2'd1) | (tr21_0_on && gr21_0_on == 2'd1) | (tr22_0_on && gr22_0_on == 2'd1) | (tr23_0_on && gr23_0_on == 2'd1) | (tr24_0_on && gr24_0_on == 2'd1))
+//                rgb = trail1;
+//            else if ((tr0_0_on && gr0_0_on == 2'd2) | (tr1_0_on && gr1_0_on == 2'd2) | (tr2_0_on && gr2_0_on == 2'd2) | (tr3_0_on && gr3_0_on == 2'd2) | (tr4_0_on && gr4_0_on == 2'd2) | (tr5_0_on && gr5_0_on == 2'd2) | (tr6_0_on && gr6_0_on == 2'd2) | (tr7_0_on && gr7_0_on == 2'd2) | (tr8_0_on && gr8_0_on == 2'd2) | (tr9_0_on && gr9_0_on == 2'd2) | (tr10_0_on && gr10_0_on == 2'd2) | (tr11_0_on && gr11_0_on == 2'd2) | (tr12_0_on && gr12_0_on == 2'd2) | (tr13_0_on && gr13_0_on == 2'd2) | (tr14_0_on && gr14_0_on == 2'd2) | (tr15_0_on && gr15_0_on == 2'd2) | (tr16_0_on && gr16_0_on == 2'd2) | (tr17_0_on && gr17_0_on == 2'd2) | (tr18_0_on && gr18_0_on == 2'd2) | (tr19_0_on && gr19_0_on == 2'd2) | (tr20_0_on && gr20_0_on == 2'd2) | (tr21_0_on && gr21_0_on == 2'd2) | (tr22_0_on && gr22_0_on == 2'd2) | (tr23_0_on && gr23_0_on == 2'd2) | (tr24_0_on && gr24_0_on == 2'd2))
+//                rgb = trail2;
+//            else
+//                rgb= BG_RGB;       // blue background
     
 endmodule
 

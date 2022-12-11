@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Mon Nov 21 18:50:20 2022
-| Host             : DESKTOP-CQBFD6R running 64-bit major release  (build 9200)
+| Date             : Sun Dec 11 18:57:39 2022
+| Host             : Muhammads running 64-bit major release  (build 9200)
 | Command          : report_power -file XADCdemo_power_routed.rpt -pb XADCdemo_power_summary_routed.pb -rpx XADCdemo_power_routed.rpx
 | Design           : XADCdemo
 | Device           : xc7a35tcpg236-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.125        |
+| Total On-Chip Power (W)  | 0.147        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.054        |
-| Device Static (W)        | 0.072        |
+| Dynamic (W)              | 0.074        |
+| Device Static (W)        | 0.073        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.4         |
-| Junction Temperature (C) | 25.6         |
+| Max Ambient (C)          | 84.3         |
+| Junction Temperature (C) | 25.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.003 |        3 |       --- |             --- |
-| Slice Logic    |     0.007 |     1217 |       --- |             --- |
-|   LUT as Logic |     0.007 |      676 |     20800 |            3.25 |
-|   Register     |    <0.001 |      342 |     41600 |            0.82 |
-|   CARRY4       |    <0.001 |       41 |      8150 |            0.50 |
-|   Others       |     0.000 |       14 |       --- |             --- |
-| Signals        |     0.008 |     1016 |       --- |             --- |
+| Clocks         |     0.004 |        3 |       --- |             --- |
+| Slice Logic    |     0.007 |      541 |       --- |             --- |
+|   LUT as Logic |     0.007 |      269 |     20800 |            1.29 |
+|   Register     |    <0.001 |      206 |     41600 |            0.50 |
+|   CARRY4       |    <0.001 |       25 |      8150 |            0.31 |
+|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
+|   Others       |     0.000 |       17 |       --- |             --- |
+| Signals        |     0.009 |      506 |       --- |             --- |
+| Block RAM      |     0.021 |       24 |        50 |           48.00 |
 | DSPs           |     0.001 |        1 |        90 |            1.11 |
-| I/O            |     0.032 |       53 |       106 |           50.00 |
+| I/O            |     0.031 |       52 |       106 |           49.06 |
 | XADC           |     0.002 |        1 |       --- |             --- |
-| Static Power   |     0.072 |          |           |                 |
-| Total          |     0.125 |          |           |                 |
+| Static Power   |     0.073 |          |           |                 |
+| Total          |     0.147 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.030 |       0.020 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.051 |       0.041 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.010 |       0.009 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -82,7 +84,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.021 |       0.001 |      0.020 |       NA    | Unspecified | NA         |
@@ -142,12 +144,13 @@ Table of Contents
 +------------+-----------+
 | Name       | Power (W) |
 +------------+-----------+
-| XADCdemo   |     0.054 |
+| XADCdemo   |     0.074 |
 |   XLXI_7   |     0.002 |
-|   game     |     0.003 |
-|     pg     |     0.002 |
+|   game     |     0.023 |
+|     pg     |     0.021 |
+|       easy |     0.021 |
 |     vc     |     0.001 |
-|   segment1 |     0.001 |
+|   segment1 |     0.002 |
 +------------+-----------+
 
 
