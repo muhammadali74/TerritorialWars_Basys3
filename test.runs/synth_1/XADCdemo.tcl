@@ -88,14 +88,16 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v
+  C:/Users/needs/OneDrive/Desktop/new/D_FlipFlop.v
+  C:/Users/needs/OneDrive/Desktop/new/ascii_rom.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/ascii_test_1.v
+  C:/Users/needs/OneDrive/Desktop/new/bcd_2_hex.v
+  C:/Users/needs/OneDrive/Desktop/new/binary_2_bcd.v
+  C:/Users/needs/OneDrive/Desktop/new/clk_div2.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v
+  C:/Users/needs/OneDrive/Desktop/new/score_count.v
+  C:/Users/needs/OneDrive/Desktop/new/selection.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v

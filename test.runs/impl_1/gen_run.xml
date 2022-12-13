@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670766785">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670959359">
   <File Type="BITSTR-BMM" Name="XADCdemo_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="XADCdemo_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="XADCdemo_timing_summary_init.rpt"/>
@@ -86,37 +86,43 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/DigitToSeg.v">
+    <File Path="$PPRDIR/../../../Desktop/new/D_FlipFlop.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/DigitToSeg.v"/>
-        <Attr Name="ImportTime" Val="1667307923"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/counter3bit.v">
+    <File Path="$PPRDIR/../../../Desktop/new/ascii_rom.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/counter3bit.v"/>
-        <Attr Name="ImportTime" Val="1667307924"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/decoder3_8.v">
+    <File Path="$PSRCDIR/sources_1/new/ascii_test_1.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/decoder3_8.v"/>
-        <Attr Name="ImportTime" Val="1667307924"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/mux4_4bus.v">
+    <File Path="$PPRDIR/../../../Desktop/new/bcd_2_hex.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/mux4_4bus.v"/>
-        <Attr Name="ImportTime" Val="1667307924"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../Desktop/new/binary_2_bcd.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../Desktop/new/clk_div2.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -138,19 +144,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/segClkDevider.v">
+    <File Path="$PPRDIR/../../../Desktop/new/score_count.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/segClkDevider.v"/>
-        <Attr Name="ImportTime" Val="1667321713"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/sevensegdecoder.v">
+    <File Path="$PPRDIR/../../../Desktop/new/selection.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/sevensegdecoder.v"/>
-        <Attr Name="ImportTime" Val="1667307924"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -178,6 +180,66 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/XADCdemo.v"/>
         <Attr Name="ImportTime" Val="1667495509"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/DigitToSeg.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/DigitToSeg.v"/>
+        <Attr Name="ImportTime" Val="1667307923"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/counter3bit.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/counter3bit.v"/>
+        <Attr Name="ImportTime" Val="1667307924"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/decoder3_8.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/decoder3_8.v"/>
+        <Attr Name="ImportTime" Val="1667307924"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/mux4_4bus.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/mux4_4bus.v"/>
+        <Attr Name="ImportTime" Val="1667307924"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/segClkDevider.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/segClkDevider.v"/>
+        <Attr Name="ImportTime" Val="1667321713"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/sevensegdecoder.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3-master/Basys3-master/Projects/XADC_Demo/src/hdl/sevensegdecoder.v"/>
+        <Attr Name="ImportTime" Val="1667307924"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -280,7 +342,7 @@
     <File Path="$PSRCDIR/utils_1/imports/synth_1/XADCdemo.dcp">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PRUNDIR/synth_1/XADCdemo.dcp"/>
-        <Attr Name="ImportTime" Val="1670766782"/>
+        <Attr Name="ImportTime" Val="1670959353"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
@@ -292,7 +354,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

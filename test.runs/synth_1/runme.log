@@ -27,16 +27,20 @@ WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis b
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 23900
+INFO: [Synth 8-7075] Helper process launched with PID 15184
+WARNING: [Synth 8-2611] redeclaration of ansi port clk_d is not allowed [C:/Users/needs/OneDrive/Desktop/new/clk_div2.v:28]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1024.523 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1025.410 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'XADCdemo' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:21]
-INFO: [Synth 8-6157] synthesizing module 'xadc_wiz_0' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/.Xil/Vivado-10700-Muhammads/realtime/xadc_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'xadc_wiz_0' (1#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/.Xil/Vivado-10700-Muhammads/realtime/xadc_wiz_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'eos_out' of module 'xadc_wiz_0' is unconnected for instance 'XLXI_7' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:74]
-WARNING: [Synth 8-7023] instance 'XLXI_7' of module 'xadc_wiz_0' has 22 connections declared, but only 21 given [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:74]
-INFO: [Synth 8-6157] synthesizing module 'top_new' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v:35]
+INFO: [Synth 8-6157] synthesizing module 'xadc_wiz_0' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/.Xil/Vivado-148-Muhammads/realtime/xadc_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'xadc_wiz_0' (1#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/.Xil/Vivado-148-Muhammads/realtime/xadc_wiz_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'eos_out' of module 'xadc_wiz_0' is unconnected for instance 'XLXI_7' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:78]
+WARNING: [Synth 8-7023] instance 'XLXI_7' of module 'xadc_wiz_0' has 22 connections declared, but only 21 given [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:78]
+INFO: [Synth 8-6157] synthesizing module 'top_new' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v:75]
+INFO: [Synth 8-6157] synthesizing module 'clk_div2' [C:/Users/needs/OneDrive/Desktop/new/clk_div2.v:23]
+	Parameter div_value bound to: 4999999 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clk_div2' (2#1) [C:/Users/needs/OneDrive/Desktop/new/clk_div2.v:23]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v:21]
 	Parameter HD bound to: 640 - type: integer 
 	Parameter HF bound to: 48 - type: integer 
@@ -48,110 +52,1338 @@ INFO: [Synth 8-6157] synthesizing module 'vga_controller' [C:/Users/needs/OneDri
 	Parameter VB bound to: 33 - type: integer 
 	Parameter VR bound to: 2 - type: integer 
 	Parameter VMAX bound to: 524 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (2#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v:21]
-INFO: [Synth 8-6157] synthesizing module 'pixel_generation_three' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:134]
+INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (3#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v:21]
+INFO: [Synth 8-6157] synthesizing module 'pixel_generation_three' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1210]
 	Parameter X_MAX bound to: 639 - type: integer 
 	Parameter Y_MAX bound to: 479 - type: integer 
 	Parameter SQ1_RGB bound to: 12'b000000001111 
 	Parameter SQ2_RGB bound to: 12'b111100000000 
-	Parameter BG_RGB bound to: 12'b111111111111 
+	Parameter BG1 bound to: 12'b111111111111 
+	Parameter BG2 bound to: 12'b111100000000 
+	Parameter BG3 bound to: 12'b000011110000 
+	Parameter BG4 bound to: 12'b000000001111 
 	Parameter BLACK bound to: 12'b000000000000 
-	Parameter trail1 bound to: 12'b000000001001 
-	Parameter trail2 bound to: 12'b100100000000 
+	Parameter trail1 bound to: 12'b100110011111 
+	Parameter trail2 bound to: 12'b111110011001 
+	Parameter over bound to: 12'b100110011001 
+	Parameter start bound to: 12'b111111110000 
+	Parameter b_start bound to: 12'b111100001111 
+	Parameter bonus_rgb bound to: 12'b000011111111 
 	Parameter SQUARE_SIZE bound to: 18 - type: integer 
-	Parameter x_delta bound to: 1 - type: integer 
-	Parameter y_delta bound to: 1 - type: integer 
+	Parameter x_delta bound to: 18 - type: integer 
+	Parameter y_delta bound to: 18 - type: integer 
 	Parameter gr_x_0_0 bound to: 95 - type: integer 
 	Parameter gr_y_0_0 bound to: 15 - type: integer 
+	Parameter gr_x_0_1 bound to: 95 - type: integer 
+	Parameter gr_y_0_1 bound to: 33 - type: integer 
+	Parameter gr_x_0_2 bound to: 95 - type: integer 
+	Parameter gr_y_0_2 bound to: 51 - type: integer 
+	Parameter gr_x_0_3 bound to: 95 - type: integer 
+	Parameter gr_y_0_3 bound to: 69 - type: integer 
+	Parameter gr_x_0_4 bound to: 95 - type: integer 
+	Parameter gr_y_0_4 bound to: 87 - type: integer 
+	Parameter gr_x_0_5 bound to: 95 - type: integer 
+	Parameter gr_y_0_5 bound to: 105 - type: integer 
+	Parameter gr_x_0_6 bound to: 95 - type: integer 
+	Parameter gr_y_0_6 bound to: 123 - type: integer 
+	Parameter gr_x_0_7 bound to: 95 - type: integer 
+	Parameter gr_y_0_7 bound to: 141 - type: integer 
+	Parameter gr_x_0_8 bound to: 95 - type: integer 
+	Parameter gr_y_0_8 bound to: 159 - type: integer 
+	Parameter gr_x_0_9 bound to: 95 - type: integer 
+	Parameter gr_y_0_9 bound to: 177 - type: integer 
+	Parameter gr_x_0_10 bound to: 95 - type: integer 
+	Parameter gr_y_0_10 bound to: 195 - type: integer 
+	Parameter gr_x_0_11 bound to: 95 - type: integer 
+	Parameter gr_y_0_11 bound to: 213 - type: integer 
+	Parameter gr_x_0_12 bound to: 95 - type: integer 
+	Parameter gr_y_0_12 bound to: 231 - type: integer 
+	Parameter gr_x_0_13 bound to: 95 - type: integer 
+	Parameter gr_y_0_13 bound to: 249 - type: integer 
+	Parameter gr_x_0_14 bound to: 95 - type: integer 
+	Parameter gr_y_0_14 bound to: 267 - type: integer 
+	Parameter gr_x_0_15 bound to: 95 - type: integer 
+	Parameter gr_y_0_15 bound to: 285 - type: integer 
+	Parameter gr_x_0_16 bound to: 95 - type: integer 
+	Parameter gr_y_0_16 bound to: 303 - type: integer 
+	Parameter gr_x_0_17 bound to: 95 - type: integer 
+	Parameter gr_y_0_17 bound to: 321 - type: integer 
+	Parameter gr_x_0_18 bound to: 95 - type: integer 
+	Parameter gr_y_0_18 bound to: 339 - type: integer 
+	Parameter gr_x_0_19 bound to: 95 - type: integer 
+	Parameter gr_y_0_19 bound to: 357 - type: integer 
+	Parameter gr_x_0_20 bound to: 95 - type: integer 
+	Parameter gr_y_0_20 bound to: 375 - type: integer 
+	Parameter gr_x_0_21 bound to: 95 - type: integer 
+	Parameter gr_y_0_21 bound to: 393 - type: integer 
+	Parameter gr_x_0_22 bound to: 95 - type: integer 
+	Parameter gr_y_0_22 bound to: 411 - type: integer 
+	Parameter gr_x_0_23 bound to: 95 - type: integer 
+	Parameter gr_y_0_23 bound to: 429 - type: integer 
+	Parameter gr_x_0_24 bound to: 95 - type: integer 
+	Parameter gr_y_0_24 bound to: 447 - type: integer 
 	Parameter gr_x_1_0 bound to: 113 - type: integer 
 	Parameter gr_y_1_0 bound to: 15 - type: integer 
+	Parameter gr_x_1_1 bound to: 113 - type: integer 
+	Parameter gr_y_1_1 bound to: 33 - type: integer 
+	Parameter gr_x_1_2 bound to: 113 - type: integer 
+	Parameter gr_y_1_2 bound to: 51 - type: integer 
+	Parameter gr_x_1_3 bound to: 113 - type: integer 
+	Parameter gr_y_1_3 bound to: 69 - type: integer 
+	Parameter gr_x_1_4 bound to: 113 - type: integer 
+	Parameter gr_y_1_4 bound to: 87 - type: integer 
+	Parameter gr_x_1_5 bound to: 113 - type: integer 
+	Parameter gr_y_1_5 bound to: 105 - type: integer 
+	Parameter gr_x_1_6 bound to: 113 - type: integer 
+	Parameter gr_y_1_6 bound to: 123 - type: integer 
+	Parameter gr_x_1_7 bound to: 113 - type: integer 
+	Parameter gr_y_1_7 bound to: 141 - type: integer 
+	Parameter gr_x_1_8 bound to: 113 - type: integer 
+	Parameter gr_y_1_8 bound to: 159 - type: integer 
+	Parameter gr_x_1_9 bound to: 113 - type: integer 
+	Parameter gr_y_1_9 bound to: 177 - type: integer 
+	Parameter gr_x_1_10 bound to: 113 - type: integer 
+	Parameter gr_y_1_10 bound to: 195 - type: integer 
+	Parameter gr_x_1_11 bound to: 113 - type: integer 
+	Parameter gr_y_1_11 bound to: 213 - type: integer 
+	Parameter gr_x_1_12 bound to: 113 - type: integer 
+	Parameter gr_y_1_12 bound to: 231 - type: integer 
+	Parameter gr_x_1_13 bound to: 113 - type: integer 
+	Parameter gr_y_1_13 bound to: 249 - type: integer 
+	Parameter gr_x_1_14 bound to: 113 - type: integer 
+	Parameter gr_y_1_14 bound to: 267 - type: integer 
+	Parameter gr_x_1_15 bound to: 113 - type: integer 
+	Parameter gr_y_1_15 bound to: 285 - type: integer 
+	Parameter gr_x_1_16 bound to: 113 - type: integer 
+	Parameter gr_y_1_16 bound to: 303 - type: integer 
+	Parameter gr_x_1_17 bound to: 113 - type: integer 
+	Parameter gr_y_1_17 bound to: 321 - type: integer 
+	Parameter gr_x_1_18 bound to: 113 - type: integer 
+	Parameter gr_y_1_18 bound to: 339 - type: integer 
+	Parameter gr_x_1_19 bound to: 113 - type: integer 
+	Parameter gr_y_1_19 bound to: 357 - type: integer 
+	Parameter gr_x_1_20 bound to: 113 - type: integer 
+	Parameter gr_y_1_20 bound to: 375 - type: integer 
+	Parameter gr_x_1_21 bound to: 113 - type: integer 
+	Parameter gr_y_1_21 bound to: 393 - type: integer 
+	Parameter gr_x_1_22 bound to: 113 - type: integer 
+	Parameter gr_y_1_22 bound to: 411 - type: integer 
+	Parameter gr_x_1_23 bound to: 113 - type: integer 
+	Parameter gr_y_1_23 bound to: 429 - type: integer 
+	Parameter gr_x_1_24 bound to: 113 - type: integer 
+	Parameter gr_y_1_24 bound to: 447 - type: integer 
 	Parameter gr_x_2_0 bound to: 131 - type: integer 
 	Parameter gr_y_2_0 bound to: 15 - type: integer 
+	Parameter gr_x_2_1 bound to: 131 - type: integer 
+	Parameter gr_y_2_1 bound to: 33 - type: integer 
+	Parameter gr_x_2_2 bound to: 131 - type: integer 
+	Parameter gr_y_2_2 bound to: 51 - type: integer 
+	Parameter gr_x_2_3 bound to: 131 - type: integer 
+	Parameter gr_y_2_3 bound to: 69 - type: integer 
+	Parameter gr_x_2_4 bound to: 131 - type: integer 
+	Parameter gr_y_2_4 bound to: 87 - type: integer 
+	Parameter gr_x_2_5 bound to: 131 - type: integer 
+	Parameter gr_y_2_5 bound to: 105 - type: integer 
+	Parameter gr_x_2_6 bound to: 131 - type: integer 
+	Parameter gr_y_2_6 bound to: 123 - type: integer 
+	Parameter gr_x_2_7 bound to: 131 - type: integer 
+	Parameter gr_y_2_7 bound to: 141 - type: integer 
+	Parameter gr_x_2_8 bound to: 131 - type: integer 
+	Parameter gr_y_2_8 bound to: 159 - type: integer 
+	Parameter gr_x_2_9 bound to: 131 - type: integer 
+	Parameter gr_y_2_9 bound to: 177 - type: integer 
+	Parameter gr_x_2_10 bound to: 131 - type: integer 
+	Parameter gr_y_2_10 bound to: 195 - type: integer 
+	Parameter gr_x_2_11 bound to: 131 - type: integer 
+	Parameter gr_y_2_11 bound to: 213 - type: integer 
+	Parameter gr_x_2_12 bound to: 131 - type: integer 
+	Parameter gr_y_2_12 bound to: 231 - type: integer 
+	Parameter gr_x_2_13 bound to: 131 - type: integer 
+	Parameter gr_y_2_13 bound to: 249 - type: integer 
+	Parameter gr_x_2_14 bound to: 131 - type: integer 
+	Parameter gr_y_2_14 bound to: 267 - type: integer 
+	Parameter gr_x_2_15 bound to: 131 - type: integer 
+	Parameter gr_y_2_15 bound to: 285 - type: integer 
+	Parameter gr_x_2_16 bound to: 131 - type: integer 
+	Parameter gr_y_2_16 bound to: 303 - type: integer 
+	Parameter gr_x_2_17 bound to: 131 - type: integer 
+	Parameter gr_y_2_17 bound to: 321 - type: integer 
+	Parameter gr_x_2_18 bound to: 131 - type: integer 
+	Parameter gr_y_2_18 bound to: 339 - type: integer 
+	Parameter gr_x_2_19 bound to: 131 - type: integer 
+	Parameter gr_y_2_19 bound to: 357 - type: integer 
+	Parameter gr_x_2_20 bound to: 131 - type: integer 
+	Parameter gr_y_2_20 bound to: 375 - type: integer 
+	Parameter gr_x_2_21 bound to: 131 - type: integer 
+	Parameter gr_y_2_21 bound to: 393 - type: integer 
+	Parameter gr_x_2_22 bound to: 131 - type: integer 
+	Parameter gr_y_2_22 bound to: 411 - type: integer 
+	Parameter gr_x_2_23 bound to: 131 - type: integer 
+	Parameter gr_y_2_23 bound to: 429 - type: integer 
+	Parameter gr_x_2_24 bound to: 131 - type: integer 
+	Parameter gr_y_2_24 bound to: 447 - type: integer 
 	Parameter gr_x_3_0 bound to: 149 - type: integer 
 	Parameter gr_y_3_0 bound to: 15 - type: integer 
+	Parameter gr_x_3_1 bound to: 149 - type: integer 
+	Parameter gr_y_3_1 bound to: 33 - type: integer 
+	Parameter gr_x_3_2 bound to: 149 - type: integer 
+	Parameter gr_y_3_2 bound to: 51 - type: integer 
+	Parameter gr_x_3_3 bound to: 149 - type: integer 
+	Parameter gr_y_3_3 bound to: 69 - type: integer 
+	Parameter gr_x_3_4 bound to: 149 - type: integer 
+	Parameter gr_y_3_4 bound to: 87 - type: integer 
+	Parameter gr_x_3_5 bound to: 149 - type: integer 
+	Parameter gr_y_3_5 bound to: 105 - type: integer 
+	Parameter gr_x_3_6 bound to: 149 - type: integer 
+	Parameter gr_y_3_6 bound to: 123 - type: integer 
+	Parameter gr_x_3_7 bound to: 149 - type: integer 
+	Parameter gr_y_3_7 bound to: 141 - type: integer 
+	Parameter gr_x_3_8 bound to: 149 - type: integer 
+	Parameter gr_y_3_8 bound to: 159 - type: integer 
+	Parameter gr_x_3_9 bound to: 149 - type: integer 
+	Parameter gr_y_3_9 bound to: 177 - type: integer 
+	Parameter gr_x_3_10 bound to: 149 - type: integer 
+	Parameter gr_y_3_10 bound to: 195 - type: integer 
+	Parameter gr_x_3_11 bound to: 149 - type: integer 
+	Parameter gr_y_3_11 bound to: 213 - type: integer 
+	Parameter gr_x_3_12 bound to: 149 - type: integer 
+	Parameter gr_y_3_12 bound to: 231 - type: integer 
+	Parameter gr_x_3_13 bound to: 149 - type: integer 
+	Parameter gr_y_3_13 bound to: 249 - type: integer 
+	Parameter gr_x_3_14 bound to: 149 - type: integer 
+	Parameter gr_y_3_14 bound to: 267 - type: integer 
+	Parameter gr_x_3_15 bound to: 149 - type: integer 
+	Parameter gr_y_3_15 bound to: 285 - type: integer 
+	Parameter gr_x_3_16 bound to: 149 - type: integer 
+	Parameter gr_y_3_16 bound to: 303 - type: integer 
+	Parameter gr_x_3_17 bound to: 149 - type: integer 
+	Parameter gr_y_3_17 bound to: 321 - type: integer 
+	Parameter gr_x_3_18 bound to: 149 - type: integer 
+	Parameter gr_y_3_18 bound to: 339 - type: integer 
+	Parameter gr_x_3_19 bound to: 149 - type: integer 
+	Parameter gr_y_3_19 bound to: 357 - type: integer 
+	Parameter gr_x_3_20 bound to: 149 - type: integer 
+	Parameter gr_y_3_20 bound to: 375 - type: integer 
+	Parameter gr_x_3_21 bound to: 149 - type: integer 
+	Parameter gr_y_3_21 bound to: 393 - type: integer 
+	Parameter gr_x_3_22 bound to: 149 - type: integer 
+	Parameter gr_y_3_22 bound to: 411 - type: integer 
+	Parameter gr_x_3_23 bound to: 149 - type: integer 
+	Parameter gr_y_3_23 bound to: 429 - type: integer 
+	Parameter gr_x_3_24 bound to: 149 - type: integer 
+	Parameter gr_y_3_24 bound to: 447 - type: integer 
 	Parameter gr_x_4_0 bound to: 167 - type: integer 
 	Parameter gr_y_4_0 bound to: 15 - type: integer 
+	Parameter gr_x_4_1 bound to: 167 - type: integer 
+	Parameter gr_y_4_1 bound to: 33 - type: integer 
+	Parameter gr_x_4_2 bound to: 167 - type: integer 
+	Parameter gr_y_4_2 bound to: 51 - type: integer 
+	Parameter gr_x_4_3 bound to: 167 - type: integer 
+	Parameter gr_y_4_3 bound to: 69 - type: integer 
+	Parameter gr_x_4_4 bound to: 167 - type: integer 
+	Parameter gr_y_4_4 bound to: 87 - type: integer 
+	Parameter gr_x_4_5 bound to: 167 - type: integer 
+	Parameter gr_y_4_5 bound to: 105 - type: integer 
+	Parameter gr_x_4_6 bound to: 167 - type: integer 
+	Parameter gr_y_4_6 bound to: 123 - type: integer 
+	Parameter gr_x_4_7 bound to: 167 - type: integer 
+	Parameter gr_y_4_7 bound to: 141 - type: integer 
+	Parameter gr_x_4_8 bound to: 167 - type: integer 
+	Parameter gr_y_4_8 bound to: 159 - type: integer 
+	Parameter gr_x_4_9 bound to: 167 - type: integer 
+	Parameter gr_y_4_9 bound to: 177 - type: integer 
+	Parameter gr_x_4_10 bound to: 167 - type: integer 
+	Parameter gr_y_4_10 bound to: 195 - type: integer 
+	Parameter gr_x_4_11 bound to: 167 - type: integer 
+	Parameter gr_y_4_11 bound to: 213 - type: integer 
+	Parameter gr_x_4_12 bound to: 167 - type: integer 
+	Parameter gr_y_4_12 bound to: 231 - type: integer 
+	Parameter gr_x_4_13 bound to: 167 - type: integer 
+	Parameter gr_y_4_13 bound to: 249 - type: integer 
+	Parameter gr_x_4_14 bound to: 167 - type: integer 
+	Parameter gr_y_4_14 bound to: 267 - type: integer 
+	Parameter gr_x_4_15 bound to: 167 - type: integer 
+	Parameter gr_y_4_15 bound to: 285 - type: integer 
+	Parameter gr_x_4_16 bound to: 167 - type: integer 
+	Parameter gr_y_4_16 bound to: 303 - type: integer 
+	Parameter gr_x_4_17 bound to: 167 - type: integer 
+	Parameter gr_y_4_17 bound to: 321 - type: integer 
+	Parameter gr_x_4_18 bound to: 167 - type: integer 
+	Parameter gr_y_4_18 bound to: 339 - type: integer 
+	Parameter gr_x_4_19 bound to: 167 - type: integer 
+	Parameter gr_y_4_19 bound to: 357 - type: integer 
+	Parameter gr_x_4_20 bound to: 167 - type: integer 
+	Parameter gr_y_4_20 bound to: 375 - type: integer 
+	Parameter gr_x_4_21 bound to: 167 - type: integer 
+	Parameter gr_y_4_21 bound to: 393 - type: integer 
+	Parameter gr_x_4_22 bound to: 167 - type: integer 
+	Parameter gr_y_4_22 bound to: 411 - type: integer 
+	Parameter gr_x_4_23 bound to: 167 - type: integer 
+	Parameter gr_y_4_23 bound to: 429 - type: integer 
+	Parameter gr_x_4_24 bound to: 167 - type: integer 
+	Parameter gr_y_4_24 bound to: 447 - type: integer 
 	Parameter gr_x_5_0 bound to: 185 - type: integer 
 	Parameter gr_y_5_0 bound to: 15 - type: integer 
+	Parameter gr_x_5_1 bound to: 185 - type: integer 
+	Parameter gr_y_5_1 bound to: 33 - type: integer 
+	Parameter gr_x_5_2 bound to: 185 - type: integer 
+	Parameter gr_y_5_2 bound to: 51 - type: integer 
+	Parameter gr_x_5_3 bound to: 185 - type: integer 
+	Parameter gr_y_5_3 bound to: 69 - type: integer 
+	Parameter gr_x_5_4 bound to: 185 - type: integer 
+	Parameter gr_y_5_4 bound to: 87 - type: integer 
+	Parameter gr_x_5_5 bound to: 185 - type: integer 
+	Parameter gr_y_5_5 bound to: 105 - type: integer 
+	Parameter gr_x_5_6 bound to: 185 - type: integer 
+	Parameter gr_y_5_6 bound to: 123 - type: integer 
+	Parameter gr_x_5_7 bound to: 185 - type: integer 
+	Parameter gr_y_5_7 bound to: 141 - type: integer 
+	Parameter gr_x_5_8 bound to: 185 - type: integer 
+	Parameter gr_y_5_8 bound to: 159 - type: integer 
+	Parameter gr_x_5_9 bound to: 185 - type: integer 
+	Parameter gr_y_5_9 bound to: 177 - type: integer 
+	Parameter gr_x_5_10 bound to: 185 - type: integer 
+	Parameter gr_y_5_10 bound to: 195 - type: integer 
+	Parameter gr_x_5_11 bound to: 185 - type: integer 
+	Parameter gr_y_5_11 bound to: 213 - type: integer 
+	Parameter gr_x_5_12 bound to: 185 - type: integer 
+	Parameter gr_y_5_12 bound to: 231 - type: integer 
+	Parameter gr_x_5_13 bound to: 185 - type: integer 
+	Parameter gr_y_5_13 bound to: 249 - type: integer 
+	Parameter gr_x_5_14 bound to: 185 - type: integer 
+	Parameter gr_y_5_14 bound to: 267 - type: integer 
+	Parameter gr_x_5_15 bound to: 185 - type: integer 
+	Parameter gr_y_5_15 bound to: 285 - type: integer 
+	Parameter gr_x_5_16 bound to: 185 - type: integer 
+	Parameter gr_y_5_16 bound to: 303 - type: integer 
+	Parameter gr_x_5_17 bound to: 185 - type: integer 
+	Parameter gr_y_5_17 bound to: 321 - type: integer 
+	Parameter gr_x_5_18 bound to: 185 - type: integer 
+	Parameter gr_y_5_18 bound to: 339 - type: integer 
+	Parameter gr_x_5_19 bound to: 185 - type: integer 
+	Parameter gr_y_5_19 bound to: 357 - type: integer 
+	Parameter gr_x_5_20 bound to: 185 - type: integer 
+	Parameter gr_y_5_20 bound to: 375 - type: integer 
+	Parameter gr_x_5_21 bound to: 185 - type: integer 
+	Parameter gr_y_5_21 bound to: 393 - type: integer 
+	Parameter gr_x_5_22 bound to: 185 - type: integer 
+	Parameter gr_y_5_22 bound to: 411 - type: integer 
+	Parameter gr_x_5_23 bound to: 185 - type: integer 
+	Parameter gr_y_5_23 bound to: 429 - type: integer 
+	Parameter gr_x_5_24 bound to: 185 - type: integer 
+	Parameter gr_y_5_24 bound to: 447 - type: integer 
 	Parameter gr_x_6_0 bound to: 203 - type: integer 
 	Parameter gr_y_6_0 bound to: 15 - type: integer 
+	Parameter gr_x_6_1 bound to: 203 - type: integer 
+	Parameter gr_y_6_1 bound to: 33 - type: integer 
+	Parameter gr_x_6_2 bound to: 203 - type: integer 
+	Parameter gr_y_6_2 bound to: 51 - type: integer 
+	Parameter gr_x_6_3 bound to: 203 - type: integer 
+	Parameter gr_y_6_3 bound to: 69 - type: integer 
+	Parameter gr_x_6_4 bound to: 203 - type: integer 
+	Parameter gr_y_6_4 bound to: 87 - type: integer 
+	Parameter gr_x_6_5 bound to: 203 - type: integer 
+	Parameter gr_y_6_5 bound to: 105 - type: integer 
+	Parameter gr_x_6_6 bound to: 203 - type: integer 
+	Parameter gr_y_6_6 bound to: 123 - type: integer 
+	Parameter gr_x_6_7 bound to: 203 - type: integer 
+	Parameter gr_y_6_7 bound to: 141 - type: integer 
+	Parameter gr_x_6_8 bound to: 203 - type: integer 
+	Parameter gr_y_6_8 bound to: 159 - type: integer 
+	Parameter gr_x_6_9 bound to: 203 - type: integer 
+	Parameter gr_y_6_9 bound to: 177 - type: integer 
+	Parameter gr_x_6_10 bound to: 203 - type: integer 
+	Parameter gr_y_6_10 bound to: 195 - type: integer 
+	Parameter gr_x_6_11 bound to: 203 - type: integer 
+	Parameter gr_y_6_11 bound to: 213 - type: integer 
+	Parameter gr_x_6_12 bound to: 203 - type: integer 
+	Parameter gr_y_6_12 bound to: 231 - type: integer 
+	Parameter gr_x_6_13 bound to: 203 - type: integer 
+	Parameter gr_y_6_13 bound to: 249 - type: integer 
+	Parameter gr_x_6_14 bound to: 203 - type: integer 
+	Parameter gr_y_6_14 bound to: 267 - type: integer 
+	Parameter gr_x_6_15 bound to: 203 - type: integer 
+	Parameter gr_y_6_15 bound to: 285 - type: integer 
+	Parameter gr_x_6_16 bound to: 203 - type: integer 
+	Parameter gr_y_6_16 bound to: 303 - type: integer 
+	Parameter gr_x_6_17 bound to: 203 - type: integer 
+	Parameter gr_y_6_17 bound to: 321 - type: integer 
+	Parameter gr_x_6_18 bound to: 203 - type: integer 
+	Parameter gr_y_6_18 bound to: 339 - type: integer 
+	Parameter gr_x_6_19 bound to: 203 - type: integer 
+	Parameter gr_y_6_19 bound to: 357 - type: integer 
+	Parameter gr_x_6_20 bound to: 203 - type: integer 
+	Parameter gr_y_6_20 bound to: 375 - type: integer 
+	Parameter gr_x_6_21 bound to: 203 - type: integer 
+	Parameter gr_y_6_21 bound to: 393 - type: integer 
+	Parameter gr_x_6_22 bound to: 203 - type: integer 
+	Parameter gr_y_6_22 bound to: 411 - type: integer 
+	Parameter gr_x_6_23 bound to: 203 - type: integer 
+	Parameter gr_y_6_23 bound to: 429 - type: integer 
+	Parameter gr_x_6_24 bound to: 203 - type: integer 
+	Parameter gr_y_6_24 bound to: 447 - type: integer 
 	Parameter gr_x_7_0 bound to: 221 - type: integer 
 	Parameter gr_y_7_0 bound to: 15 - type: integer 
+	Parameter gr_x_7_1 bound to: 221 - type: integer 
+	Parameter gr_y_7_1 bound to: 33 - type: integer 
+	Parameter gr_x_7_2 bound to: 221 - type: integer 
+	Parameter gr_y_7_2 bound to: 51 - type: integer 
+	Parameter gr_x_7_3 bound to: 221 - type: integer 
+	Parameter gr_y_7_3 bound to: 69 - type: integer 
+	Parameter gr_x_7_4 bound to: 221 - type: integer 
+	Parameter gr_y_7_4 bound to: 87 - type: integer 
+	Parameter gr_x_7_5 bound to: 221 - type: integer 
+	Parameter gr_y_7_5 bound to: 105 - type: integer 
+	Parameter gr_x_7_6 bound to: 221 - type: integer 
+	Parameter gr_y_7_6 bound to: 123 - type: integer 
+	Parameter gr_x_7_7 bound to: 221 - type: integer 
+	Parameter gr_y_7_7 bound to: 141 - type: integer 
+	Parameter gr_x_7_8 bound to: 221 - type: integer 
+	Parameter gr_y_7_8 bound to: 159 - type: integer 
+	Parameter gr_x_7_9 bound to: 221 - type: integer 
+	Parameter gr_y_7_9 bound to: 177 - type: integer 
+	Parameter gr_x_7_10 bound to: 221 - type: integer 
+	Parameter gr_y_7_10 bound to: 195 - type: integer 
+	Parameter gr_x_7_11 bound to: 221 - type: integer 
+	Parameter gr_y_7_11 bound to: 213 - type: integer 
+	Parameter gr_x_7_12 bound to: 221 - type: integer 
+	Parameter gr_y_7_12 bound to: 231 - type: integer 
+	Parameter gr_x_7_13 bound to: 221 - type: integer 
+	Parameter gr_y_7_13 bound to: 249 - type: integer 
+	Parameter gr_x_7_14 bound to: 221 - type: integer 
+	Parameter gr_y_7_14 bound to: 267 - type: integer 
+	Parameter gr_x_7_15 bound to: 221 - type: integer 
+	Parameter gr_y_7_15 bound to: 285 - type: integer 
+	Parameter gr_x_7_16 bound to: 221 - type: integer 
+	Parameter gr_y_7_16 bound to: 303 - type: integer 
+	Parameter gr_x_7_17 bound to: 221 - type: integer 
+	Parameter gr_y_7_17 bound to: 321 - type: integer 
+	Parameter gr_x_7_18 bound to: 221 - type: integer 
+	Parameter gr_y_7_18 bound to: 339 - type: integer 
+	Parameter gr_x_7_19 bound to: 221 - type: integer 
+	Parameter gr_y_7_19 bound to: 357 - type: integer 
+	Parameter gr_x_7_20 bound to: 221 - type: integer 
+	Parameter gr_y_7_20 bound to: 375 - type: integer 
+	Parameter gr_x_7_21 bound to: 221 - type: integer 
+	Parameter gr_y_7_21 bound to: 393 - type: integer 
+	Parameter gr_x_7_22 bound to: 221 - type: integer 
+	Parameter gr_y_7_22 bound to: 411 - type: integer 
+	Parameter gr_x_7_23 bound to: 221 - type: integer 
+	Parameter gr_y_7_23 bound to: 429 - type: integer 
+	Parameter gr_x_7_24 bound to: 221 - type: integer 
+	Parameter gr_y_7_24 bound to: 447 - type: integer 
 	Parameter gr_x_8_0 bound to: 239 - type: integer 
 	Parameter gr_y_8_0 bound to: 15 - type: integer 
+	Parameter gr_x_8_1 bound to: 239 - type: integer 
+	Parameter gr_y_8_1 bound to: 33 - type: integer 
+	Parameter gr_x_8_2 bound to: 239 - type: integer 
+	Parameter gr_y_8_2 bound to: 51 - type: integer 
+	Parameter gr_x_8_3 bound to: 239 - type: integer 
+	Parameter gr_y_8_3 bound to: 69 - type: integer 
+	Parameter gr_x_8_4 bound to: 239 - type: integer 
+	Parameter gr_y_8_4 bound to: 87 - type: integer 
+	Parameter gr_x_8_5 bound to: 239 - type: integer 
+	Parameter gr_y_8_5 bound to: 105 - type: integer 
+	Parameter gr_x_8_6 bound to: 239 - type: integer 
+	Parameter gr_y_8_6 bound to: 123 - type: integer 
+	Parameter gr_x_8_7 bound to: 239 - type: integer 
+	Parameter gr_y_8_7 bound to: 141 - type: integer 
+	Parameter gr_x_8_8 bound to: 239 - type: integer 
+	Parameter gr_y_8_8 bound to: 159 - type: integer 
+	Parameter gr_x_8_9 bound to: 239 - type: integer 
+	Parameter gr_y_8_9 bound to: 177 - type: integer 
+	Parameter gr_x_8_10 bound to: 239 - type: integer 
+	Parameter gr_y_8_10 bound to: 195 - type: integer 
+	Parameter gr_x_8_11 bound to: 239 - type: integer 
+	Parameter gr_y_8_11 bound to: 213 - type: integer 
+	Parameter gr_x_8_12 bound to: 239 - type: integer 
+	Parameter gr_y_8_12 bound to: 231 - type: integer 
+	Parameter gr_x_8_13 bound to: 239 - type: integer 
+	Parameter gr_y_8_13 bound to: 249 - type: integer 
+	Parameter gr_x_8_14 bound to: 239 - type: integer 
+	Parameter gr_y_8_14 bound to: 267 - type: integer 
+	Parameter gr_x_8_15 bound to: 239 - type: integer 
+	Parameter gr_y_8_15 bound to: 285 - type: integer 
+	Parameter gr_x_8_16 bound to: 239 - type: integer 
+	Parameter gr_y_8_16 bound to: 303 - type: integer 
+	Parameter gr_x_8_17 bound to: 239 - type: integer 
+	Parameter gr_y_8_17 bound to: 321 - type: integer 
+	Parameter gr_x_8_18 bound to: 239 - type: integer 
+	Parameter gr_y_8_18 bound to: 339 - type: integer 
+	Parameter gr_x_8_19 bound to: 239 - type: integer 
+	Parameter gr_y_8_19 bound to: 357 - type: integer 
+	Parameter gr_x_8_20 bound to: 239 - type: integer 
+	Parameter gr_y_8_20 bound to: 375 - type: integer 
+	Parameter gr_x_8_21 bound to: 239 - type: integer 
+	Parameter gr_y_8_21 bound to: 393 - type: integer 
+	Parameter gr_x_8_22 bound to: 239 - type: integer 
+	Parameter gr_y_8_22 bound to: 411 - type: integer 
+	Parameter gr_x_8_23 bound to: 239 - type: integer 
+	Parameter gr_y_8_23 bound to: 429 - type: integer 
+	Parameter gr_x_8_24 bound to: 239 - type: integer 
+	Parameter gr_y_8_24 bound to: 447 - type: integer 
 	Parameter gr_x_9_0 bound to: 257 - type: integer 
 	Parameter gr_y_9_0 bound to: 15 - type: integer 
+	Parameter gr_x_9_1 bound to: 257 - type: integer 
+	Parameter gr_y_9_1 bound to: 33 - type: integer 
+	Parameter gr_x_9_2 bound to: 257 - type: integer 
+	Parameter gr_y_9_2 bound to: 51 - type: integer 
+	Parameter gr_x_9_3 bound to: 257 - type: integer 
+	Parameter gr_y_9_3 bound to: 69 - type: integer 
+	Parameter gr_x_9_4 bound to: 257 - type: integer 
+	Parameter gr_y_9_4 bound to: 87 - type: integer 
+	Parameter gr_x_9_5 bound to: 257 - type: integer 
+	Parameter gr_y_9_5 bound to: 105 - type: integer 
+	Parameter gr_x_9_6 bound to: 257 - type: integer 
+	Parameter gr_y_9_6 bound to: 123 - type: integer 
+	Parameter gr_x_9_7 bound to: 257 - type: integer 
+	Parameter gr_y_9_7 bound to: 141 - type: integer 
+	Parameter gr_x_9_8 bound to: 257 - type: integer 
+	Parameter gr_y_9_8 bound to: 159 - type: integer 
+	Parameter gr_x_9_9 bound to: 257 - type: integer 
+	Parameter gr_y_9_9 bound to: 177 - type: integer 
+	Parameter gr_x_9_10 bound to: 257 - type: integer 
+	Parameter gr_y_9_10 bound to: 195 - type: integer 
+	Parameter gr_x_9_11 bound to: 257 - type: integer 
+	Parameter gr_y_9_11 bound to: 213 - type: integer 
+	Parameter gr_x_9_12 bound to: 257 - type: integer 
+	Parameter gr_y_9_12 bound to: 231 - type: integer 
+	Parameter gr_x_9_13 bound to: 257 - type: integer 
+	Parameter gr_y_9_13 bound to: 249 - type: integer 
+	Parameter gr_x_9_14 bound to: 257 - type: integer 
+	Parameter gr_y_9_14 bound to: 267 - type: integer 
+	Parameter gr_x_9_15 bound to: 257 - type: integer 
+	Parameter gr_y_9_15 bound to: 285 - type: integer 
+	Parameter gr_x_9_16 bound to: 257 - type: integer 
+	Parameter gr_y_9_16 bound to: 303 - type: integer 
+	Parameter gr_x_9_17 bound to: 257 - type: integer 
+	Parameter gr_y_9_17 bound to: 321 - type: integer 
+	Parameter gr_x_9_18 bound to: 257 - type: integer 
+	Parameter gr_y_9_18 bound to: 339 - type: integer 
+	Parameter gr_x_9_19 bound to: 257 - type: integer 
+	Parameter gr_y_9_19 bound to: 357 - type: integer 
+	Parameter gr_x_9_20 bound to: 257 - type: integer 
+	Parameter gr_y_9_20 bound to: 375 - type: integer 
+	Parameter gr_x_9_21 bound to: 257 - type: integer 
+	Parameter gr_y_9_21 bound to: 393 - type: integer 
+	Parameter gr_x_9_22 bound to: 257 - type: integer 
+	Parameter gr_y_9_22 bound to: 411 - type: integer 
+	Parameter gr_x_9_23 bound to: 257 - type: integer 
+	Parameter gr_y_9_23 bound to: 429 - type: integer 
+	Parameter gr_x_9_24 bound to: 257 - type: integer 
+	Parameter gr_y_9_24 bound to: 447 - type: integer 
 	Parameter gr_x_10_0 bound to: 275 - type: integer 
 	Parameter gr_y_10_0 bound to: 15 - type: integer 
+	Parameter gr_x_10_1 bound to: 275 - type: integer 
+	Parameter gr_y_10_1 bound to: 33 - type: integer 
+	Parameter gr_x_10_2 bound to: 275 - type: integer 
+	Parameter gr_y_10_2 bound to: 51 - type: integer 
+	Parameter gr_x_10_3 bound to: 275 - type: integer 
+	Parameter gr_y_10_3 bound to: 69 - type: integer 
+	Parameter gr_x_10_4 bound to: 275 - type: integer 
+	Parameter gr_y_10_4 bound to: 87 - type: integer 
+	Parameter gr_x_10_5 bound to: 275 - type: integer 
+	Parameter gr_y_10_5 bound to: 105 - type: integer 
+	Parameter gr_x_10_6 bound to: 275 - type: integer 
+	Parameter gr_y_10_6 bound to: 123 - type: integer 
+	Parameter gr_x_10_7 bound to: 275 - type: integer 
+	Parameter gr_y_10_7 bound to: 141 - type: integer 
+	Parameter gr_x_10_8 bound to: 275 - type: integer 
+	Parameter gr_y_10_8 bound to: 159 - type: integer 
+	Parameter gr_x_10_9 bound to: 275 - type: integer 
+	Parameter gr_y_10_9 bound to: 177 - type: integer 
+	Parameter gr_x_10_10 bound to: 275 - type: integer 
+	Parameter gr_y_10_10 bound to: 195 - type: integer 
+	Parameter gr_x_10_11 bound to: 275 - type: integer 
+	Parameter gr_y_10_11 bound to: 213 - type: integer 
+	Parameter gr_x_10_12 bound to: 275 - type: integer 
+	Parameter gr_y_10_12 bound to: 231 - type: integer 
+	Parameter gr_x_10_13 bound to: 275 - type: integer 
+	Parameter gr_y_10_13 bound to: 249 - type: integer 
+	Parameter gr_x_10_14 bound to: 275 - type: integer 
+	Parameter gr_y_10_14 bound to: 267 - type: integer 
+	Parameter gr_x_10_15 bound to: 275 - type: integer 
+	Parameter gr_y_10_15 bound to: 285 - type: integer 
+	Parameter gr_x_10_16 bound to: 275 - type: integer 
+	Parameter gr_y_10_16 bound to: 303 - type: integer 
+	Parameter gr_x_10_17 bound to: 275 - type: integer 
+	Parameter gr_y_10_17 bound to: 321 - type: integer 
+	Parameter gr_x_10_18 bound to: 275 - type: integer 
+	Parameter gr_y_10_18 bound to: 339 - type: integer 
+	Parameter gr_x_10_19 bound to: 275 - type: integer 
+	Parameter gr_y_10_19 bound to: 357 - type: integer 
+	Parameter gr_x_10_20 bound to: 275 - type: integer 
+	Parameter gr_y_10_20 bound to: 375 - type: integer 
+	Parameter gr_x_10_21 bound to: 275 - type: integer 
+	Parameter gr_y_10_21 bound to: 393 - type: integer 
+	Parameter gr_x_10_22 bound to: 275 - type: integer 
+	Parameter gr_y_10_22 bound to: 411 - type: integer 
+	Parameter gr_x_10_23 bound to: 275 - type: integer 
+	Parameter gr_y_10_23 bound to: 429 - type: integer 
+	Parameter gr_x_10_24 bound to: 275 - type: integer 
+	Parameter gr_y_10_24 bound to: 447 - type: integer 
 	Parameter gr_x_11_0 bound to: 293 - type: integer 
 	Parameter gr_y_11_0 bound to: 15 - type: integer 
+	Parameter gr_x_11_1 bound to: 293 - type: integer 
+	Parameter gr_y_11_1 bound to: 33 - type: integer 
+	Parameter gr_x_11_2 bound to: 293 - type: integer 
+	Parameter gr_y_11_2 bound to: 51 - type: integer 
+	Parameter gr_x_11_3 bound to: 293 - type: integer 
+	Parameter gr_y_11_3 bound to: 69 - type: integer 
+	Parameter gr_x_11_4 bound to: 293 - type: integer 
+	Parameter gr_y_11_4 bound to: 87 - type: integer 
+	Parameter gr_x_11_5 bound to: 293 - type: integer 
+	Parameter gr_y_11_5 bound to: 105 - type: integer 
+	Parameter gr_x_11_6 bound to: 293 - type: integer 
+	Parameter gr_y_11_6 bound to: 123 - type: integer 
+	Parameter gr_x_11_7 bound to: 293 - type: integer 
+	Parameter gr_y_11_7 bound to: 141 - type: integer 
+	Parameter gr_x_11_8 bound to: 293 - type: integer 
+	Parameter gr_y_11_8 bound to: 159 - type: integer 
+	Parameter gr_x_11_9 bound to: 293 - type: integer 
+	Parameter gr_y_11_9 bound to: 177 - type: integer 
+	Parameter gr_x_11_10 bound to: 293 - type: integer 
+	Parameter gr_y_11_10 bound to: 195 - type: integer 
+	Parameter gr_x_11_11 bound to: 293 - type: integer 
+	Parameter gr_y_11_11 bound to: 213 - type: integer 
+	Parameter gr_x_11_12 bound to: 293 - type: integer 
+	Parameter gr_y_11_12 bound to: 231 - type: integer 
+	Parameter gr_x_11_13 bound to: 293 - type: integer 
+	Parameter gr_y_11_13 bound to: 249 - type: integer 
+	Parameter gr_x_11_14 bound to: 293 - type: integer 
+	Parameter gr_y_11_14 bound to: 267 - type: integer 
+	Parameter gr_x_11_15 bound to: 293 - type: integer 
+	Parameter gr_y_11_15 bound to: 285 - type: integer 
+	Parameter gr_x_11_16 bound to: 293 - type: integer 
+	Parameter gr_y_11_16 bound to: 303 - type: integer 
+	Parameter gr_x_11_17 bound to: 293 - type: integer 
+	Parameter gr_y_11_17 bound to: 321 - type: integer 
+	Parameter gr_x_11_18 bound to: 293 - type: integer 
+	Parameter gr_y_11_18 bound to: 339 - type: integer 
+	Parameter gr_x_11_19 bound to: 293 - type: integer 
+	Parameter gr_y_11_19 bound to: 357 - type: integer 
+	Parameter gr_x_11_20 bound to: 293 - type: integer 
+	Parameter gr_y_11_20 bound to: 375 - type: integer 
+	Parameter gr_x_11_21 bound to: 293 - type: integer 
+	Parameter gr_y_11_21 bound to: 393 - type: integer 
+	Parameter gr_x_11_22 bound to: 293 - type: integer 
+	Parameter gr_y_11_22 bound to: 411 - type: integer 
+	Parameter gr_x_11_23 bound to: 293 - type: integer 
+	Parameter gr_y_11_23 bound to: 429 - type: integer 
+	Parameter gr_x_11_24 bound to: 293 - type: integer 
+	Parameter gr_y_11_24 bound to: 447 - type: integer 
 	Parameter gr_x_12_0 bound to: 311 - type: integer 
 	Parameter gr_y_12_0 bound to: 15 - type: integer 
+	Parameter gr_x_12_1 bound to: 311 - type: integer 
+	Parameter gr_y_12_1 bound to: 33 - type: integer 
+	Parameter gr_x_12_2 bound to: 311 - type: integer 
+	Parameter gr_y_12_2 bound to: 51 - type: integer 
+	Parameter gr_x_12_3 bound to: 311 - type: integer 
+	Parameter gr_y_12_3 bound to: 69 - type: integer 
+	Parameter gr_x_12_4 bound to: 311 - type: integer 
+	Parameter gr_y_12_4 bound to: 87 - type: integer 
+	Parameter gr_x_12_5 bound to: 311 - type: integer 
+	Parameter gr_y_12_5 bound to: 105 - type: integer 
+	Parameter gr_x_12_6 bound to: 311 - type: integer 
+	Parameter gr_y_12_6 bound to: 123 - type: integer 
+	Parameter gr_x_12_7 bound to: 311 - type: integer 
+	Parameter gr_y_12_7 bound to: 141 - type: integer 
+	Parameter gr_x_12_8 bound to: 311 - type: integer 
+	Parameter gr_y_12_8 bound to: 159 - type: integer 
+	Parameter gr_x_12_9 bound to: 311 - type: integer 
+	Parameter gr_y_12_9 bound to: 177 - type: integer 
+	Parameter gr_x_12_10 bound to: 311 - type: integer 
+	Parameter gr_y_12_10 bound to: 195 - type: integer 
+	Parameter gr_x_12_11 bound to: 311 - type: integer 
+	Parameter gr_y_12_11 bound to: 213 - type: integer 
+	Parameter gr_x_12_12 bound to: 311 - type: integer 
+	Parameter gr_y_12_12 bound to: 231 - type: integer 
+	Parameter gr_x_12_13 bound to: 311 - type: integer 
+	Parameter gr_y_12_13 bound to: 249 - type: integer 
+	Parameter gr_x_12_14 bound to: 311 - type: integer 
+	Parameter gr_y_12_14 bound to: 267 - type: integer 
+	Parameter gr_x_12_15 bound to: 311 - type: integer 
+	Parameter gr_y_12_15 bound to: 285 - type: integer 
+	Parameter gr_x_12_16 bound to: 311 - type: integer 
+	Parameter gr_y_12_16 bound to: 303 - type: integer 
+	Parameter gr_x_12_17 bound to: 311 - type: integer 
+	Parameter gr_y_12_17 bound to: 321 - type: integer 
+	Parameter gr_x_12_18 bound to: 311 - type: integer 
+	Parameter gr_y_12_18 bound to: 339 - type: integer 
+	Parameter gr_x_12_19 bound to: 311 - type: integer 
+	Parameter gr_y_12_19 bound to: 357 - type: integer 
+	Parameter gr_x_12_20 bound to: 311 - type: integer 
+	Parameter gr_y_12_20 bound to: 375 - type: integer 
+	Parameter gr_x_12_21 bound to: 311 - type: integer 
+	Parameter gr_y_12_21 bound to: 393 - type: integer 
+	Parameter gr_x_12_22 bound to: 311 - type: integer 
+	Parameter gr_y_12_22 bound to: 411 - type: integer 
+	Parameter gr_x_12_23 bound to: 311 - type: integer 
+	Parameter gr_y_12_23 bound to: 429 - type: integer 
+	Parameter gr_x_12_24 bound to: 311 - type: integer 
+	Parameter gr_y_12_24 bound to: 447 - type: integer 
 	Parameter gr_x_13_0 bound to: 329 - type: integer 
 	Parameter gr_y_13_0 bound to: 15 - type: integer 
+	Parameter gr_x_13_1 bound to: 329 - type: integer 
+	Parameter gr_y_13_1 bound to: 33 - type: integer 
+	Parameter gr_x_13_2 bound to: 329 - type: integer 
+	Parameter gr_y_13_2 bound to: 51 - type: integer 
+	Parameter gr_x_13_3 bound to: 329 - type: integer 
+	Parameter gr_y_13_3 bound to: 69 - type: integer 
+	Parameter gr_x_13_4 bound to: 329 - type: integer 
+	Parameter gr_y_13_4 bound to: 87 - type: integer 
+	Parameter gr_x_13_5 bound to: 329 - type: integer 
+	Parameter gr_y_13_5 bound to: 105 - type: integer 
+	Parameter gr_x_13_6 bound to: 329 - type: integer 
+	Parameter gr_y_13_6 bound to: 123 - type: integer 
+	Parameter gr_x_13_7 bound to: 329 - type: integer 
+	Parameter gr_y_13_7 bound to: 141 - type: integer 
+	Parameter gr_x_13_8 bound to: 329 - type: integer 
+	Parameter gr_y_13_8 bound to: 159 - type: integer 
+	Parameter gr_x_13_9 bound to: 329 - type: integer 
+	Parameter gr_y_13_9 bound to: 177 - type: integer 
+	Parameter gr_x_13_10 bound to: 329 - type: integer 
+	Parameter gr_y_13_10 bound to: 195 - type: integer 
+	Parameter gr_x_13_11 bound to: 329 - type: integer 
+	Parameter gr_y_13_11 bound to: 213 - type: integer 
+	Parameter gr_x_13_12 bound to: 329 - type: integer 
+	Parameter gr_y_13_12 bound to: 231 - type: integer 
+	Parameter gr_x_13_13 bound to: 329 - type: integer 
+	Parameter gr_y_13_13 bound to: 249 - type: integer 
+	Parameter gr_x_13_14 bound to: 329 - type: integer 
+	Parameter gr_y_13_14 bound to: 267 - type: integer 
+	Parameter gr_x_13_15 bound to: 329 - type: integer 
+	Parameter gr_y_13_15 bound to: 285 - type: integer 
+	Parameter gr_x_13_16 bound to: 329 - type: integer 
+	Parameter gr_y_13_16 bound to: 303 - type: integer 
+	Parameter gr_x_13_17 bound to: 329 - type: integer 
+	Parameter gr_y_13_17 bound to: 321 - type: integer 
+	Parameter gr_x_13_18 bound to: 329 - type: integer 
+	Parameter gr_y_13_18 bound to: 339 - type: integer 
+	Parameter gr_x_13_19 bound to: 329 - type: integer 
+	Parameter gr_y_13_19 bound to: 357 - type: integer 
+	Parameter gr_x_13_20 bound to: 329 - type: integer 
+	Parameter gr_y_13_20 bound to: 375 - type: integer 
+	Parameter gr_x_13_21 bound to: 329 - type: integer 
+	Parameter gr_y_13_21 bound to: 393 - type: integer 
+	Parameter gr_x_13_22 bound to: 329 - type: integer 
+	Parameter gr_y_13_22 bound to: 411 - type: integer 
+	Parameter gr_x_13_23 bound to: 329 - type: integer 
+	Parameter gr_y_13_23 bound to: 429 - type: integer 
+	Parameter gr_x_13_24 bound to: 329 - type: integer 
+	Parameter gr_y_13_24 bound to: 447 - type: integer 
 	Parameter gr_x_14_0 bound to: 347 - type: integer 
 	Parameter gr_y_14_0 bound to: 15 - type: integer 
+	Parameter gr_x_14_1 bound to: 347 - type: integer 
+	Parameter gr_y_14_1 bound to: 33 - type: integer 
+	Parameter gr_x_14_2 bound to: 347 - type: integer 
+	Parameter gr_y_14_2 bound to: 51 - type: integer 
+	Parameter gr_x_14_3 bound to: 347 - type: integer 
+	Parameter gr_y_14_3 bound to: 69 - type: integer 
+	Parameter gr_x_14_4 bound to: 347 - type: integer 
+	Parameter gr_y_14_4 bound to: 87 - type: integer 
+	Parameter gr_x_14_5 bound to: 347 - type: integer 
+	Parameter gr_y_14_5 bound to: 105 - type: integer 
+	Parameter gr_x_14_6 bound to: 347 - type: integer 
+	Parameter gr_y_14_6 bound to: 123 - type: integer 
+	Parameter gr_x_14_7 bound to: 347 - type: integer 
+	Parameter gr_y_14_7 bound to: 141 - type: integer 
+	Parameter gr_x_14_8 bound to: 347 - type: integer 
+	Parameter gr_y_14_8 bound to: 159 - type: integer 
+	Parameter gr_x_14_9 bound to: 347 - type: integer 
+	Parameter gr_y_14_9 bound to: 177 - type: integer 
+	Parameter gr_x_14_10 bound to: 347 - type: integer 
+	Parameter gr_y_14_10 bound to: 195 - type: integer 
+	Parameter gr_x_14_11 bound to: 347 - type: integer 
+	Parameter gr_y_14_11 bound to: 213 - type: integer 
+	Parameter gr_x_14_12 bound to: 347 - type: integer 
+	Parameter gr_y_14_12 bound to: 231 - type: integer 
+	Parameter gr_x_14_13 bound to: 347 - type: integer 
+	Parameter gr_y_14_13 bound to: 249 - type: integer 
+	Parameter gr_x_14_14 bound to: 347 - type: integer 
+	Parameter gr_y_14_14 bound to: 267 - type: integer 
+	Parameter gr_x_14_15 bound to: 347 - type: integer 
+	Parameter gr_y_14_15 bound to: 285 - type: integer 
+	Parameter gr_x_14_16 bound to: 347 - type: integer 
+	Parameter gr_y_14_16 bound to: 303 - type: integer 
+	Parameter gr_x_14_17 bound to: 347 - type: integer 
+	Parameter gr_y_14_17 bound to: 321 - type: integer 
+	Parameter gr_x_14_18 bound to: 347 - type: integer 
+	Parameter gr_y_14_18 bound to: 339 - type: integer 
+	Parameter gr_x_14_19 bound to: 347 - type: integer 
+	Parameter gr_y_14_19 bound to: 357 - type: integer 
+	Parameter gr_x_14_20 bound to: 347 - type: integer 
+	Parameter gr_y_14_20 bound to: 375 - type: integer 
+	Parameter gr_x_14_21 bound to: 347 - type: integer 
+	Parameter gr_y_14_21 bound to: 393 - type: integer 
+	Parameter gr_x_14_22 bound to: 347 - type: integer 
+	Parameter gr_y_14_22 bound to: 411 - type: integer 
+	Parameter gr_x_14_23 bound to: 347 - type: integer 
+	Parameter gr_y_14_23 bound to: 429 - type: integer 
+	Parameter gr_x_14_24 bound to: 347 - type: integer 
+	Parameter gr_y_14_24 bound to: 447 - type: integer 
 	Parameter gr_x_15_0 bound to: 365 - type: integer 
 	Parameter gr_y_15_0 bound to: 15 - type: integer 
+	Parameter gr_x_15_1 bound to: 365 - type: integer 
+	Parameter gr_y_15_1 bound to: 33 - type: integer 
+	Parameter gr_x_15_2 bound to: 365 - type: integer 
+	Parameter gr_y_15_2 bound to: 51 - type: integer 
+	Parameter gr_x_15_3 bound to: 365 - type: integer 
+	Parameter gr_y_15_3 bound to: 69 - type: integer 
+	Parameter gr_x_15_4 bound to: 365 - type: integer 
+	Parameter gr_y_15_4 bound to: 87 - type: integer 
+	Parameter gr_x_15_5 bound to: 365 - type: integer 
+	Parameter gr_y_15_5 bound to: 105 - type: integer 
+	Parameter gr_x_15_6 bound to: 365 - type: integer 
+	Parameter gr_y_15_6 bound to: 123 - type: integer 
+	Parameter gr_x_15_7 bound to: 365 - type: integer 
+	Parameter gr_y_15_7 bound to: 141 - type: integer 
+	Parameter gr_x_15_8 bound to: 365 - type: integer 
+	Parameter gr_y_15_8 bound to: 159 - type: integer 
+	Parameter gr_x_15_9 bound to: 365 - type: integer 
+	Parameter gr_y_15_9 bound to: 177 - type: integer 
+	Parameter gr_x_15_10 bound to: 365 - type: integer 
+	Parameter gr_y_15_10 bound to: 195 - type: integer 
+	Parameter gr_x_15_11 bound to: 365 - type: integer 
+	Parameter gr_y_15_11 bound to: 213 - type: integer 
+	Parameter gr_x_15_12 bound to: 365 - type: integer 
+	Parameter gr_y_15_12 bound to: 231 - type: integer 
+	Parameter gr_x_15_13 bound to: 365 - type: integer 
+	Parameter gr_y_15_13 bound to: 249 - type: integer 
+	Parameter gr_x_15_14 bound to: 365 - type: integer 
+	Parameter gr_y_15_14 bound to: 267 - type: integer 
+	Parameter gr_x_15_15 bound to: 365 - type: integer 
+	Parameter gr_y_15_15 bound to: 285 - type: integer 
+	Parameter gr_x_15_16 bound to: 365 - type: integer 
+	Parameter gr_y_15_16 bound to: 303 - type: integer 
+	Parameter gr_x_15_17 bound to: 365 - type: integer 
+	Parameter gr_y_15_17 bound to: 321 - type: integer 
+	Parameter gr_x_15_18 bound to: 365 - type: integer 
+	Parameter gr_y_15_18 bound to: 339 - type: integer 
+	Parameter gr_x_15_19 bound to: 365 - type: integer 
+	Parameter gr_y_15_19 bound to: 357 - type: integer 
+	Parameter gr_x_15_20 bound to: 365 - type: integer 
+	Parameter gr_y_15_20 bound to: 375 - type: integer 
+	Parameter gr_x_15_21 bound to: 365 - type: integer 
+	Parameter gr_y_15_21 bound to: 393 - type: integer 
+	Parameter gr_x_15_22 bound to: 365 - type: integer 
+	Parameter gr_y_15_22 bound to: 411 - type: integer 
+	Parameter gr_x_15_23 bound to: 365 - type: integer 
+	Parameter gr_y_15_23 bound to: 429 - type: integer 
+	Parameter gr_x_15_24 bound to: 365 - type: integer 
+	Parameter gr_y_15_24 bound to: 447 - type: integer 
 	Parameter gr_x_16_0 bound to: 383 - type: integer 
 	Parameter gr_y_16_0 bound to: 15 - type: integer 
+	Parameter gr_x_16_1 bound to: 383 - type: integer 
+	Parameter gr_y_16_1 bound to: 33 - type: integer 
+	Parameter gr_x_16_2 bound to: 383 - type: integer 
+	Parameter gr_y_16_2 bound to: 51 - type: integer 
+	Parameter gr_x_16_3 bound to: 383 - type: integer 
+	Parameter gr_y_16_3 bound to: 69 - type: integer 
+	Parameter gr_x_16_4 bound to: 383 - type: integer 
+	Parameter gr_y_16_4 bound to: 87 - type: integer 
+	Parameter gr_x_16_5 bound to: 383 - type: integer 
+	Parameter gr_y_16_5 bound to: 105 - type: integer 
+	Parameter gr_x_16_6 bound to: 383 - type: integer 
+	Parameter gr_y_16_6 bound to: 123 - type: integer 
+	Parameter gr_x_16_7 bound to: 383 - type: integer 
+	Parameter gr_y_16_7 bound to: 141 - type: integer 
+	Parameter gr_x_16_8 bound to: 383 - type: integer 
+	Parameter gr_y_16_8 bound to: 159 - type: integer 
+	Parameter gr_x_16_9 bound to: 383 - type: integer 
+	Parameter gr_y_16_9 bound to: 177 - type: integer 
+	Parameter gr_x_16_10 bound to: 383 - type: integer 
+	Parameter gr_y_16_10 bound to: 195 - type: integer 
+	Parameter gr_x_16_11 bound to: 383 - type: integer 
+	Parameter gr_y_16_11 bound to: 213 - type: integer 
+	Parameter gr_x_16_12 bound to: 383 - type: integer 
+	Parameter gr_y_16_12 bound to: 231 - type: integer 
+	Parameter gr_x_16_13 bound to: 383 - type: integer 
+	Parameter gr_y_16_13 bound to: 249 - type: integer 
+	Parameter gr_x_16_14 bound to: 383 - type: integer 
+	Parameter gr_y_16_14 bound to: 267 - type: integer 
+	Parameter gr_x_16_15 bound to: 383 - type: integer 
+	Parameter gr_y_16_15 bound to: 285 - type: integer 
+	Parameter gr_x_16_16 bound to: 383 - type: integer 
+	Parameter gr_y_16_16 bound to: 303 - type: integer 
+	Parameter gr_x_16_17 bound to: 383 - type: integer 
+	Parameter gr_y_16_17 bound to: 321 - type: integer 
+	Parameter gr_x_16_18 bound to: 383 - type: integer 
+	Parameter gr_y_16_18 bound to: 339 - type: integer 
+	Parameter gr_x_16_19 bound to: 383 - type: integer 
+	Parameter gr_y_16_19 bound to: 357 - type: integer 
+	Parameter gr_x_16_20 bound to: 383 - type: integer 
+	Parameter gr_y_16_20 bound to: 375 - type: integer 
+	Parameter gr_x_16_21 bound to: 383 - type: integer 
+	Parameter gr_y_16_21 bound to: 393 - type: integer 
+	Parameter gr_x_16_22 bound to: 383 - type: integer 
+	Parameter gr_y_16_22 bound to: 411 - type: integer 
+	Parameter gr_x_16_23 bound to: 383 - type: integer 
+	Parameter gr_y_16_23 bound to: 429 - type: integer 
+	Parameter gr_x_16_24 bound to: 383 - type: integer 
+	Parameter gr_y_16_24 bound to: 447 - type: integer 
 	Parameter gr_x_17_0 bound to: 401 - type: integer 
 	Parameter gr_y_17_0 bound to: 15 - type: integer 
+	Parameter gr_x_17_1 bound to: 401 - type: integer 
+	Parameter gr_y_17_1 bound to: 33 - type: integer 
+	Parameter gr_x_17_2 bound to: 401 - type: integer 
+	Parameter gr_y_17_2 bound to: 51 - type: integer 
+	Parameter gr_x_17_3 bound to: 401 - type: integer 
+	Parameter gr_y_17_3 bound to: 69 - type: integer 
+	Parameter gr_x_17_4 bound to: 401 - type: integer 
+	Parameter gr_y_17_4 bound to: 87 - type: integer 
+	Parameter gr_x_17_5 bound to: 401 - type: integer 
+	Parameter gr_y_17_5 bound to: 105 - type: integer 
+	Parameter gr_x_17_6 bound to: 401 - type: integer 
+	Parameter gr_y_17_6 bound to: 123 - type: integer 
+	Parameter gr_x_17_7 bound to: 401 - type: integer 
+	Parameter gr_y_17_7 bound to: 141 - type: integer 
+	Parameter gr_x_17_8 bound to: 401 - type: integer 
+	Parameter gr_y_17_8 bound to: 159 - type: integer 
+	Parameter gr_x_17_9 bound to: 401 - type: integer 
+	Parameter gr_y_17_9 bound to: 177 - type: integer 
+	Parameter gr_x_17_10 bound to: 401 - type: integer 
+	Parameter gr_y_17_10 bound to: 195 - type: integer 
+	Parameter gr_x_17_11 bound to: 401 - type: integer 
+	Parameter gr_y_17_11 bound to: 213 - type: integer 
+	Parameter gr_x_17_12 bound to: 401 - type: integer 
+	Parameter gr_y_17_12 bound to: 231 - type: integer 
+	Parameter gr_x_17_13 bound to: 401 - type: integer 
+	Parameter gr_y_17_13 bound to: 249 - type: integer 
+	Parameter gr_x_17_14 bound to: 401 - type: integer 
+	Parameter gr_y_17_14 bound to: 267 - type: integer 
+	Parameter gr_x_17_15 bound to: 401 - type: integer 
+	Parameter gr_y_17_15 bound to: 285 - type: integer 
+	Parameter gr_x_17_16 bound to: 401 - type: integer 
+	Parameter gr_y_17_16 bound to: 303 - type: integer 
+	Parameter gr_x_17_17 bound to: 401 - type: integer 
+	Parameter gr_y_17_17 bound to: 321 - type: integer 
+	Parameter gr_x_17_18 bound to: 401 - type: integer 
+	Parameter gr_y_17_18 bound to: 339 - type: integer 
+	Parameter gr_x_17_19 bound to: 401 - type: integer 
+	Parameter gr_y_17_19 bound to: 357 - type: integer 
+	Parameter gr_x_17_20 bound to: 401 - type: integer 
+	Parameter gr_y_17_20 bound to: 375 - type: integer 
+	Parameter gr_x_17_21 bound to: 401 - type: integer 
+	Parameter gr_y_17_21 bound to: 393 - type: integer 
+	Parameter gr_x_17_22 bound to: 401 - type: integer 
+	Parameter gr_y_17_22 bound to: 411 - type: integer 
+	Parameter gr_x_17_23 bound to: 401 - type: integer 
+	Parameter gr_y_17_23 bound to: 429 - type: integer 
+	Parameter gr_x_17_24 bound to: 401 - type: integer 
+	Parameter gr_y_17_24 bound to: 447 - type: integer 
 	Parameter gr_x_18_0 bound to: 419 - type: integer 
 	Parameter gr_y_18_0 bound to: 15 - type: integer 
+	Parameter gr_x_18_1 bound to: 419 - type: integer 
+	Parameter gr_y_18_1 bound to: 33 - type: integer 
+	Parameter gr_x_18_2 bound to: 419 - type: integer 
+	Parameter gr_y_18_2 bound to: 51 - type: integer 
+	Parameter gr_x_18_3 bound to: 419 - type: integer 
+	Parameter gr_y_18_3 bound to: 69 - type: integer 
+	Parameter gr_x_18_4 bound to: 419 - type: integer 
+	Parameter gr_y_18_4 bound to: 87 - type: integer 
+	Parameter gr_x_18_5 bound to: 419 - type: integer 
+	Parameter gr_y_18_5 bound to: 105 - type: integer 
+	Parameter gr_x_18_6 bound to: 419 - type: integer 
+	Parameter gr_y_18_6 bound to: 123 - type: integer 
+	Parameter gr_x_18_7 bound to: 419 - type: integer 
+	Parameter gr_y_18_7 bound to: 141 - type: integer 
+	Parameter gr_x_18_8 bound to: 419 - type: integer 
+	Parameter gr_y_18_8 bound to: 159 - type: integer 
+	Parameter gr_x_18_9 bound to: 419 - type: integer 
+	Parameter gr_y_18_9 bound to: 177 - type: integer 
+	Parameter gr_x_18_10 bound to: 419 - type: integer 
+	Parameter gr_y_18_10 bound to: 195 - type: integer 
+	Parameter gr_x_18_11 bound to: 419 - type: integer 
+	Parameter gr_y_18_11 bound to: 213 - type: integer 
+	Parameter gr_x_18_12 bound to: 419 - type: integer 
+	Parameter gr_y_18_12 bound to: 231 - type: integer 
+	Parameter gr_x_18_13 bound to: 419 - type: integer 
+	Parameter gr_y_18_13 bound to: 249 - type: integer 
+	Parameter gr_x_18_14 bound to: 419 - type: integer 
+	Parameter gr_y_18_14 bound to: 267 - type: integer 
+	Parameter gr_x_18_15 bound to: 419 - type: integer 
+	Parameter gr_y_18_15 bound to: 285 - type: integer 
+	Parameter gr_x_18_16 bound to: 419 - type: integer 
+	Parameter gr_y_18_16 bound to: 303 - type: integer 
+	Parameter gr_x_18_17 bound to: 419 - type: integer 
+	Parameter gr_y_18_17 bound to: 321 - type: integer 
+	Parameter gr_x_18_18 bound to: 419 - type: integer 
+	Parameter gr_y_18_18 bound to: 339 - type: integer 
+	Parameter gr_x_18_19 bound to: 419 - type: integer 
+	Parameter gr_y_18_19 bound to: 357 - type: integer 
+	Parameter gr_x_18_20 bound to: 419 - type: integer 
+	Parameter gr_y_18_20 bound to: 375 - type: integer 
+	Parameter gr_x_18_21 bound to: 419 - type: integer 
+	Parameter gr_y_18_21 bound to: 393 - type: integer 
+	Parameter gr_x_18_22 bound to: 419 - type: integer 
+	Parameter gr_y_18_22 bound to: 411 - type: integer 
+	Parameter gr_x_18_23 bound to: 419 - type: integer 
+	Parameter gr_y_18_23 bound to: 429 - type: integer 
+	Parameter gr_x_18_24 bound to: 419 - type: integer 
+	Parameter gr_y_18_24 bound to: 447 - type: integer 
 	Parameter gr_x_19_0 bound to: 437 - type: integer 
 	Parameter gr_y_19_0 bound to: 15 - type: integer 
+	Parameter gr_x_19_1 bound to: 437 - type: integer 
+	Parameter gr_y_19_1 bound to: 33 - type: integer 
+	Parameter gr_x_19_2 bound to: 437 - type: integer 
+	Parameter gr_y_19_2 bound to: 51 - type: integer 
+	Parameter gr_x_19_3 bound to: 437 - type: integer 
+	Parameter gr_y_19_3 bound to: 69 - type: integer 
+	Parameter gr_x_19_4 bound to: 437 - type: integer 
+	Parameter gr_y_19_4 bound to: 87 - type: integer 
+	Parameter gr_x_19_5 bound to: 437 - type: integer 
+	Parameter gr_y_19_5 bound to: 105 - type: integer 
+	Parameter gr_x_19_6 bound to: 437 - type: integer 
+	Parameter gr_y_19_6 bound to: 123 - type: integer 
+	Parameter gr_x_19_7 bound to: 437 - type: integer 
+	Parameter gr_y_19_7 bound to: 141 - type: integer 
+	Parameter gr_x_19_8 bound to: 437 - type: integer 
+	Parameter gr_y_19_8 bound to: 159 - type: integer 
+	Parameter gr_x_19_9 bound to: 437 - type: integer 
+	Parameter gr_y_19_9 bound to: 177 - type: integer 
+	Parameter gr_x_19_10 bound to: 437 - type: integer 
+	Parameter gr_y_19_10 bound to: 195 - type: integer 
+	Parameter gr_x_19_11 bound to: 437 - type: integer 
+	Parameter gr_y_19_11 bound to: 213 - type: integer 
+	Parameter gr_x_19_12 bound to: 437 - type: integer 
+	Parameter gr_y_19_12 bound to: 231 - type: integer 
+	Parameter gr_x_19_13 bound to: 437 - type: integer 
+	Parameter gr_y_19_13 bound to: 249 - type: integer 
+	Parameter gr_x_19_14 bound to: 437 - type: integer 
+	Parameter gr_y_19_14 bound to: 267 - type: integer 
+	Parameter gr_x_19_15 bound to: 437 - type: integer 
+	Parameter gr_y_19_15 bound to: 285 - type: integer 
+	Parameter gr_x_19_16 bound to: 437 - type: integer 
+	Parameter gr_y_19_16 bound to: 303 - type: integer 
+	Parameter gr_x_19_17 bound to: 437 - type: integer 
+	Parameter gr_y_19_17 bound to: 321 - type: integer 
+	Parameter gr_x_19_18 bound to: 437 - type: integer 
+	Parameter gr_y_19_18 bound to: 339 - type: integer 
+	Parameter gr_x_19_19 bound to: 437 - type: integer 
+	Parameter gr_y_19_19 bound to: 357 - type: integer 
+	Parameter gr_x_19_20 bound to: 437 - type: integer 
+	Parameter gr_y_19_20 bound to: 375 - type: integer 
+	Parameter gr_x_19_21 bound to: 437 - type: integer 
+	Parameter gr_y_19_21 bound to: 393 - type: integer 
+	Parameter gr_x_19_22 bound to: 437 - type: integer 
+	Parameter gr_y_19_22 bound to: 411 - type: integer 
+	Parameter gr_x_19_23 bound to: 437 - type: integer 
+	Parameter gr_y_19_23 bound to: 429 - type: integer 
+	Parameter gr_x_19_24 bound to: 437 - type: integer 
+	Parameter gr_y_19_24 bound to: 447 - type: integer 
 	Parameter gr_x_20_0 bound to: 455 - type: integer 
 	Parameter gr_y_20_0 bound to: 15 - type: integer 
+	Parameter gr_x_20_1 bound to: 455 - type: integer 
+	Parameter gr_y_20_1 bound to: 33 - type: integer 
+	Parameter gr_x_20_2 bound to: 455 - type: integer 
+	Parameter gr_y_20_2 bound to: 51 - type: integer 
+	Parameter gr_x_20_3 bound to: 455 - type: integer 
+	Parameter gr_y_20_3 bound to: 69 - type: integer 
+	Parameter gr_x_20_4 bound to: 455 - type: integer 
+	Parameter gr_y_20_4 bound to: 87 - type: integer 
+	Parameter gr_x_20_5 bound to: 455 - type: integer 
+	Parameter gr_y_20_5 bound to: 105 - type: integer 
+	Parameter gr_x_20_6 bound to: 455 - type: integer 
+	Parameter gr_y_20_6 bound to: 123 - type: integer 
+	Parameter gr_x_20_7 bound to: 455 - type: integer 
+	Parameter gr_y_20_7 bound to: 141 - type: integer 
+	Parameter gr_x_20_8 bound to: 455 - type: integer 
+	Parameter gr_y_20_8 bound to: 159 - type: integer 
+	Parameter gr_x_20_9 bound to: 455 - type: integer 
+	Parameter gr_y_20_9 bound to: 177 - type: integer 
+	Parameter gr_x_20_10 bound to: 455 - type: integer 
+	Parameter gr_y_20_10 bound to: 195 - type: integer 
+	Parameter gr_x_20_11 bound to: 455 - type: integer 
+	Parameter gr_y_20_11 bound to: 213 - type: integer 
+	Parameter gr_x_20_12 bound to: 455 - type: integer 
+	Parameter gr_y_20_12 bound to: 231 - type: integer 
+	Parameter gr_x_20_13 bound to: 455 - type: integer 
+	Parameter gr_y_20_13 bound to: 249 - type: integer 
+	Parameter gr_x_20_14 bound to: 455 - type: integer 
+	Parameter gr_y_20_14 bound to: 267 - type: integer 
+	Parameter gr_x_20_15 bound to: 455 - type: integer 
+	Parameter gr_y_20_15 bound to: 285 - type: integer 
+	Parameter gr_x_20_16 bound to: 455 - type: integer 
+	Parameter gr_y_20_16 bound to: 303 - type: integer 
+	Parameter gr_x_20_17 bound to: 455 - type: integer 
+	Parameter gr_y_20_17 bound to: 321 - type: integer 
+	Parameter gr_x_20_18 bound to: 455 - type: integer 
+	Parameter gr_y_20_18 bound to: 339 - type: integer 
+	Parameter gr_x_20_19 bound to: 455 - type: integer 
+	Parameter gr_y_20_19 bound to: 357 - type: integer 
+	Parameter gr_x_20_20 bound to: 455 - type: integer 
+	Parameter gr_y_20_20 bound to: 375 - type: integer 
+	Parameter gr_x_20_21 bound to: 455 - type: integer 
+	Parameter gr_y_20_21 bound to: 393 - type: integer 
+	Parameter gr_x_20_22 bound to: 455 - type: integer 
+	Parameter gr_y_20_22 bound to: 411 - type: integer 
+	Parameter gr_x_20_23 bound to: 455 - type: integer 
+	Parameter gr_y_20_23 bound to: 429 - type: integer 
+	Parameter gr_x_20_24 bound to: 455 - type: integer 
+	Parameter gr_y_20_24 bound to: 447 - type: integer 
 	Parameter gr_x_21_0 bound to: 473 - type: integer 
 	Parameter gr_y_21_0 bound to: 15 - type: integer 
+	Parameter gr_x_21_1 bound to: 473 - type: integer 
+	Parameter gr_y_21_1 bound to: 33 - type: integer 
+	Parameter gr_x_21_2 bound to: 473 - type: integer 
+	Parameter gr_y_21_2 bound to: 51 - type: integer 
+	Parameter gr_x_21_3 bound to: 473 - type: integer 
+	Parameter gr_y_21_3 bound to: 69 - type: integer 
+	Parameter gr_x_21_4 bound to: 473 - type: integer 
+	Parameter gr_y_21_4 bound to: 87 - type: integer 
+	Parameter gr_x_21_5 bound to: 473 - type: integer 
+	Parameter gr_y_21_5 bound to: 105 - type: integer 
+	Parameter gr_x_21_6 bound to: 473 - type: integer 
+	Parameter gr_y_21_6 bound to: 123 - type: integer 
+	Parameter gr_x_21_7 bound to: 473 - type: integer 
+	Parameter gr_y_21_7 bound to: 141 - type: integer 
+	Parameter gr_x_21_8 bound to: 473 - type: integer 
+	Parameter gr_y_21_8 bound to: 159 - type: integer 
+	Parameter gr_x_21_9 bound to: 473 - type: integer 
+	Parameter gr_y_21_9 bound to: 177 - type: integer 
+	Parameter gr_x_21_10 bound to: 473 - type: integer 
+	Parameter gr_y_21_10 bound to: 195 - type: integer 
+	Parameter gr_x_21_11 bound to: 473 - type: integer 
+	Parameter gr_y_21_11 bound to: 213 - type: integer 
+	Parameter gr_x_21_12 bound to: 473 - type: integer 
+	Parameter gr_y_21_12 bound to: 231 - type: integer 
+	Parameter gr_x_21_13 bound to: 473 - type: integer 
+	Parameter gr_y_21_13 bound to: 249 - type: integer 
+	Parameter gr_x_21_14 bound to: 473 - type: integer 
+	Parameter gr_y_21_14 bound to: 267 - type: integer 
+	Parameter gr_x_21_15 bound to: 473 - type: integer 
+	Parameter gr_y_21_15 bound to: 285 - type: integer 
+	Parameter gr_x_21_16 bound to: 473 - type: integer 
+	Parameter gr_y_21_16 bound to: 303 - type: integer 
+	Parameter gr_x_21_17 bound to: 473 - type: integer 
+	Parameter gr_y_21_17 bound to: 321 - type: integer 
+	Parameter gr_x_21_18 bound to: 473 - type: integer 
+	Parameter gr_y_21_18 bound to: 339 - type: integer 
+	Parameter gr_x_21_19 bound to: 473 - type: integer 
+	Parameter gr_y_21_19 bound to: 357 - type: integer 
+	Parameter gr_x_21_20 bound to: 473 - type: integer 
+	Parameter gr_y_21_20 bound to: 375 - type: integer 
+	Parameter gr_x_21_21 bound to: 473 - type: integer 
+	Parameter gr_y_21_21 bound to: 393 - type: integer 
+	Parameter gr_x_21_22 bound to: 473 - type: integer 
+	Parameter gr_y_21_22 bound to: 411 - type: integer 
+	Parameter gr_x_21_23 bound to: 473 - type: integer 
+	Parameter gr_y_21_23 bound to: 429 - type: integer 
+	Parameter gr_x_21_24 bound to: 473 - type: integer 
+	Parameter gr_y_21_24 bound to: 447 - type: integer 
 	Parameter gr_x_22_0 bound to: 491 - type: integer 
 	Parameter gr_y_22_0 bound to: 15 - type: integer 
+	Parameter gr_x_22_1 bound to: 491 - type: integer 
+	Parameter gr_y_22_1 bound to: 33 - type: integer 
+	Parameter gr_x_22_2 bound to: 491 - type: integer 
+	Parameter gr_y_22_2 bound to: 51 - type: integer 
+	Parameter gr_x_22_3 bound to: 491 - type: integer 
+	Parameter gr_y_22_3 bound to: 69 - type: integer 
+	Parameter gr_x_22_4 bound to: 491 - type: integer 
+	Parameter gr_y_22_4 bound to: 87 - type: integer 
+	Parameter gr_x_22_5 bound to: 491 - type: integer 
+	Parameter gr_y_22_5 bound to: 105 - type: integer 
+	Parameter gr_x_22_6 bound to: 491 - type: integer 
+	Parameter gr_y_22_6 bound to: 123 - type: integer 
+	Parameter gr_x_22_7 bound to: 491 - type: integer 
+	Parameter gr_y_22_7 bound to: 141 - type: integer 
+	Parameter gr_x_22_8 bound to: 491 - type: integer 
+	Parameter gr_y_22_8 bound to: 159 - type: integer 
+	Parameter gr_x_22_9 bound to: 491 - type: integer 
+	Parameter gr_y_22_9 bound to: 177 - type: integer 
+	Parameter gr_x_22_10 bound to: 491 - type: integer 
+	Parameter gr_y_22_10 bound to: 195 - type: integer 
+	Parameter gr_x_22_11 bound to: 491 - type: integer 
+	Parameter gr_y_22_11 bound to: 213 - type: integer 
+	Parameter gr_x_22_12 bound to: 491 - type: integer 
+	Parameter gr_y_22_12 bound to: 231 - type: integer 
+	Parameter gr_x_22_13 bound to: 491 - type: integer 
+	Parameter gr_y_22_13 bound to: 249 - type: integer 
+	Parameter gr_x_22_14 bound to: 491 - type: integer 
+	Parameter gr_y_22_14 bound to: 267 - type: integer 
+	Parameter gr_x_22_15 bound to: 491 - type: integer 
+	Parameter gr_y_22_15 bound to: 285 - type: integer 
+	Parameter gr_x_22_16 bound to: 491 - type: integer 
+	Parameter gr_y_22_16 bound to: 303 - type: integer 
+	Parameter gr_x_22_17 bound to: 491 - type: integer 
+	Parameter gr_y_22_17 bound to: 321 - type: integer 
+	Parameter gr_x_22_18 bound to: 491 - type: integer 
+	Parameter gr_y_22_18 bound to: 339 - type: integer 
+	Parameter gr_x_22_19 bound to: 491 - type: integer 
+	Parameter gr_y_22_19 bound to: 357 - type: integer 
+	Parameter gr_x_22_20 bound to: 491 - type: integer 
+	Parameter gr_y_22_20 bound to: 375 - type: integer 
+	Parameter gr_x_22_21 bound to: 491 - type: integer 
+	Parameter gr_y_22_21 bound to: 393 - type: integer 
+	Parameter gr_x_22_22 bound to: 491 - type: integer 
+	Parameter gr_y_22_22 bound to: 411 - type: integer 
+	Parameter gr_x_22_23 bound to: 491 - type: integer 
+	Parameter gr_y_22_23 bound to: 429 - type: integer 
+	Parameter gr_x_22_24 bound to: 491 - type: integer 
+	Parameter gr_y_22_24 bound to: 447 - type: integer 
 	Parameter gr_x_23_0 bound to: 509 - type: integer 
 	Parameter gr_y_23_0 bound to: 15 - type: integer 
+	Parameter gr_x_23_1 bound to: 509 - type: integer 
+	Parameter gr_y_23_1 bound to: 33 - type: integer 
+	Parameter gr_x_23_2 bound to: 509 - type: integer 
+	Parameter gr_y_23_2 bound to: 51 - type: integer 
+	Parameter gr_x_23_3 bound to: 509 - type: integer 
+	Parameter gr_y_23_3 bound to: 69 - type: integer 
+	Parameter gr_x_23_4 bound to: 509 - type: integer 
+	Parameter gr_y_23_4 bound to: 87 - type: integer 
+	Parameter gr_x_23_5 bound to: 509 - type: integer 
+	Parameter gr_y_23_5 bound to: 105 - type: integer 
+	Parameter gr_x_23_6 bound to: 509 - type: integer 
+	Parameter gr_y_23_6 bound to: 123 - type: integer 
+	Parameter gr_x_23_7 bound to: 509 - type: integer 
+	Parameter gr_y_23_7 bound to: 141 - type: integer 
+	Parameter gr_x_23_8 bound to: 509 - type: integer 
+	Parameter gr_y_23_8 bound to: 159 - type: integer 
+	Parameter gr_x_23_9 bound to: 509 - type: integer 
+	Parameter gr_y_23_9 bound to: 177 - type: integer 
+	Parameter gr_x_23_10 bound to: 509 - type: integer 
+	Parameter gr_y_23_10 bound to: 195 - type: integer 
+	Parameter gr_x_23_11 bound to: 509 - type: integer 
+	Parameter gr_y_23_11 bound to: 213 - type: integer 
+	Parameter gr_x_23_12 bound to: 509 - type: integer 
+	Parameter gr_y_23_12 bound to: 231 - type: integer 
+	Parameter gr_x_23_13 bound to: 509 - type: integer 
+	Parameter gr_y_23_13 bound to: 249 - type: integer 
+	Parameter gr_x_23_14 bound to: 509 - type: integer 
+	Parameter gr_y_23_14 bound to: 267 - type: integer 
+	Parameter gr_x_23_15 bound to: 509 - type: integer 
+	Parameter gr_y_23_15 bound to: 285 - type: integer 
+	Parameter gr_x_23_16 bound to: 509 - type: integer 
+	Parameter gr_y_23_16 bound to: 303 - type: integer 
+	Parameter gr_x_23_17 bound to: 509 - type: integer 
+	Parameter gr_y_23_17 bound to: 321 - type: integer 
+	Parameter gr_x_23_18 bound to: 509 - type: integer 
+	Parameter gr_y_23_18 bound to: 339 - type: integer 
+	Parameter gr_x_23_19 bound to: 509 - type: integer 
+	Parameter gr_y_23_19 bound to: 357 - type: integer 
+	Parameter gr_x_23_20 bound to: 509 - type: integer 
+	Parameter gr_y_23_20 bound to: 375 - type: integer 
+	Parameter gr_x_23_21 bound to: 509 - type: integer 
+	Parameter gr_y_23_21 bound to: 393 - type: integer 
+	Parameter gr_x_23_22 bound to: 509 - type: integer 
+	Parameter gr_y_23_22 bound to: 411 - type: integer 
+	Parameter gr_x_23_23 bound to: 509 - type: integer 
+	Parameter gr_y_23_23 bound to: 429 - type: integer 
+	Parameter gr_x_23_24 bound to: 509 - type: integer 
+	Parameter gr_y_23_24 bound to: 447 - type: integer 
 	Parameter gr_x_24_0 bound to: 527 - type: integer 
 	Parameter gr_y_24_0 bound to: 15 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'tortrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:92]
+	Parameter gr_x_24_1 bound to: 527 - type: integer 
+	Parameter gr_y_24_1 bound to: 33 - type: integer 
+	Parameter gr_x_24_2 bound to: 527 - type: integer 
+	Parameter gr_y_24_2 bound to: 51 - type: integer 
+	Parameter gr_x_24_3 bound to: 527 - type: integer 
+	Parameter gr_y_24_3 bound to: 69 - type: integer 
+	Parameter gr_x_24_4 bound to: 527 - type: integer 
+	Parameter gr_y_24_4 bound to: 87 - type: integer 
+	Parameter gr_x_24_5 bound to: 527 - type: integer 
+	Parameter gr_y_24_5 bound to: 105 - type: integer 
+	Parameter gr_x_24_6 bound to: 527 - type: integer 
+	Parameter gr_y_24_6 bound to: 123 - type: integer 
+	Parameter gr_x_24_7 bound to: 527 - type: integer 
+	Parameter gr_y_24_7 bound to: 141 - type: integer 
+	Parameter gr_x_24_8 bound to: 527 - type: integer 
+	Parameter gr_y_24_8 bound to: 159 - type: integer 
+	Parameter gr_x_24_9 bound to: 527 - type: integer 
+	Parameter gr_y_24_9 bound to: 177 - type: integer 
+	Parameter gr_x_24_10 bound to: 527 - type: integer 
+	Parameter gr_y_24_10 bound to: 195 - type: integer 
+	Parameter gr_x_24_11 bound to: 527 - type: integer 
+	Parameter gr_y_24_11 bound to: 213 - type: integer 
+	Parameter gr_x_24_12 bound to: 527 - type: integer 
+	Parameter gr_y_24_12 bound to: 231 - type: integer 
+	Parameter gr_x_24_13 bound to: 527 - type: integer 
+	Parameter gr_y_24_13 bound to: 249 - type: integer 
+	Parameter gr_x_24_14 bound to: 527 - type: integer 
+	Parameter gr_y_24_14 bound to: 267 - type: integer 
+	Parameter gr_x_24_15 bound to: 527 - type: integer 
+	Parameter gr_y_24_15 bound to: 285 - type: integer 
+	Parameter gr_x_24_16 bound to: 527 - type: integer 
+	Parameter gr_y_24_16 bound to: 303 - type: integer 
+	Parameter gr_x_24_17 bound to: 527 - type: integer 
+	Parameter gr_y_24_17 bound to: 321 - type: integer 
+	Parameter gr_x_24_18 bound to: 527 - type: integer 
+	Parameter gr_y_24_18 bound to: 339 - type: integer 
+	Parameter gr_x_24_19 bound to: 527 - type: integer 
+	Parameter gr_y_24_19 bound to: 357 - type: integer 
+	Parameter gr_x_24_20 bound to: 527 - type: integer 
+	Parameter gr_y_24_20 bound to: 375 - type: integer 
+	Parameter gr_x_24_21 bound to: 527 - type: integer 
+	Parameter gr_y_24_21 bound to: 393 - type: integer 
+	Parameter gr_x_24_22 bound to: 527 - type: integer 
+	Parameter gr_y_24_22 bound to: 411 - type: integer 
+	Parameter gr_x_24_23 bound to: 527 - type: integer 
+	Parameter gr_y_24_23 bound to: 429 - type: integer 
+	Parameter gr_x_24_24 bound to: 527 - type: integer 
+	Parameter gr_y_24_24 bound to: 447 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'selection' [C:/Users/needs/OneDrive/Desktop/new/selection.v:23]
+INFO: [Synth 8-6157] synthesizing module 'D_FlipFlop' [C:/Users/needs/OneDrive/Desktop/new/D_FlipFlop.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'D_FlipFlop' (4#1) [C:/Users/needs/OneDrive/Desktop/new/D_FlipFlop.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'selection' (5#1) [C:/Users/needs/OneDrive/Desktop/new/selection.v:23]
+WARNING: [Synth 8-6090] variable 'sq1_x_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17765]
+WARNING: [Synth 8-6090] variable 'sq1_y_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17766]
+WARNING: [Synth 8-6090] variable 'sq2_x_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17767]
+WARNING: [Synth 8-6090] variable 'sq2_y_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17768]
+INFO: [Synth 8-6157] synthesizing module 'binary_2_bcd' [C:/Users/needs/OneDrive/Desktop/new/binary_2_bcd.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'binary_2_bcd' (6#1) [C:/Users/needs/OneDrive/Desktop/new/binary_2_bcd.v:23]
+INFO: [Synth 8-6157] synthesizing module 'score_count' [C:/Users/needs/OneDrive/Desktop/new/score_count.v:88]
+	Parameter ZERO bound to: 7'b1000000 
+	Parameter ONE bound to: 7'b1111001 
+	Parameter TWO bound to: 7'b0100100 
+	Parameter THREE bound to: 7'b0110000 
+	Parameter FOUR bound to: 7'b0011001 
+	Parameter FIVE bound to: 7'b0010010 
+	Parameter SIX bound to: 7'b0000010 
+	Parameter SEVEN bound to: 7'b1111000 
+	Parameter EIGHT bound to: 7'b0000000 
+	Parameter NINE bound to: 7'b0010000 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/needs/OneDrive/Desktop/new/score_count.v:144]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/needs/OneDrive/Desktop/new/score_count.v:159]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/needs/OneDrive/Desktop/new/score_count.v:174]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/needs/OneDrive/Desktop/new/score_count.v:189]
+INFO: [Synth 8-6155] done synthesizing module 'score_count' (7#1) [C:/Users/needs/OneDrive/Desktop/new/score_count.v:88]
+INFO: [Synth 8-6157] synthesizing module 'bcd_2_hex' [C:/Users/needs/OneDrive/Desktop/new/bcd_2_hex.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'bcd_2_hex' (8#1) [C:/Users/needs/OneDrive/Desktop/new/bcd_2_hex.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ascii_test_1' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/ascii_test_1.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ascii_rom' [C:/Users/needs/OneDrive/Desktop/new/ascii_rom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ascii_rom' (9#1) [C:/Users/needs/OneDrive/Desktop/new/ascii_rom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ascii_test_1' (10#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/ascii_test_1.v:13]
+INFO: [Synth 8-6157] synthesizing module 'winrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:44]
 	Parameter ROM_WIDTH bound to: 12 - type: integer 
 	Parameter ROM_ADDR_BITS bound to: 16 - type: integer 
-INFO: [Synth 8-3876] $readmem data file 'tort.hex' is read successfully [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:104]
-INFO: [Synth 8-6155] done synthesizing module 'tortrom' (3#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:92]
-WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (8) of module 'tortrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:678]
-WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (8) of module 'tortrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:678]
-WARNING: [Synth 8-6090] variable 'sq1_x_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1069]
-WARNING: [Synth 8-6090] variable 'sq1_y_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1070]
-WARNING: [Synth 8-6090] variable 'sq2_x_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1071]
-WARNING: [Synth 8-6090] variable 'sq2_y_next' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1072]
-INFO: [Synth 8-6155] done synthesizing module 'pixel_generation_three' (4#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:134]
-INFO: [Synth 8-6155] done synthesizing module 'top_new' (5#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v:35]
-INFO: [Synth 8-6157] synthesizing module 'DigitToSeg' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v:23]
-INFO: [Synth 8-6157] synthesizing module 'sevensegdecoder' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v:21]
-INFO: [Synth 8-226] default block is never used [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'sevensegdecoder' (6#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v:21]
-INFO: [Synth 8-6157] synthesizing module 'mux4_4bus' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'mux4_4bus' (7#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v:21]
-INFO: [Synth 8-6157] synthesizing module 'segClkDevider' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v:21]
-	Parameter constantNumber bound to: 10000 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'segClkDevider' (8#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v:21]
-INFO: [Synth 8-6157] synthesizing module 'counter3bit' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'counter3bit' (9#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v:1]
-INFO: [Synth 8-6157] synthesizing module 'decoder_3_8' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'decoder_3_8' (10#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'DigitToSeg' (11#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'XADCdemo' (12#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:21]
+INFO: [Synth 8-3876] $readmem data file 'win1.hex' is read successfully [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'winrom' (11#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:44]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (8) of module 'winrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17883]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (8) of module 'winrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17883]
+INFO: [Synth 8-6157] synthesizing module 'drawrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:138]
+	Parameter ROM_WIDTH bound to: 12 - type: integer 
+	Parameter ROM_ADDR_BITS bound to: 16 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'draw.hex' is read successfully [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:150]
+INFO: [Synth 8-6155] done synthesizing module 'drawrom' (12#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v:138]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (8) of module 'drawrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17885]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (8) of module 'drawrom' [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:17885]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_generation_three' (13#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v:1210]
+INFO: [Synth 8-6155] done synthesizing module 'top_new' (14#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v:75]
+INFO: [Synth 8-6155] done synthesizing module 'XADCdemo' (15#1) [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v:21]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1024.523 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1523.148 ; gain = 497.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1024.523 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1523.148 ; gain = 497.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1024.523 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1523.148 ; gain = 497.738
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1024.523 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.744 . Memory (MB): peak = 1523.148 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -164,32 +1396,24 @@ Parsing XDC File [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys
 Finished Parsing XDC File [C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1068.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1537.637 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1068.750 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.193 . Memory (MB): peak = 1537.637 ; gain = 0.000
 WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1068.750 ; gain = 44.227
+Finished Constraint Validation : Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1537.637 ; gain = 512.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1068.750 ; gain = 44.227
+WARNING: [Synth 8-327] inferring latch for variable 'seg_reg' [C:/Users/needs/OneDrive/Desktop/new/score_count.v:145]
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for XLXI_7. (constraint file  auto generated constraint, line ).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1068.750 ; gain = 44.227
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 1068.750 ; gain = 44.227
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:17 ; elapsed = 00:02:24 . Memory (MB): peak = 1537.637 ; gain = 512.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -197,29 +1421,56 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   33 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 1     
-	   2 Input   10 Bit       Adders := 2     
-	   2 Input    3 Bit       Adders := 1     
-	   2 Input    2 Bit       Adders := 2     
+	   2 Input   24 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   3 Input   12 Bit       Adders := 12    
+	 625 Input   10 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 12    
+	1251 Input   10 Bit       Adders := 1     
+	 626 Input   10 Bit       Adders := 1     
+	   3 Input   10 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 3     
 +---Registers : 
 	               33 Bit    Registers := 1     
-	               32 Bit    Registers := 1     
-	               16 Bit    Registers := 2     
-	               12 Bit    Registers := 3     
-	               10 Bit    Registers := 4     
+	               24 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	               12 Bit    Registers := 4     
+	               11 Bit    Registers := 6     
+	               10 Bit    Registers := 15    
+	                7 Bit    Registers := 6     
+	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
-	                4 Bit    Registers := 8     
-	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 11    
+	                4 Bit    Registers := 17    
+	                2 Bit    Registers := 629   
+	                1 Bit    Registers := 17    
 +---ROMs : 
-	                    ROMs := 1     
+	                    ROMs := 8     
 +---Muxes : 
 	   2 Input   33 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   3 Input   12 Bit        Muxes := 7     
+	  10 Input   12 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 6     
+	   6 Input   12 Bit        Muxes := 2     
+	   4 Input   10 Bit        Muxes := 1249  
+	   2 Input   10 Bit        Muxes := 83    
+	  14 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 5     
 	   4 Input    5 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 9     
+	   2 Input    4 Bit        Muxes := 5     
+	   3 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 3130  
+	   3 Input    2 Bit        Muxes := 1251  
+	   4 Input    2 Bit        Muxes := 1250  
+	   2 Input    1 Bit        Muxes := 32    
+	  11 Input    1 Bit        Muxes := 10    
+	  14 Input    1 Bit        Muxes := 1     
 	   4 Input    1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -236,23 +1487,25 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-DSP Report: Generating DSP dig35, operation Mode is: (A:0x3d090)*B.
-DSP Report: operator dig35 is absorbed into DSP dig35.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:53 ; elapsed = 00:04:01 . Memory (MB): peak = 1537.637 ; gain = 512.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-DSP: Preliminary Mapping	Report (see note below)
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|XADCdemo    | (A:0x3d090)*B | 18     | 12     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+ROM: Preliminary Mapping	Report
++-------------+-------------------+---------------+----------------+
+|Module Name  | RTL Object        | Depth x Width | Implemented As | 
++-------------+-------------------+---------------+----------------+
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
+|ascii_test_1 | rom1/addr_reg_reg | 2048x8        | Block RAM      | 
++-------------+-------------------+---------------+----------------+
 
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -260,19 +1513,26 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:17 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:05 ; elapsed = 00:04:13 . Memory (MB): peak = 1537.637 ; gain = 512.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
+info: optimization accepted worst group hill climbing move (3787.0/oG. 160.0ps)
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:19 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Timing Optimization : Time (s): cpu = 00:05:54 ; elapsed = 00:06:04 . Memory (MB): peak = 1714.551 ; gain = 689.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance game/pg/test6/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance game/pg/test6/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance game/pg/test4/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance game/pg/test4/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance game/pg/test2/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance game/pg/test2/rom1/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:15 ; elapsed = 00:01:21 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Technology Mapping : Time (s): cpu = 00:06:13 ; elapsed = 00:06:23 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -309,37 +1569,37 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module XLXI_7 has unconnected pin dwe_
 CRITICAL WARNING: [Synth 8-4442] BlackBox module XLXI_7 has unconnected pin vp_in
 CRITICAL WARNING: [Synth 8-4442] BlackBox module XLXI_7 has unconnected pin vn_in
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished IO Insertion : Time (s): cpu = 00:06:20 ; elapsed = 00:06:31 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:20 ; elapsed = 00:06:31 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:23 ; elapsed = 00:06:33 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:23 ; elapsed = 00:06:33 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:26 ; elapsed = 00:06:36 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:26 ; elapsed = 00:06:36 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -357,42 +1617,47 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |xadc_wiz |     1|
-|2     |BUFG     |     2|
-|3     |CARRY4   |    25|
-|4     |DSP48E1  |     1|
-|5     |LUT1     |     4|
-|6     |LUT2     |    45|
-|7     |LUT3     |    37|
-|8     |LUT4     |    28|
-|9     |LUT5     |    78|
-|10    |LUT6     |    87|
-|11    |RAMB36E1 |    24|
-|32    |FDCE     |    44|
-|33    |FDRE     |   151|
-|34    |FDSE     |     8|
-|35    |IBUF     |    10|
-|36    |OBUF     |    42|
+|2     |BUFG     |     3|
+|3     |CARRY4   |   803|
+|4     |LUT1     |    68|
+|5     |LUT2     |  1233|
+|6     |LUT3     |  1795|
+|7     |LUT4     |  1973|
+|8     |LUT5     |  2397|
+|9     |LUT6     |  5604|
+|10    |MUXF7    |    13|
+|11    |RAMB18E1 |     3|
+|12    |RAMB36E1 |    24|
+|36    |FDCE     |   112|
+|37    |FDRE     |  1486|
+|38    |FDSE     |    34|
+|39    |LD       |     7|
+|40    |IBUF     |    16|
+|41    |OBUF     |    41|
+|42    |OBUFT    |     1|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:26 ; elapsed = 00:06:36 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 19 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:08 ; elapsed = 00:01:24 . Memory (MB): peak = 1302.320 ; gain = 233.570
-Synthesis Optimization Complete : Time (s): cpu = 00:01:22 ; elapsed = 00:01:28 . Memory (MB): peak = 1302.320 ; gain = 277.797
+Synthesis finished with 0 errors, 19 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:05:26 ; elapsed = 00:06:23 . Memory (MB): peak = 2371.789 ; gain = 1331.891
+Synthesis Optimization Complete : Time (s): cpu = 00:06:26 ; elapsed = 00:06:37 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1302.320 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 50 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.330 . Memory (MB): peak = 2371.789 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 850 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'XADCdemo' is not ideal for floorplanning, since the cellview 'pixel_generation_three' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1302.320 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2371.789 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 7 instances were transformed.
+  LD => LDCE: 7 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-46 Infos, 11 Warnings, 19 Critical Warnings and 0 Errors encountered.
+62 Infos, 16 Warnings, 19 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:31 ; elapsed = 00:01:39 . Memory (MB): peak = 1302.320 ; gain = 277.797
+synth_design: Time (s): cpu = 00:06:40 ; elapsed = 00:06:54 . Memory (MB): peak = 2371.789 ; gain = 1346.379
 INFO: [Common 17-1381] The checkpoint 'C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.runs/synth_1/XADCdemo.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file XADCdemo_utilization_synth.rpt -pb XADCdemo_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 11 18:54:58 2022...
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 14 00:29:49 2022...

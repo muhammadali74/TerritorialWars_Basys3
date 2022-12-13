@@ -32,8 +32,12 @@ module XADCdemo(
    output [3:0] an,
    output dp,
    output [6:0] seg,
-   input rst,
-   input rst2,
+   input r1,
+   input r2,
+   input r3,
+   input rand,
+   input [1:0] sell,
+   input enab,
    output hsync,
    output vsync,
    output [11:0] rgb
@@ -466,21 +470,21 @@ module XADCdemo(
       
       // The game logic + vga
 //      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
-        top_new game(CLK100MHZ, rst, rst2, up, down, right, left,up2, down2,right2,left2, hsync, vsync, rgb);
+        top_new game(CLK100MHZ, r1, r2, r3 , rand, up, down, right, left,up2, down2,right2,left2, sell, enab, seg, an, hsync, vsync, rgb);
       
       // This is for debugging and testing the values
-      DigitToSeg segment1(.in1(dig3),
-                         .in2(dig4),
-                         .in3(dig5),
-                         .in4(dig6),
-                         .in5(),
-                         .in6(),
-                         .in7(),
-                         .in8(),
-                         .mclk(CLK100MHZ),
-                         .an(an),
-                         .dp(dp),
-                         .seg(seg));
+//      DigitToSeg segment1(.in1(dig3),
+//                         .in2(dig4),
+//                         .in3(dig5),
+//                         .in4(dig6),
+//                         .in5(),
+//                         .in6(),
+//                         .in7(),
+//                         .in8(),
+//                         .mclk(CLK100MHZ),
+//                         .an(an),
+//                         .dp(dp),
+//                         .seg(seg));
                          
        
 endmodule

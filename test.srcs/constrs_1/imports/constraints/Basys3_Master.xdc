@@ -9,10 +9,10 @@ set_property PACKAGE_PIN W5 [get_ports CLK100MHZ]
 	create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports CLK100MHZ]
  
 # Switches
-#set_property PACKAGE_PIN V17 [get_ports {swt[0]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {swt[0]}]
-#set_property PACKAGE_PIN V16 [get_ports {swt[1]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {swt[1]}]
+set_property PACKAGE_PIN V17 [get_ports enab]					
+	set_property IOSTANDARD LVCMOS33 [get_ports enab]
+set_property PACKAGE_PIN V16 [get_ports r1]					
+	set_property IOSTANDARD LVCMOS33 [get_ports r1]
 #set_property PACKAGE_PIN W16 [get_ports {swt[2]}]					
 #	set_property IOSTANDARD LVCMOS33 [get_ports {swt[2]}]
 #set_property PACKAGE_PIN W17 [get_ports {swt[3]}]					
@@ -108,16 +108,16 @@ set_property PACKAGE_PIN W4 [get_ports {an[3]}]
 
 
 ##Buttons
-set_property PACKAGE_PIN U18 [get_ports rst]						
-	set_property IOSTANDARD LVCMOS33 [get_ports rst]
-set_property PACKAGE_PIN T18 [get_ports rst2]						
-	set_property IOSTANDARD LVCMOS33 [get_ports rst2]
-#set_property PACKAGE_PIN W19 [get_ports btnL]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports btnL]
-#set_property PACKAGE_PIN T17 [get_ports btnR]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports btnR]
-#set_property PACKAGE_PIN U17 [get_ports btnD]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports btnD]
+set_property PACKAGE_PIN U18 [get_ports r3]						
+	set_property IOSTANDARD LVCMOS33 [get_ports r3]
+set_property PACKAGE_PIN T18 [get_ports r2]						
+	set_property IOSTANDARD LVCMOS33 [get_ports r2]
+set_property PACKAGE_PIN W19 [get_ports {sell[0]}]						
+	set_property IOSTANDARD LVCMOS33 [get_ports {sell[0]}]
+set_property PACKAGE_PIN T17 [get_ports {sell[1]}]						
+	set_property IOSTANDARD LVCMOS33 [get_ports {sell[1]}]
+set_property PACKAGE_PIN U17 [get_ports rand]						
+	set_property IOSTANDARD LVCMOS33 [get_ports rand]
  
 
 
