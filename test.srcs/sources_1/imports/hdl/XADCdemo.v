@@ -32,14 +32,16 @@ module XADCdemo(
    output [3:0] an,
    output dp,
    output [6:0] seg,
-   input rst,
+   input r1,
+   input r2,
+   input r3,
+   input rand,
+   input [1:0] sell,
+   input enab,
    output hsync,
    output vsync,
-   output [11:0] rgb,
+   output [11:0] rgb
    
-   
-   
-   input [8:0] swt
  );
    
    wire enable;  
@@ -103,34 +105,34 @@ module XADCdemo(
       sw=2'b00;
       end
       //led visual dmm  (for visulaizing the input voltage in form of an led bar)            
-//      always @( posedge(CLK100MHZ))
-//      begin            
-//        if(ready == 1'b1)
-//        begin
-//          case (data[15:12])
-//            1:  LED <= 16'b11;
-//            2:  LED <= 16'b111;
-//            3:  LED <= 16'b1111;
-//            4:  LED <= 16'b11111;
-//            5:  LED <= 16'b111111;
-//            6:  LED <= 16'b1111111; 
-//            7:  LED <= 16'b11111111;
-//            8:  LED <= 16'b111111111;
-//            9:  LED <= 16'b1111111111;
-//            10: LED <= 16'b11111111111;
-//            11: LED <= 16'b111111111111;
-//            12: LED <= 16'b1111111111111;
-//            13: LED <= 16'b11111111111111;
-//            14: LED <= 16'b111111111111111;
-//            15: LED <= 16'b1111111111111111;                        
-//           default: LED <= 16'b1;
+      always @( posedge(CLK100MHZ))
+      begin            
+        if(ready == 1'b1)
+        begin
+          case (data[15:12])
+            1:  LED <= 16'b11;
+            2:  LED <= 16'b111;
+            3:  LED <= 16'b1111;
+            4:  LED <= 16'b11111;
+            5:  LED <= 16'b111111;
+            6:  LED <= 16'b1111111; 
+            7:  LED <= 16'b11111111;
+            8:  LED <= 16'b111111111;
+            9:  LED <= 16'b1111111111;
+            10: LED <= 16'b11111111111;
+            11: LED <= 16'b111111111111;
+            12: LED <= 16'b1111111111111;
+            13: LED <= 16'b11111111111111;
+            14: LED <= 16'b111111111111111;
+            15: LED <= 16'b1111111111111111;                        
+           default: LED <= 16'b1;
            
-//           endcase
+           endcase
            
-//        end 
+        end
 
           
-//      end
+      end
 //    wire [5:0] curr1;
 //    wire [5:0] interim;
 ////    assign curr1=interim;
@@ -468,21 +470,21 @@ module XADCdemo(
       
       // The game logic + vga
 //      top game(CLK100MHZ, rst, up,down, left, right, hsync, vsync, rgb);
-        top_new game(CLK100MHZ, rst, rst, up, down, right, left,up2, down2,right2,left2, hsync, vsync, rgb);
+        top_new game(CLK100MHZ, r1, r2, r3 , rand, up, down, right, left,up2, down2,right2,left2, sell, enab, seg, an, hsync, vsync, rgb);
       
       // This is for debugging and testing the values
-      DigitToSeg segment1(.in1(dig3),
-                         .in2(dig4),
-                         .in3(dig5),
-                         .in4(dig6),
-                         .in5(),
-                         .in6(),
-                         .in7(),
-                         .in8(),
-                         .mclk(CLK100MHZ),
-                         .an(an),
-                         .dp(dp),
-                         .seg(seg));
+//      DigitToSeg segment1(.in1(dig3),
+//                         .in2(dig4),
+//                         .in3(dig5),
+//                         .in4(dig6),
+//                         .in5(),
+//                         .in6(),
+//                         .in7(),
+//                         .in8(),
+//                         .mclk(CLK100MHZ),
+//                         .an(an),
+//                         .dp(dp),
+//                         .seg(seg));
                          
        
 endmodule

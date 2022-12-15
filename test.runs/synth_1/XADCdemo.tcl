@@ -71,11 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param synth.incrementalSynthesisCache C:/Users/needs/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-17232-Muhammads/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -92,14 +88,16 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/DigitToSeg.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/FSM_block.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/counter3bit.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/decoder3_8.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/mux4_4bus.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/D_FlipFlop.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/ascii_rom.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/new/ascii_test_1.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/bcd_2_hex.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/binary_2_bcd.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/clk_div2.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/pixel_generation_two.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/segClkDevider.v
-  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/sevensegdecoder.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/rom.txt.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/score_count.v
+  C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/new/selection.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/top.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/Game_screen/Game_screen.srcs/sources_1/new/vga_controller.v
   C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/sources_1/imports/hdl/XADCdemo.v
@@ -123,6 +121,8 @@ set_property used_in_implementation false [get_files C:/Users/needs/OneDrive/Doc
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/needs/OneDrive/Documents/GitHub/TerritorialWars_Basys3/test.srcs/utils_1/imports/synth_1/XADCdemo.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -133,7 +133,7 @@ OPTRACE "synth_design" END { }
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef XADCdemo.dcp
+write_checkpoint -force -noxdef -incremental_synth XADCdemo.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
 create_report "synth_1_synth_report_utilization_0" "report_utilization -file XADCdemo_utilization_synth.rpt -pb XADCdemo_utilization_synth.pb"
