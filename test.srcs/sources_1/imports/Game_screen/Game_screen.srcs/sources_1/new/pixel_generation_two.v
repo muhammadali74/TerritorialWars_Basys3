@@ -2589,21 +2589,19 @@ wire tr24_24_on; assign tr24_24_on = (gr_x_24_24 <= x) && (x <= gr_x_24_24+18) &
 selection sl (.clk(clk), .reset(reset3), .button1(S[0]), .button2(S[1]), .out(sel));
 
 
-//    wire [11:0] rgb_start;
+    wire [11:0] rgb_init;
 //    wire [11:0] rgb_easy;
 //    wire [11:0] rgb_tort;
 //    wire [11:0] rgb_win1;
 //    wire [11:0] rgb_win2;
-//    wire [11:0] rgb_draw;
-    
-    
-    
-//    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_start);
+    wire [11:0] rgb_draw;
+    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_init);
 //    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_easy);
 //    tortrom tort(clk, video_on, x/3, y[8:0]/2, rgb_tort);
-//    winrom w1(clk, video_on, x/3, y[8:0]/2, rgb_win1);
-//    win2rom w2(clk, video_on, x/3, y[8:0]/2, rgb_win2);
-//    drawrom dr(clk, video_on, x/3, y[8:0]/2, rgb_draw);
+//    winrom win11(clk, video_on, x/3, y[8:0]/2, rgb_win1);
+//    win2rom win22(clk, video_on, x/3, y[8:0]/2, rgb_win2);
+    drawrom draw(clk, video_on, x/3, y[8:0]/2, rgb_draw);
+    
 
     always@(posedge clk_25)      
     
@@ -17871,18 +17869,7 @@ ascii_test_1 test4(.ascii_char(asciir_char2),.clk(clk),.video_on(video_on),.x(x)
 ascii_test_1 test5(.ascii_char(asciir_char1),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd575),.y_loc(10'd15), .on(asciir_on2),.rgb(ascii_rgb));    
 ascii_test_1 test6(.ascii_char(asciir_char0),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd583),.y_loc(10'd15), .on(asciir_on1),.rgb(ascii_rgb));    
    
-//    wire [11:0] rgb_init;
-//    wire [11:0] rgb_easy;
-//    wire [11:0] rgb_tort;
-    wire [11:0] rgb_win1;
-//    wire [11:0] rgb_win2;
-    wire [11:0] rgb_draw;
-//    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_init);
-//    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_easy);
-//    tortrom tort(clk, video_on, x/3, y[8:0]/2, rgb_tort);
-    winrom win11(clk, video_on, x/3, y[8:0]/2, rgb_win1);
-//    win2rom win22(clk, video_on, x/3, y[8:0]/2, rgb_win2);
-    drawrom draw(clk, video_on, x/3, y[8:0]/2, rgb_draw);
+
     
     
     // RGB control
@@ -17891,16 +17878,16 @@ ascii_test_1 test6(.ascii_char(asciir_char0),.clk(clk),.video_on(video_on),.x(x)
             rgb = 12'h000;          // black(no value) outside display area
         else
             if (main)
-                rgb = rgb_draw;
+                rgb = b_start;
             else if (ply)
                 rgb = start;
             else if (col)
                 if (win == 2'd1)
-                    rgb = SQ1_RGB;
+                    rgb <= SQ1_RGB;
                 else if (win == 2'd2)
                     rgb = SQ2_RGB;
                 else
-                    rgb = rgb_draw;
+                    rgb = rgb_init;
             else if(sq1_on)
                 if (sel == 2'b10)
                 begin

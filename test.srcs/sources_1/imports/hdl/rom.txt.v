@@ -33,7 +33,8 @@ module romv2(clk, video_on, x, y, color);
     initial
       $readmemh("romv.hex", rom);
     always @(posedge clk)
-      if (video_on) begin
+      if (video_on) 
+    begin
          address <= {y, x};
          color <= rom[address];
       end

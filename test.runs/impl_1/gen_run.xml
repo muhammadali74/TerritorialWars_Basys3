@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670959359">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670964821">
   <File Type="BITSTR-BMM" Name="XADCdemo_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="XADCdemo_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="XADCdemo_timing_summary_init.rpt"/>
@@ -86,15 +86,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/D_FlipFlop.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/D_FlipFlop.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/D_FlipFlop.v"/>
+        <Attr Name="ImportTime" Val="1670946815"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/ascii_rom.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/ascii_rom.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/ascii_rom.v"/>
+        <Attr Name="ImportTime" Val="1670947810"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -107,22 +111,28 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/bcd_2_hex.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/bcd_2_hex.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/bcd_2_hex.v"/>
+        <Attr Name="ImportTime" Val="1670946815"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/binary_2_bcd.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/binary_2_bcd.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/binary_2_bcd.v"/>
+        <Attr Name="ImportTime" Val="1670946815"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/clk_div2.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/clk_div2.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/clk_div2.v"/>
+        <Attr Name="ImportTime" Val="1670946815"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -144,15 +154,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/score_count.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/score_count.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/score_count.v"/>
+        <Attr Name="ImportTime" Val="1670946816"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../Desktop/new/selection.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/selection.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Desktop/new/selection.v"/>
+        <Attr Name="ImportTime" Val="1670946816"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -342,7 +356,7 @@
     <File Path="$PSRCDIR/utils_1/imports/synth_1/XADCdemo.dcp">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PRUNDIR/synth_1/XADCdemo.dcp"/>
-        <Attr Name="ImportTime" Val="1670959353"/>
+        <Attr Name="ImportTime" Val="1670964819"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
@@ -354,9 +368,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Wed Dec 14 00:32:45 2022
+| Date         : Wed Dec 14 02:03:15 2022
 | Host         : Muhammads running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file XADCdemo_control_sets_placed.rpt
 | Design       : XADCdemo
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    27 |
-|    Minimum number of control sets                        |    27 |
+| Total control sets                                       |    29 |
+|    Minimum number of control sets                        |    29 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    91 |
+| Unused register locations in slices containing registers |   102 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,13 +39,13 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    27 |
+| Total control sets |    29 |
 | >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     7 |
+| >= 4 to < 6        |    10 |
 | >= 6 to < 8        |     5 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     3 |
-| >= 12 to < 14      |     3 |
+| >= 12 to < 14      |     2 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     7 |
 +--------------------+-------+
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              82 |           38 |
-| No           | No                    | Yes                    |             153 |          100 |
+| No           | No                    | No                     |              82 |           40 |
+| No           | No                    | Yes                    |             166 |          100 |
 | No           | Yes                   | No                     |              55 |           14 |
-| Yes          | No                    | No                     |             627 |          465 |
-| Yes          | No                    | Yes                    |              10 |            6 |
-| Yes          | Yes                   | No                     |             766 |          430 |
+| Yes          | No                    | No                     |              67 |           27 |
+| Yes          | No                    | Yes                    |              10 |            7 |
+| Yes          | Yes                   | No                     |            1326 |          677 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -75,31 +75,33 @@ Table of Contents
 +----------------------+--------------------------------+-------------------------------+------------------+----------------+--------------+
 |  CLK100MHZ_IBUF_BUFG | XLXI_7/drdy_out                |                               |                1 |              1 |         1.00 |
 |  clk_d2              | game/pg/timer_check[3]_i_1_n_0 |                               |                1 |              4 |         4.00 |
-|  CLK100MHZ_IBUF_BUFG | game/pg/b2b1/E[0]              |                               |                1 |              4 |         4.00 |
-|  CLK100MHZ_IBUF_BUFG | game/pg/b2b1/num1_reg[3]_1[0]  |                               |                2 |              4 |         2.00 |
 |  CLK100MHZ_IBUF_BUFG | game/pg/b2b1/num0_reg[3]_1[0]  |                               |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | game/pg/b2b1/E[0]              |                               |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | game/pg/b2b1/num1_reg[3]_1[0]  |                               |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | game/pg/b2b2/num1_reg[3]_1[0]  |                               |                1 |              4 |         4.00 |
 |  CLK100MHZ_IBUF_BUFG | game/pg/b2b2/E[0]              |                               |                1 |              4 |         4.00 |
 |  CLK100MHZ_IBUF_BUFG | game/pg/b2b2/num0_reg[3]_1[0]  |                               |                1 |              4 |         4.00 |
-|  CLK100MHZ_IBUF_BUFG | game/pg/b2b2/num1_reg[3]_1[0]  |                               |                1 |              4 |         4.00 |
-|  clk_d2              |                                |                               |                6 |              6 |         1.00 |
-|  clk_d2              | game/pg/sl/Flop2/E[0]          |                               |                2 |              6 |         3.00 |
+|  CLK100MHZ_IBUF_BUFG | game/vc/color_reg[0]           | game/vc/ply_reg               |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | game/vc/color_reg[0]           | game/pg/rgb[7]_i_1_n_0        |                2 |              4 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | game/vc/color_reg[0]           | game/vc/v_count_reg_reg[9]_0  |                2 |              4 |         2.00 |
+|  clk_d2              |                                |                               |                5 |              6 |         1.20 |
+|  clk_d2              | game/pg/sl/Flop1/E[0]          |                               |                2 |              6 |         3.00 |
 |  game/pg/b2b/E[0]    |                                |                               |                7 |              7 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | XLXI_7/drdy_out                | LED[15]_i_1_n_0               |                2 |              7 |         3.50 |
-|  CLK100MHZ_IBUF_BUFG | XLXI_7/drdy_out                | LED[7]_i_1_n_0                |                3 |              7 |         2.33 |
-|  clk_d2              | game/pg/gr0_2_on[1]_i_2_n_0    | game/pg/sq1_x_next[8]_i_1_n_0 |                5 |              8 |         1.60 |
-|  clk_d2              | game/pg/timer_count[9]_i_1_n_0 | game/pg/gr0_2_on[1]_i_1_n_0   |                4 |             10 |         2.50 |
-|  w_p_tick            |                                | r1_IBUF                       |                9 |             10 |         1.11 |
-|  w_p_tick            | game/vc/v_count_next_1         | r1_IBUF                       |                6 |             10 |         1.67 |
-|  clk_d2              | game/pg/gr0_2_on[1]_i_2_n_0    | game/pg/sq1_x_next[9]_i_1_n_0 |                9 |             12 |         1.33 |
-|  CLK100MHZ_IBUF_BUFG | game/pg/sl/Flop2/bonus_reg[0]  | game/vc/SR[0]                 |                5 |             12 |         2.40 |
-|  CLK100MHZ_IBUF_BUFG | w_p_tick                       |                               |               10 |             12 |         1.20 |
+|  CLK100MHZ_IBUF_BUFG | XLXI_7/drdy_out                | LED[15]_i_1_n_0               |                3 |              7 |         2.33 |
+|  CLK100MHZ_IBUF_BUFG | XLXI_7/drdy_out                | LED[7]_i_1_n_0                |                1 |              7 |         7.00 |
+|  clk_d2              | game/pg/gr0_1_on[1]_i_2_n_0    | game/pg/sq1_y_next[9]_i_1_n_0 |                7 |              8 |         1.14 |
+|  clk_d2              | game/pg/timer_count[9]_i_1_n_0 | game/pg/gr0_0_on              |                4 |             10 |         2.50 |
+|  w_p_tick            |                                | r1_IBUF                       |                8 |             10 |         1.25 |
+|  w_p_tick            | game/vc/v_count_next_1         | r1_IBUF                       |                7 |             10 |         1.43 |
+|  clk_d2              | game/pg/gr0_1_on[1]_i_2_n_0    | game/pg/sq1_y_next[8]_i_1_n_0 |                5 |             12 |         2.40 |
+|  CLK100MHZ_IBUF_BUFG | w_p_tick                       |                               |                7 |             12 |         1.71 |
 |  CLK100MHZ_IBUF_BUFG |                                | enab_IBUF                     |                6 |             19 |         3.17 |
+|  clk_d2              | game/pg/gr0_1_on[1]_i_2_n_0    |                               |               10 |             20 |         2.00 |
 |  CLK100MHZ_IBUF_BUFG |                                | game/cd2/clk_d                |                6 |             23 |         3.83 |
 |  CLK100MHZ_IBUF_BUFG |                                | delay[32]_i_1_n_0             |                8 |             32 |         4.00 |
-|  CLK100MHZ_IBUF_BUFG |                                |                               |               25 |             69 |         2.76 |
-|  CLK100MHZ_IBUF_BUFG |                                | r1_IBUF                       |               85 |            124 |         1.46 |
-|  clk_d2              | game/pg/gr0_2_on[1]_i_2_n_0    |                               |              444 |            580 |         1.31 |
-|  clk_d2              | game/pg/gr0_2_on[1]_i_2_n_0    | game/pg/gr0_2_on[1]_i_1_n_0   |              402 |            710 |         1.77 |
+|  CLK100MHZ_IBUF_BUFG |                                |                               |               28 |             69 |         2.46 |
+|  CLK100MHZ_IBUF_BUFG |                                | r1_IBUF                       |               86 |            137 |         1.59 |
+|  clk_d2              | game/pg/gr0_1_on[1]_i_2_n_0    | game/pg/gr0_0_on              |              652 |           1270 |         1.95 |
 +----------------------+--------------------------------+-------------------------------+------------------+----------------+--------------+
 
 
