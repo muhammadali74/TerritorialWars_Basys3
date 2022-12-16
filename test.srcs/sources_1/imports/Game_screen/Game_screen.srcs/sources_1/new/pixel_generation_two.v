@@ -1,1189 +1,3 @@
-//`timescale 1ns / 1ps
-////////////////////////////////////////////////////////////////////////////////////
-//// Company: 
-//// Engineer: 
-//// 
-//// Create Date: 11/03/2022 11:07:00 AM
-//// Design Name: 
-//// Module Name: pixel_generation_two
-//// Project Name: 
-//// Target Devices: 
-//// Tool Versions: 
-//// Description: 
-//// 
-//// Dependencies: 
-//// 
-//// Revision:
-//// Revision 0.01 - File Created
-//// Additional Comments:
-//// 
-////////////////////////////////////////////////////////////////////////////////////
-
-
-
-//module pixel_generation_two(
-//    input clk,                              // 100MHz from Basys 3
-//    input reset,                            // btnC
-//    input video_on,
-//    input up,
-//    input down,
-//    input right,
-//    input left,                         // from VGA controller
-//    input [9:0] x, y,                       // from VGA controller
-//    output reg [11:0] rgb                   // to DAC, to VGA controller
-//    );
-    
-//    parameter X_MAX = 639;                  // right border of display area
-//    parameter Y_MAX = 479;                  // bottom border of display area
-//    parameter SQ_RGB = 12'h0FF;             // red & green = yellow for square
-//    parameter BG_RGB = 12'hF00;             // blue background
-//    parameter SQUARE_SIZE = 23;             // width of square sides in pixels
-////    parameter SQUARE_VELOCITY_POS = 2;      // set position change value for positive direction
-////    parameter SQUARE_VELOCITY_NEG = -2;     // set position change value for negative direction  
-    
-//    // create a 60Hz refresh tick at the start of vsync 
-//    wire refresh_tick;
-//    assign refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
-    
-//    // square boundaries and position
-//    wire [9:0] sq_x_l, sq_x_r;              // square left and right boundary
-//    wire [9:0] sq_y_t, sq_y_b;              // square top and bottom boundary
-    
-//    reg [9:0] sq_x_reg, sq_y_reg;           // regs to track left, top position
-//    reg [9:0] sq_x_next, sq_y_next;        // buffer wires
-//    wire [9:0] sq_top, sq_bottom;
-
-//parameter x_delta=1;
-//parameter y_delta=1;     // track square speed
-////reg [9:0] x_delta_next, y_delta_next;   // buffer regs    
-    
-//    // register control
-//    always @(posedge clk or posedge reset)
-//        if(reset) begin
-//            sq_x_reg <= 132;
-//            sq_y_reg <= 423;
-////            x_delta_reg <= 10'h002;
-////            y_delta_reg <= 10'h002;
-//        end
-//        else begin
-//            sq_x_reg <= sq_x_next;
-//            sq_y_reg <= sq_y_next;
-////            x_delta_reg <= x_delta_next;
-////            y_delta_reg <= y_delta_next;
-//        end
-    
-//    // square boundaries
-//    assign sq_x_l = sq_x_reg;                   // left boundary
-//    assign sq_y_t = sq_y_reg;                   // top boundary
-//    assign sq_x_r = sq_x_l + SQUARE_SIZE - 1;   // right boundary
-//    assign sq_y_b = sq_y_t + SQUARE_SIZE - 1;   // bottom boundary
-    
-//    // square status signal
-//    wire sq_on;
-//    assign sq_on = (sq_x_l <= x) && (x <= sq_x_r) && (sq_y_t <= y) && (y <= sq_y_b);
-                   
-//    // new square position
-//    always@(posedge clk)
-//    begin
-////    sq_y_next=sq_y_reg;
-//    if (refresh_tick)
-//        if (up)
-//            sq_y_next = sq_y_reg - y_delta;
-//         else if (down)
-//            sq_y_next = sq_y_reg + y_delta;
-//         else if (right)
-//            sq_x_next = sq_x_reg + x_delta;         
-//         else if(left)
-//            sq_x_next = sq_x_reg - x_delta;
-         
-//         else
-//            sq_y_next = sq_y_reg;
-////        sq_y_next = (down) ? (sq_y_reg + y_delta ): sq_y_reg;
-    
-//      end
-////    else
-////        sq_y_next = (up) ? (sq_y_reg + y_delta) : sq_y_reg;
-//    // new square velocity 
-////    always @* begin
-////        x_delta_next = x_delta_reg;
-////        y_delta_next = y_delta_reg;
-////        if(sq_y_t < 1)                              // collide with top display edge
-////            y_delta_next = SQUARE_VELOCITY_POS;     // change y direction(move down)
-////        else if(sq_y_b > Y_MAX)                     // collide with bottom display edge
-////            y_delta_next = SQUARE_VELOCITY_NEG;     // change y direction(move up)
-////        else if(sq_x_l < 1)                         // collide with left display edge
-////            x_delta_next = SQUARE_VELOCITY_POS;     // change x direction(move right)
-////        else if(sq_x_r > X_MAX)                     // collide with right display edge
-////            x_delta_next = SQUARE_VELOCITY_NEG;     // change x direction(move left)
-////    end
-    
-//    // RGB control
-//    always @*
-//        if(~video_on)
-//            rgb = 12'h000;          // black(no value) outside display area
-//        else
-//            if(sq_on)
-//                rgb = SQ_RGB;       // yellow square
-//            else
-//                rgb = BG_RGB;       // blue background
-    
-//endmodule
-
-
-
-//module pixel_generation_three(
-////    input clk,                              // 100MHz from Basys 3
-////    input reset1,
-////    input reset2,                            // btnC
-////    input video_on,
-////    input up1,
-////    input down1,
-////    input right1,
-////    input left1,
-////    input up2,
-////    input down2,
-////    input right2,
-////    input left2,                         // from VGA controller
-////    input [9:0] x, y,                       // from VGA controller
-////    output reg [11:0] rgb                   // to DAC, to VGA controller
-////    );
-    
-////    parameter X_MAX = 639;                  // right border of display area
-////    parameter Y_MAX = 479;                  // bottom border of display area
-////    parameter SQ1_RGB = 12'h00F;
-////    parameter SQ2_RGB = 12'hF00;             // red & green = yellow for square
-////    parameter BG_RGB = 12'hFFF;       
-////    parameter BLACK= 12'h000;      // blue background
-////    parameter SQUARE_SIZE = 23;             // width of square sides in pixels
-//////    parameter SQUARE_VELOCITY_POS = 2;      // set position change value for positive direction
-//////    parameter SQUARE_VELOCITY_NEG = -2;     // set position change value for negative direction  
-    
-////    // create a 60Hz refresh tick at the start of vsync 
-////    wire refresh_tick;
-////    assign refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
-    
-////    // square boundaries and position
-////    wire [9:0] sq1_x_l, sq1_x_r;              // square left and right boundary
-////    wire [9:0] sq1_y_t, sq1_y_b;              // square top and bottom boundary
-    
-////    reg [9:0] sq1_x_reg, sq1_y_reg;           // regs to track left, top position
-////    reg [9:0] sq1_x_next, sq1_y_next;        // buffer wires
-////    wire [9:0] sq1_top, sq1_bottom;
-    
-////    wire [9:0] sq2_x_l, sq2_x_r;              // square left and right boundary
-////    wire [9:0] sq2_y_t, sq2_y_b;              // square top and bottom boundary
-    
-////    reg [9:0] sq2_x_reg, sq2_y_reg;           // regs to track left, top position
-////    reg [9:0] sq2_x_next, sq2_y_next;        // buffer wires
-////    wire [9:0] sq2_top, sq2_bottom;
-
-////parameter x_delta=1;
-////parameter y_delta=1;     // track square speed
-//////reg [9:0] x_delta_next, y_delta_next;   // buffer regs    
-    
-////    // register control
-////    always @(posedge clk or posedge reset2)
-////        if(reset2) begin
-////            sq1_x_reg <= 523;
-////            sq1_y_reg <= 32;
-////            sq2_x_reg <= 132;
-////            sq2_y_reg <= 423;
-//////            x_delta_reg <= 10'h002;
-//////            y_delta_reg <= 10'h002;
-////        end
-////        else begin
-////            sq1_x_reg <= sq1_x_next;
-////            sq1_y_reg <= sq1_y_next;
-////            sq2_x_reg <= sq2_x_next;
-////            sq2_y_reg <= sq2_y_next;
-            
-//////            x_delta_reg <= x_delta_next;
-//////            y_delta_reg <= y_delta_next;
-////        end
-    
-////    // square boundaries
-////    assign sq1_x_l = sq1_x_reg;                   // left boundary
-////    assign sq1_y_t = sq1_y_reg;                   // top boundary
-////    assign sq1_x_r = sq1_x_l + SQUARE_SIZE - 1;   // right boundary
-////    assign sq1_y_b = sq1_y_t + SQUARE_SIZE - 1;
-    
-////    assign sq2_x_l = sq2_x_reg;                   // left boundary
-////    assign sq2_y_t = sq2_y_reg;                   // top boundary
-////    assign sq2_x_r = sq2_x_l + SQUARE_SIZE - 1;   // right boundary
-////    assign sq2_y_b = sq2_y_t + SQUARE_SIZE - 1;   // bottom boundary
-    
-////    // square status signal
-////    wire sq1_on;
-////    assign sq1_on = (sq1_x_l <= x) && (x <= sq1_x_r) && (sq1_y_t <= y) && (y <= sq1_y_b);
-    
-////    wire sq2_on;
-////    assign sq2_on = (sq2_x_l <= x) && (x <= sq2_x_r) && (sq2_y_t <= y) && (y <= sq2_y_b);
-    
-////    wire black_on;
-////    assign black_on= (x>=107 && x<=571) && (y>=469 && y<=471) | (x>=107 && x<=571) && (y>=7 && y<=9)| (x>=569 && x<=571) && (y>=7 && y<=471)|(x>=107 && x<=109) && (y>=7 && y<=471);  
-
-                   
-////    // new square position
-////    always@(posedge clk)
-////    begin
-//////    sq_y_next=sq_y_reg;
-////    if (refresh_tick)
-////        if (up1)
-////            sq1_y_next = sq1_y_reg - y_delta;
-////         else if (down1)
-////            sq1_y_next = sq1_y_reg + y_delta;
-////         else if (right1)
-////            sq1_x_next = sq1_x_reg + x_delta;         
-////         else if(left1)
-////            sq1_x_next = sq1_x_reg - x_delta;
-         
-////         else
-////            sq1_y_next = sq1_y_reg;
-//////        sq_y_next = (down) ? (sq_y_reg + y_delta ): sq_y_reg;
-////      if (refresh_tick)  
-////        if (up2)
-////            sq2_y_next = sq2_y_reg - y_delta;
-////        else if (down2)
-////            sq2_y_next = sq2_y_reg + y_delta;
-////        else if (right2)
-////            sq2_x_next = sq2_x_reg + x_delta;         
-////         else if(left2)
-////            sq2_x_next = sq2_x_reg - x_delta;
-         
-////         else
-////            sq2_y_next = sq2_y_reg;
-////      end
-//////    else
-//////        sq_y_next = (up) ? (sq_y_reg + y_delta) : sq_y_reg;
-////    // new square velocity 
-//////    always @* begin
-//////        x_delta_next = x_delta_reg;
-//////        y_delta_next = y_delta_reg;
-//////        if(sq_y_t < 1)                              // collide with top display edge
-//////            y_delta_next = SQUARE_VELOCITY_POS;     // change y direction(move down)
-//////        else if(sq_y_b > Y_MAX)                     // collide with bottom display edge
-//////            y_delta_next = SQUARE_VELOCITY_NEG;     // change y direction(move up)
-//////        else if(sq_x_l < 1)                         // collide with left display edge
-//////            x_delta_next = SQUARE_VELOCITY_POS;     // change x direction(move right)
-//////        else if(sq_x_r > X_MAX)                     // collide with right display edge
-//////            x_delta_next = SQUARE_VELOCITY_NEG;     // change x direction(move left)
-//////    end
-    
-////    // RGB control
-////    always @*
-////        if(~video_on)
-////            rgb = 12'h000;          // black(no value) outside display area
-////        else
-////            if(sq1_on)
-////                rgb = SQ1_RGB;       // yellow square
-////            else if(sq2_on)
-////                rgb = SQ2_RGB;
-////            else if(black_on)
-////                rgb = BLACK;
-////            else
-////                rgb= BG_RGB;       // blue background
-    
-////endmodule
-//input clk,
-////    input clk_25,                              // 100MHz from Basys 3
-//    input reset1,
-//    input reset2,                            // btnC
-//    input video_on,
-//    input up1,
-//    input down1,
-//    input right1,
-//    input left1,
-//    input up2,
-//    input down2,
-//    input right2,
-//    input left2,                         // from VGA controller
-//    input [9:0] x, y,                       // from VGA controller
-//    output reg [11:0] rgb                   // to DAC, to VGA controller
-//    );
-    
-//    parameter X_MAX = 639;                  // right border of display area
-//    parameter Y_MAX = 479;                  // bottom border of display area
-//    parameter SQ1_RGB = 12'h00F;
-//    parameter SQ2_RGB = 12'hF00;             // red & green = yellow for square
-//    parameter BG_RGB = 12'hFFF;       
-//    parameter BLACK= 12'h000;  
-//    parameter trail1 = 12'h009;
-//    parameter trail2 = 12'h900;    // blue background
-//    parameter SQUARE_SIZE = 18;
-//    parameter x_delta=1;
-//    parameter y_delta=1;             // width of square sides in pixels
-////    parameter SQUARE_VELOCITY_POS = 2;      // set position change value for positive direction
-////    parameter SQUARE_VELOCITY_NEG = -2;     // set position change value for negative direction  
-    
-//    // create a 60Hz refresh tick at the start of vsync 
-//    wire refresh_tick;
-//    assign refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
-    
-//    // square boundaries and position
-//    wire [9:0] sq1_x_l, sq1_x_r;              // square left and right boundary
-//    wire [9:0] sq1_y_t, sq1_y_b;              // square top and bottom boundary
-    
-//    reg [9:0] sq1_x_reg, sq1_y_reg;           // regs to track left, top position
-//    reg [9:0] sq1_x_next, sq1_y_next;        // buffer wires
-////    wire [9:0] sq1_top, sq1_bottom;
-    
-//    wire [9:0] sq2_x_l, sq2_x_r;              // square left and right boundary
-//    wire [9:0] sq2_y_t, sq2_y_b;              // square top and bottom boundary
-    
-//    reg [9:0] sq2_x_reg, sq2_y_reg;           // regs to track left, top position
-//    reg [9:0] sq2_x_next, sq2_y_next;        // buffer wires
-////    wire [9:0] sq2_top, sq2_bottom;
-
-//parameter gr_x_0_0 = 95;
-//parameter gr_y_0_0 = 15;
-//reg [1:0] gr0_0_on = 0;
-
-//parameter gr_x_1_0 = 113;
-//parameter gr_y_1_0 = 15;
-//reg [1:0] gr1_0_on = 0;
-
-//parameter gr_x_2_0 = 131;
-//parameter gr_y_2_0 = 15;
-//reg [1:0] gr2_0_on = 0;
-
-//parameter gr_x_3_0 = 149;
-//parameter gr_y_3_0 = 15;
-//reg [1:0] gr3_0_on = 0;
-
-//parameter gr_x_4_0 = 167;
-//parameter gr_y_4_0 = 15;
-//reg [1:0] gr4_0_on = 0;
-
-//parameter gr_x_5_0 = 185;
-//parameter gr_y_5_0 = 15;
-//reg [1:0] gr5_0_on = 0;
-
-//parameter gr_x_6_0 = 203;
-//parameter gr_y_6_0 = 15;
-//reg [1:0] gr6_0_on = 0;
-
-//parameter gr_x_7_0 = 221;
-//parameter gr_y_7_0 = 15;
-//reg [1:0] gr7_0_on = 0;
-
-//parameter gr_x_8_0 = 239;
-//parameter gr_y_8_0 = 15;
-//reg [1:0] gr8_0_on = 0;
-
-//parameter gr_x_9_0 = 257;
-//parameter gr_y_9_0 = 15;
-//reg [1:0] gr9_0_on = 0;
-
-//parameter gr_x_10_0 = 275;
-//parameter gr_y_10_0 = 15;
-//reg [1:0] gr10_0_on = 0;
-
-//parameter gr_x_11_0 = 293;
-//parameter gr_y_11_0 = 15;
-//reg [1:0] gr11_0_on = 0;
-
-//parameter gr_x_12_0 = 311;
-//parameter gr_y_12_0 = 15;
-//reg [1:0] gr12_0_on = 0;
-
-//parameter gr_x_13_0 = 329;
-//parameter gr_y_13_0 = 15;
-//reg [1:0] gr13_0_on = 0;
-
-//parameter gr_x_14_0 = 347;
-//parameter gr_y_14_0 = 15;
-//reg [1:0] gr14_0_on = 0;
-
-//parameter gr_x_15_0 = 365;
-//parameter gr_y_15_0 = 15;
-//reg [1:0] gr15_0_on = 0;
-
-//parameter gr_x_16_0 = 383;
-//parameter gr_y_16_0 = 15;
-//reg [1:0] gr16_0_on = 0;
-
-//parameter gr_x_17_0 = 401;
-//parameter gr_y_17_0 = 15;
-//reg [1:0] gr17_0_on = 0;
-
-//parameter gr_x_18_0 = 419;
-//parameter gr_y_18_0 = 15;
-//reg [1:0] gr18_0_on = 0;
-
-//parameter gr_x_19_0 = 437;
-//parameter gr_y_19_0 = 15;
-//reg [1:0] gr19_0_on = 0;
-
-//parameter gr_x_20_0 = 455;
-//parameter gr_y_20_0 = 15;
-//reg [1:0] gr20_0_on = 0;
-
-//parameter gr_x_21_0 = 473;
-//parameter gr_y_21_0 = 15;
-//reg [1:0] gr21_0_on = 0;
-
-//parameter gr_x_22_0 = 491;
-//parameter gr_y_22_0 = 15;
-//reg [1:0] gr22_0_on = 0;
-
-//parameter gr_x_23_0 = 509;
-//parameter gr_y_23_0 = 15;
-//reg [1:0] gr23_0_on = 0;
-
-//parameter gr_x_24_0 = 527;
-//parameter gr_y_24_0 = 15;
-//reg [1:0] gr24_0_on = 0;
-////    assign 
-    
-////    wire [9:0] 
-
-//     // track square speed
-////reg [9:0] x_delta_next, y_delta_next;   // buffer regs    
-//    //Player one block
-//    // square boundaries
-//    assign sq1_x_l = sq1_x_reg;                   // left boundary
-//    assign sq1_y_t = sq1_y_reg;                   // top boundary
-//    assign sq1_x_r = sq1_x_l + SQUARE_SIZE;   // right boundary
-//    assign sq1_y_b = sq1_y_t + SQUARE_SIZE;
-    
-//    assign sq2_x_l = sq2_x_reg;                   // left boundary
-//    assign sq2_y_t = sq2_y_reg;                   // top boundary
-//    assign sq2_x_r = sq2_x_l + SQUARE_SIZE;   // right boundary
-//    assign sq2_y_b = sq2_y_t + SQUARE_SIZE;   // bottom boundary
-    
-//    // square status signal
-//    wire sq1_on;
-//    assign sq1_on = (sq1_x_l <= x) && (x <= sq1_x_r) && (sq1_y_t <= y) && (y <= sq1_y_b);
-    
-//    wire sq2_on;
-//    assign sq2_on = (sq2_x_l <= x) && (x <= sq2_x_r) && (sq2_y_t <= y) && (y <= sq2_y_b);
-    
-//    wire tr0_0_on;
-//    assign tr0_0_on = (gr_x_0_0 <= x) && (x <= gr_x_0_0+18) && (gr_y_0_0 <= y) && (y <= gr_y_0_0+18);
-    
-//wire tr1_0_on;
-//assign tr1_0_on = (gr_x_1_0 <= x) && (x <= gr_x_1_0+18) && (gr_y_1_0 <= y) && (y <= gr_y_1_0+18);
-
-
-//wire tr2_0_on;
-//assign tr2_0_on = (gr_x_2_0 <= x) && (x <= gr_x_2_0+18) && (gr_y_2_0 <= y) && (y <= gr_y_2_0+18);
-
-
-//wire tr3_0_on;
-//assign tr3_0_on = (gr_x_3_0 <= x) && (x <= gr_x_3_0+18) && (gr_y_3_0 <= y) && (y <= gr_y_3_0+18);
-
-
-//wire tr4_0_on;
-//assign tr4_0_on = (gr_x_4_0 <= x) && (x <= gr_x_4_0+18) && (gr_y_4_0 <= y) && (y <= gr_y_4_0+18);
-
-
-//wire tr5_0_on;
-//assign tr5_0_on = (gr_x_5_0 <= x) && (x <= gr_x_5_0+18) && (gr_y_5_0 <= y) && (y <= gr_y_5_0+18);
-
-
-//wire tr6_0_on;
-//assign tr6_0_on = (gr_x_6_0 <= x) && (x <= gr_x_6_0+18) && (gr_y_6_0 <= y) && (y <= gr_y_6_0+18);
-
-
-//wire tr7_0_on;
-//assign tr7_0_on = (gr_x_7_0 <= x) && (x <= gr_x_7_0+18) && (gr_y_7_0 <= y) && (y <= gr_y_7_0+18);
-
-
-//wire tr8_0_on;
-//assign tr8_0_on = (gr_x_8_0 <= x) && (x <= gr_x_8_0+18) && (gr_y_8_0 <= y) && (y <= gr_y_8_0+18);
-
-
-//wire tr9_0_on;
-//assign tr9_0_on = (gr_x_9_0 <= x) && (x <= gr_x_9_0+18) && (gr_y_9_0 <= y) && (y <= gr_y_9_0+18);
-
-
-//wire tr10_0_on;
-//assign tr10_0_on = (gr_x_10_0 <= x) && (x <= gr_x_10_0+18) && (gr_y_10_0 <= y) && (y <= gr_y_10_0+18);
-
-
-//wire tr11_0_on;
-//assign tr11_0_on = (gr_x_11_0 <= x) && (x <= gr_x_11_0+18) && (gr_y_11_0 <= y) && (y <= gr_y_11_0+18);
-
-
-//wire tr12_0_on;
-//assign tr12_0_on = (gr_x_12_0 <= x) && (x <= gr_x_12_0+18) && (gr_y_12_0 <= y) && (y <= gr_y_12_0+18);
-
-
-//wire tr13_0_on;
-//assign tr13_0_on = (gr_x_13_0 <= x) && (x <= gr_x_13_0+18) && (gr_y_13_0 <= y) && (y <= gr_y_13_0+18);
-
-
-//wire tr14_0_on;
-//assign tr14_0_on = (gr_x_14_0 <= x) && (x <= gr_x_14_0+18) && (gr_y_14_0 <= y) && (y <= gr_y_14_0+18);
-
-
-//wire tr15_0_on;
-//assign tr15_0_on = (gr_x_15_0 <= x) && (x <= gr_x_15_0+18) && (gr_y_15_0 <= y) && (y <= gr_y_15_0+18);
-
-
-//wire tr16_0_on;
-//assign tr16_0_on = (gr_x_16_0 <= x) && (x <= gr_x_16_0+18) && (gr_y_16_0 <= y) && (y <= gr_y_16_0+18);
-
-
-//wire tr17_0_on;
-//assign tr17_0_on = (gr_x_17_0 <= x) && (x <= gr_x_17_0+18) && (gr_y_17_0 <= y) && (y <= gr_y_17_0+18);
-
-
-//wire tr18_0_on;
-//assign tr18_0_on = (gr_x_18_0 <= x) && (x <= gr_x_18_0+18) && (gr_y_18_0 <= y) && (y <= gr_y_18_0+18);
-
-
-//wire tr19_0_on;
-//assign tr19_0_on = (gr_x_19_0 <= x) && (x <= gr_x_19_0+18) && (gr_y_19_0 <= y) && (y <= gr_y_19_0+18);
-
-
-//wire tr20_0_on;
-//assign tr20_0_on = (gr_x_20_0 <= x) && (x <= gr_x_20_0+18) && (gr_y_20_0 <= y) && (y <= gr_y_20_0+18);
-
-
-//wire tr21_0_on;
-//assign tr21_0_on = (gr_x_21_0 <= x) && (x <= gr_x_21_0+18) && (gr_y_21_0 <= y) && (y <= gr_y_21_0+18);
-
-
-//wire tr22_0_on;
-//assign tr22_0_on = (gr_x_22_0 <= x) && (x <= gr_x_22_0+18) && (gr_y_22_0 <= y) && (y <= gr_y_22_0+18);
-
-
-//wire tr23_0_on;
-//assign tr23_0_on = (gr_x_23_0 <= x) && (x <= gr_x_23_0+18) && (gr_y_23_0 <= y) && (y <= gr_y_23_0+18);
-
-
-//wire tr24_0_on;
-//assign tr24_0_on = (gr_x_24_0 <= x) && (x <= gr_x_24_0+18) && (gr_y_24_0 <= y) && (y <= gr_y_24_0+18);
-
-    
-    
-////    // register control
-////initial
-////begin
-////    sq1_x_reg <= 523;
-////    sq1_y_reg <= 32;
-////    sq2_x_reg <= 132;
-////    sq2_y_reg <= 423;
-////end
-
-////always @(posedge clk or posedge reset2)
-////    if (reset2)
-////        begin
-////            sq1_x_reg <= 0;
-////            sq1_y_reg <= 0;
-////            sq2_x_reg <= 0;
-////            sq2_y_reg <= 0;
-////        end
-//    always @(posedge clk or posedge reset1)//posedge clk or
-//    if (reset1) 
-//         begin
-//            sq1_x_reg <= 0;
-//            sq1_y_reg <= 0;
-//            sq2_x_reg <= 0;
-//            sq2_y_reg <= 0;
-////            gr0_0_on = 0;
-////            gr1_0_on = 0;
-////            gr2_0_on = 0;
-////            gr3_0_on = 0;
-////            gr4_0_on = 0;
-////            gr5_0_on = 0;
-////            gr6_0_on = 0;
-////            gr7_0_on = 0;
-////            gr8_0_on = 0;
-////            gr9_0_on = 0;
-////            gr10_0_on = 0;
-////            gr11_0_on = 0;
-////            gr12_0_on = 0;
-////            gr13_0_on = 0;
-////            gr14_0_on = 0;
-////            gr15_0_on = 0;
-////            gr16_0_on = 0;
-////            gr17_0_on = 0;
-////            gr18_0_on = 0;
-////            gr19_0_on = 0;
-////            gr20_0_on = 0;
-////            gr21_0_on = 0;
-////            gr22_0_on = 0;
-////            gr23_0_on = 0;
-////            gr24_0_on = 0;
-////            x_delta_reg <= 10'h002;
-////            y_delta_reg <= 10'h002;
-//           end
-////        always@(posedge clk)
-//        else
-//        begin
-//            sq1_x_reg <= sq1_x_next;
-//            sq1_y_reg <= sq1_y_next;
-//            sq2_x_reg <= sq2_x_next;
-//            sq2_y_reg <= sq2_y_next;
-////            gr0_0_on = gr0_0_on;
-////            gr1_0_on = gr1_0_on;
-////            gr2_0_on = gr2_0_on;
-////            gr3_0_on = gr3_0_on;
-////            gr4_0_on = gr4_0_on;
-////            gr5_0_on = gr5_0_on;
-////            gr6_0_on = gr6_0_on;
-////            gr7_0_on = gr7_0_on;
-////            gr8_0_on = gr8_0_on;
-////            gr9_0_on = gr9_0_on;
-////            gr10_0_on = gr10_0_on;
-////            gr11_0_on = gr11_0_on;
-////            gr12_0_on = gr12_0_on;
-////            gr13_0_on = gr13_0_on;
-////            gr14_0_on = gr14_0_on;
-////            gr15_0_on = gr15_0_on;
-////            gr16_0_on = gr16_0_on;
-////            gr17_0_on = gr17_0_on;
-////            gr18_0_on = gr18_0_on;
-////            gr19_0_on = gr19_0_on;
-////            gr20_0_on = gr20_0_on;
-////            gr21_0_on = gr21_0_on;
-////            gr22_0_on = gr22_0_on;
-////            gr23_0_on = gr23_0_on;
-////            gr24_0_on = gr24_0_on;
-            
-////            x_delta_reg <= x_delta_next;
-////            y_delta_reg <= y_delta_next;
-//        end
-    
-////    //Player one block
-////    assign sq1_x_l = sq1_x_reg;                   // left boundary
-////    assign sq1_y_t = sq1_y_reg;                   // top boundary
-////    assign sq1_x_r = sq1_x_l + SQUARE_SIZE - 1;   // right boundary
-////    assign sq1_y_b = sq1_y_t + SQUARE_SIZE - 1;
-////    //Player two block declaration
-////    assign sq2_x_l = sq2_x_reg;                   // left boundary
-////    assign sq2_y_t = sq2_y_reg;                   // top boundary
-////    assign sq2_x_r = sq2_x_l + SQUARE_SIZE - 1;   // right boundary
-////    assign sq2_y_b = sq2_y_t + SQUARE_SIZE - 1;   // bottom boundary
-    
-////    // square status signal
-////    wire sq1_on;//Player one on signal
-////    assign sq1_on = (sq1_x_l <= x) && (x <= sq1_x_r) && (sq1_y_t <= y) && (y <= sq1_y_b);
-    
-////    wire sq2_on;//Player two on pixel signal
-////    assign sq2_on = (sq2_x_l <= x) && (x <= sq2_x_r) && (sq2_y_t <= y) && (y <= sq2_y_b);
-    
-//    wire black_on;
-////    assign black_on= (x>=107 && x<=571) && (y>=469 && y<=471) | (x>=107 && x<=571) && (y>=7 && y<=9)| (x>=569 && x<=571) && (y>=7 && y<=471)|(x>=107 && x<=109) && (y>=7 && y<=471);  
-//    assign black_on= (x>=95 && x<=545) && (y>=13 && y<=15)| (x>=545 && x<=547) && (y>=15 && y<=465);// | (x>=93 && x<=95) && (y>=15 && y<=500);// | (x>=95 && x<=565) && (y>=455 && y<=467);
-//    assign black_on1 = (x==95) && (y>=15 && y<=465);
-//    assign black_on2 = (x>=95 && x<=545) && (y==465);
-////     new square position
-
-//    wire [11:0] rgb_wire;
-////    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-////    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-//    tortrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-////    winrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-////    win2rom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-////    drawrom easy(clk, video_on, x/3, y[8:0]/2, rgb_wire);
-
-//    always@(posedge clk)
-//      begin
-//    if (refresh_tick)
-//        if (up1)
-//            if(sq1_y_reg >= 16)
-//                begin
-//                sq1_y_next = sq1_y_reg - y_delta;
-//                end
-//            else
-//                sq1_y_next = sq1_y_reg;
-//         else if (down1)
-//            if(sq1_y_reg <= 446)
-//                sq1_y_next = sq1_y_reg + y_delta;
-//            else
-//                sq1_y_next = sq1_y_reg;
-//         else if (right1)
-//                if (sq1_x_reg<=528)
-//                    sq1_x_next = sq1_x_reg + x_delta;    
-//                else
-//                   sq1_x_next = sq1_x_reg;
-//         else if(left1)
-//            if (sq1_x_reg>=96)
-//                    sq1_x_next = sq1_x_reg - x_delta;    
-//                else
-//                   sq1_x_next = sq1_x_reg;
-         
-//         else
-//            sq1_y_next = sq1_y_reg;
-////        sq_y_next = (down) ? (sq_y_reg + y_delta ): sq_y_reg;
-//      if (refresh_tick)  
-//         if (up2)
-//            if(sq2_y_reg >= 16)
-//                sq2_y_next = sq2_y_reg - y_delta;
-//            else
-//                sq2_y_next = sq2_y_reg;
-//         else if (down2)
-//            if(sq2_y_reg <= 446)
-//                sq2_y_next = sq2_y_reg + y_delta;
-//            else
-//                sq2_y_next = sq2_y_reg;
-//          else if (right2)
-//                if (sq2_x_reg<=528)
-//                    sq2_x_next = sq2_x_reg + x_delta;    
-//                else
-//                   sq2_x_next = sq2_x_reg;         
-//         else if(left2)
-//            if (sq2_x_reg>=96)
-//                    sq2_x_next = sq2_x_reg - x_delta;    
-//                else
-//                   sq2_x_next = sq2_x_reg;
-         
-//            else
-//                sq2_y_next = sq2_y_reg;
-         
-//     if (refresh_tick)
-//if (sq1_x_next == gr_x_0_0 && sq1_y_next == gr_y_0_0)
-//gr0_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_1_0 && sq1_y_next == gr_y_1_0)
-//gr1_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_2_0 && sq1_y_next == gr_y_2_0)
-//gr2_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_3_0 && sq1_y_next == gr_y_3_0)
-//gr3_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_4_0 && sq1_y_next == gr_y_4_0)
-//gr4_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_5_0 && sq1_y_next == gr_y_5_0)
-//gr5_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_6_0 && sq1_y_next == gr_y_6_0)
-//gr6_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_7_0 && sq1_y_next == gr_y_7_0)
-//gr7_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_8_0 && sq1_y_next == gr_y_8_0)
-//gr8_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_9_0 && sq1_y_next == gr_y_9_0)
-//gr9_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_10_0 && sq1_y_next == gr_y_10_0)
-//gr10_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_11_0 && sq1_y_next == gr_y_11_0)
-//gr11_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_12_0 && sq1_y_next == gr_y_12_0)
-//gr12_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_13_0 && sq1_y_next == gr_y_13_0)
-//gr13_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_14_0 && sq1_y_next == gr_y_14_0)
-//gr14_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_15_0 && sq1_y_next == gr_y_15_0)
-//gr15_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_16_0 && sq1_y_next == gr_y_16_0)
-//gr16_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_17_0 && sq1_y_next == gr_y_17_0)
-//gr17_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_18_0 && sq1_y_next == gr_y_18_0)
-//gr18_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_19_0 && sq1_y_next == gr_y_19_0)
-//gr19_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_20_0 && sq1_y_next == gr_y_20_0)
-//gr20_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_21_0 && sq1_y_next == gr_y_21_0)
-//gr21_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_22_0 && sq1_y_next == gr_y_22_0)
-//gr22_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_23_0 && sq1_y_next == gr_y_23_0)
-//gr23_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_24_0 && sq1_y_next == gr_y_24_0)
-//gr24_0_on = 2'd1;
-
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_0_0 && sq1_y_next == gr_y_0_0)
-//gr0_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_1_0 && sq1_y_next == gr_y_1_0)
-//gr1_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_2_0 && sq1_y_next == gr_y_2_0)
-//gr2_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_3_0 && sq1_y_next == gr_y_3_0)
-//gr3_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_4_0 && sq1_y_next == gr_y_4_0)
-//gr4_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_5_0 && sq1_y_next == gr_y_5_0)
-//gr5_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_6_0 && sq1_y_next == gr_y_6_0)
-//gr6_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_7_0 && sq1_y_next == gr_y_7_0)
-//gr7_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_8_0 && sq1_y_next == gr_y_8_0)
-//gr8_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_9_0 && sq1_y_next == gr_y_9_0)
-//gr9_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_10_0 && sq1_y_next == gr_y_10_0)
-//gr10_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_11_0 && sq1_y_next == gr_y_11_0)
-//gr11_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_12_0 && sq1_y_next == gr_y_12_0)
-//gr12_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_13_0 && sq1_y_next == gr_y_13_0)
-//gr13_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_14_0 && sq1_y_next == gr_y_14_0)
-//gr14_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_15_0 && sq1_y_next == gr_y_15_0)
-//gr15_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_16_0 && sq1_y_next == gr_y_16_0)
-//gr16_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_17_0 && sq1_y_next == gr_y_17_0)
-//gr17_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_18_0 && sq1_y_next == gr_y_18_0)
-//gr18_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_19_0 && sq1_y_next == gr_y_19_0)
-//gr19_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_20_0 && sq1_y_next == gr_y_20_0)
-//gr20_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_21_0 && sq1_y_next == gr_y_21_0)
-//gr21_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_22_0 && sq1_y_next == gr_y_22_0)
-//gr22_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_23_0 && sq1_y_next == gr_y_23_0)
-//gr23_0_on = 2'd1;
-//if (refresh_tick)
-//if (sq1_x_next == gr_x_24_0 && sq1_y_next == gr_y_24_0)
-//gr24_0_on = 2'd1;
-////PS D:\UNI\OneDrive - Habib University\it is wot is>  d:; cd 'd:\UNI\OneDrive - Habib University\it is wot is'; & 'C:\Program Files\Python39\python.exe' 'c:\Users\Tajdar\.vscode\extensions\ms-python.python-2022.18.2\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher' '56681' '--' 'd:\UNI\OneDrive - Habib University\it is wot is\basics.py' 
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_0_0 && sq2_y_next == gr_y_0_0)
-//gr0_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_1_0 && sq2_y_next == gr_y_1_0)
-//gr1_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_2_0 && sq2_y_next == gr_y_2_0)
-//gr2_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_3_0 && sq2_y_next == gr_y_3_0)
-//gr3_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_4_0 && sq2_y_next == gr_y_4_0)
-//gr4_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_5_0 && sq2_y_next == gr_y_5_0)
-//gr5_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_6_0 && sq2_y_next == gr_y_6_0)
-//gr6_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_7_0 && sq2_y_next == gr_y_7_0)
-//gr7_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_8_0 && sq2_y_next == gr_y_8_0)
-//gr8_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_9_0 && sq2_y_next == gr_y_9_0)
-//gr9_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_10_0 && sq2_y_next == gr_y_10_0)
-//gr10_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_11_0 && sq2_y_next == gr_y_11_0)
-//gr11_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_12_0 && sq2_y_next == gr_y_12_0)
-//gr12_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_13_0 && sq2_y_next == gr_y_13_0)
-//gr13_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_14_0 && sq2_y_next == gr_y_14_0)
-//gr14_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_15_0 && sq2_y_next == gr_y_15_0)
-//gr15_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_16_0 && sq2_y_next == gr_y_16_0)
-//gr16_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_17_0 && sq2_y_next == gr_y_17_0)
-//gr17_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_18_0 && sq2_y_next == gr_y_18_0)
-//gr18_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_19_0 && sq2_y_next == gr_y_19_0)
-//gr19_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_20_0 && sq2_y_next == gr_y_20_0)
-//gr20_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_21_0 && sq2_y_next == gr_y_21_0)
-//gr21_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_22_0 && sq2_y_next == gr_y_22_0)
-//gr22_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_23_0 && sq2_y_next == gr_y_23_0)
-//gr23_0_on = 2'd2;
-//if (refresh_tick)
-//if (sq2_x_next == gr_x_24_0 && sq2_y_next == gr_y_24_0)
-//gr24_0_on = 2'd2;
-////              assign gr00_on = 1;     
-
-//if(refresh_tick)
-//if (reset2)
-//gr0_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr1_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr2_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr3_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr4_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr5_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr6_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr7_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr8_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr9_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr10_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr11_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr12_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr13_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr14_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr15_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr16_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr17_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr18_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr19_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr20_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr21_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr22_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr23_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//gr24_0_on = 2'd0;
-
-//if(refresh_tick)
-//if (reset2)
-//begin
-//sq1_x_next <= 527;
-//sq1_y_next <= 447;
-//sq2_x_next <= 95;
-//sq2_y_next <= 15;
-//end
-        
-//      end
-      
-            
-            
-        
-////            x_delta_reg <= 10'h002;
-////            y_delta_reg <= 10'h002;
-      
-////      if (refresh_tick)
-////        if (reset2)
-////            begin
-////            sq1_x_reg <= 523;
-////            sq1_y_reg <= 32;
-////            sq2_x_reg <= 132;
-////            sq2_y_reg <= 423;
-//////            x_delta_reg <= 10'h002;
-//////            y_delta_reg <= 10'h002;
-////    always@(posedge clk)
-////    begin
-////    if (refresh_tick)
-////         if (up1)
-////            if (sq1_y_t <= 15)
-////                sq1_y_next = sq1_y_reg - y_delta;
-////            else
-////                sq1_y_next = sq1_y_reg;
-////         else if (down1)
-////            if (sq1_y_b >= 465)
-////                sq1_y_next = sq1_y_reg + y_delta;
-////            else
-////                sq1_y_next = sq1_y_reg;
-////         else if (right1)
-////            if (sq1_x_r >= 545)
-////                sq1_x_next = sq1_x_reg + x_delta;
-////            else
-////                sq1_y_next = sq1_y_reg;        
-////         else if(left1)
-////            if (sq1_x_l <= 95)
-////                sq1_x_next = sq1_x_reg - x_delta;
-////            else
-////                sq1_y_next = sq1_y_reg; 
-////         else
-////            sq1_y_next = sq1_y_reg;
-//////        sq_y_next = (down) ? (sq_y_reg + y_delta ): sq_y_reg;
-////      if (refresh_tick)  
-////        if (up2)
-////            if (sq2_y_t <= 15)
-////                sq2_y_next = sq2_y_reg - y_delta;
-////            else
-////                sq2_y_next = sq2_y_reg;
-////        else if (down2)
-////            if (sq2_y_b >= 465)
-////                sq2_y_next = sq2_y_reg + y_delta;
-////            else
-////                sq2_y_next = sq2_y_reg;
-////        else if (right2)
-////            if (sq2_x_r >= 545)
-////                sq2_x_next = sq2_x_reg + x_delta;
-////            else
-////                sq2_y_next = sq2_y_reg;        
-////         else if(left2)
-////            if (sq2_x_l <= 95)
-////                sq2_x_next = sq2_x_reg - x_delta;
-////            else
-////                sq2_y_next = sq2_y_reg;
-////         else
-////            sq2_y_next = sq2_y_reg;
-////      end
-//////    else
-////        sq_y_next = (up) ? (sq_y_reg + y_delta) : sq_y_reg;
-//    // new square velocity 
-////    always @* begin
-////        x_delta_next = x_delta_reg;
-////        y_delta_next = y_delta_reg;
-////        if(sq_y_t < 1)                              // collide with top display edge
-////            y_delta_next = SQUARE_VELOCITY_POS;     // change y direction(move down)
-////        else if(sq_y_b > Y_MAX)                     // collide with bottom display edge
-////            y_delta_next = SQUARE_VELOCITY_NEG;     // change y direction(move up)
-////        else if(sq_x_l < 1)                         // collide with left display edge
-////            x_delta_next = SQUARE_VELOCITY_POS;     // change x direction(move right)
-////        else if(sq_x_r > X_MAX)                     // collide with right display edge
-////            x_delta_next = SQUARE_VELOCITY_NEG;     // change x direction(move left)
-////    end
-    
-//    // RGB control
-//    always @(posedge clk)
-//        if(~video_on)
-//            rgb = 12'h000;          // black(no value) outside display area
-//        else
-//            rgb= rgb_wire;
-////            if(sq1_on)
-////                rgb = SQ1_RGB;       // yellow square
-////            else if(sq2_on)
-////                rgb = SQ2_RGB;
-////            else if(black_on1)
-////                rgb = BLACK;
-////            else if (black_on2)
-////                rgb = BLACK;
-////            else if (black_on)
-////                rgb = BLACK;
-////            else if ((tr0_0_on && gr0_0_on == 2'd1) | (tr1_0_on && gr1_0_on == 2'd1) | (tr2_0_on && gr2_0_on == 2'd1) | (tr3_0_on && gr3_0_on == 2'd1) | (tr4_0_on && gr4_0_on == 2'd1) | (tr5_0_on && gr5_0_on == 2'd1) | (tr6_0_on && gr6_0_on == 2'd1) | (tr7_0_on && gr7_0_on == 2'd1) | (tr8_0_on && gr8_0_on == 2'd1) | (tr9_0_on && gr9_0_on == 2'd1) | (tr10_0_on && gr10_0_on == 2'd1) | (tr11_0_on && gr11_0_on == 2'd1) | (tr12_0_on && gr12_0_on == 2'd1) | (tr13_0_on && gr13_0_on == 2'd1) | (tr14_0_on && gr14_0_on == 2'd1) | (tr15_0_on && gr15_0_on == 2'd1) | (tr16_0_on && gr16_0_on == 2'd1) | (tr17_0_on && gr17_0_on == 2'd1) | (tr18_0_on && gr18_0_on == 2'd1) | (tr19_0_on && gr19_0_on == 2'd1) | (tr20_0_on && gr20_0_on == 2'd1) | (tr21_0_on && gr21_0_on == 2'd1) | (tr22_0_on && gr22_0_on == 2'd1) | (tr23_0_on && gr23_0_on == 2'd1) | (tr24_0_on && gr24_0_on == 2'd1))
-////                rgb = trail1;
-////            else if ((tr0_0_on && gr0_0_on == 2'd2) | (tr1_0_on && gr1_0_on == 2'd2) | (tr2_0_on && gr2_0_on == 2'd2) | (tr3_0_on && gr3_0_on == 2'd2) | (tr4_0_on && gr4_0_on == 2'd2) | (tr5_0_on && gr5_0_on == 2'd2) | (tr6_0_on && gr6_0_on == 2'd2) | (tr7_0_on && gr7_0_on == 2'd2) | (tr8_0_on && gr8_0_on == 2'd2) | (tr9_0_on && gr9_0_on == 2'd2) | (tr10_0_on && gr10_0_on == 2'd2) | (tr11_0_on && gr11_0_on == 2'd2) | (tr12_0_on && gr12_0_on == 2'd2) | (tr13_0_on && gr13_0_on == 2'd2) | (tr14_0_on && gr14_0_on == 2'd2) | (tr15_0_on && gr15_0_on == 2'd2) | (tr16_0_on && gr16_0_on == 2'd2) | (tr17_0_on && gr17_0_on == 2'd2) | (tr18_0_on && gr18_0_on == 2'd2) | (tr19_0_on && gr19_0_on == 2'd2) | (tr20_0_on && gr20_0_on == 2'd2) | (tr21_0_on && gr21_0_on == 2'd2) | (tr22_0_on && gr22_0_on == 2'd2) | (tr23_0_on && gr23_0_on == 2'd2) | (tr24_0_on && gr24_0_on == 2'd2))
-////                rgb = trail2;
-////            else
-////                rgb= BG_RGB;       // blue background
-    
-//endmodule
-
-
-
-
-
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -1203,7 +17,7 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
-//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
 
 
@@ -1245,10 +59,9 @@ module pixel_generation_three(
     parameter over = 12'h999;
     parameter start = 12'hFF0;
     parameter b_start = 12'hF0F;
-    parameter bonus_rgb = 12'h0FF;
     parameter SQUARE_SIZE = 18;
     parameter x_delta=18;
-    parameter y_delta=18;             // width of square sides in pixels
+    parameter y_delta=18;               // width of square sides in pixels
 //    parameter SQUARE_VELOCITY_POS = 2;      // set position change value for positive direction
 //    parameter SQUARE_VELOCITY_NEG = -2;     // set position change value for negative direction  
     
@@ -1902,21 +715,21 @@ reg col = 0;
 reg [1:0] win = 0;
 reg ply = 1;
 reg main = 1;
-reg bonus = 0;
-
-reg [9:0] bonus_x;
-reg [9:0] bonus_y;
 
 
 reg [9:0] count_b = 10'd0;
 reg [9:0] count_r = 10'd0;
 reg [9:0] timer_count = 10'd60;
 reg [3:0] timer_check = 4'd0;
-reg [5:0] color = 0;
+reg [5:0] color = 0;//    assign 
+    
+//    wire [9:0] 
 
-///////////////////////////////////////////////////////////////////////////
-// square boundaries
-    assign sq1_x_l = sq1_x_reg;                   // left boundary
+     // track square speed
+//reg [9:0] x_delta_next, y_delta_next;   // buffer regs    
+    //Player one block
+    // square boundaries
+   assign sq1_x_l = sq1_x_reg;                   // left boundary
     assign sq1_y_t = sq1_y_reg;                   // top boundary
     assign sq1_x_r = sq1_x_l + SQUARE_SIZE;   // right boundary
     assign sq1_y_b = sq1_y_t + SQUARE_SIZE;
@@ -2560,7 +1373,25 @@ wire tr24_22_on; assign tr24_22_on = (gr_x_24_22 <= x) && (x <= gr_x_24_22+18) &
 wire tr24_23_on; assign tr24_23_on = (gr_x_24_23 <= x) && (x <= gr_x_24_23+18) && (gr_y_24_23 <= y) && (y <= gr_y_24_23+18);
 wire tr24_24_on; assign tr24_24_on = (gr_x_24_24 <= x) && (x <= gr_x_24_24+18) && (gr_y_24_24 <= y) && (y <= gr_y_24_24+18);
 
+    
+    
+//    // register control
+//initial
+//begin
+//    sq1_x_reg <= 523;
+//    sq1_y_reg <= 32;
+//    sq2_x_reg <= 132;
+//    sq2_y_reg <= 423;
+//end
 
+//always @(posedge clk or posedge reset2)
+//    if (reset2)
+//        begin
+//            sq1_x_reg <= 0;
+//            sq1_y_reg <= 0;
+//            sq2_x_reg <= 0;
+//            sq2_y_reg <= 0;
+//        end
     always @(posedge clk or posedge reset1)
     if (reset1) 
          begin
@@ -2583,25 +1414,26 @@ wire tr24_24_on; assign tr24_24_on = (gr_x_24_24 <= x) && (x <= gr_x_24_24+18) &
     assign black_on= (x>=95 && x<=545) && (y>=13 && y<=15)| (x>=545 && x<=547) && (y>=15 && y<=465);// | (x>=93 && x<=95) && (y>=15 && y<=500);// | (x>=95 && x<=565) && (y>=455 && y<=467);
     assign black_on1 = (x==95) && (y>=15 && y<=465);
     assign black_on2 = (x>=95 && x<=545) && (y==465);
-//     new square position
-
+    
     wire [1:0] sel;
 selection sl (.clk(clk), .reset(reset3), .button1(S[0]), .button2(S[1]), .out(sel));
 
 
-    wire [11:0] rgb_init;
-//    wire [11:0] rgb_easy;
-//    wire [11:0] rgb_tort;
-//    wire [11:0] rgb_win1;
-//    wire [11:0] rgb_win2;
+    wire [11:0] rgb_start;
+    wire [11:0] rgb_easy;
+    wire [11:0] rgb_tort;
+    wire [11:0] rgb_win1;
+    wire [11:0] rgb_win2;
     wire [11:0] rgb_draw;
-    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_init);
-//    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_easy);
-//    tortrom tort(clk, video_on, x/3, y[8:0]/2, rgb_tort);
-//    winrom win11(clk, video_on, x/3, y[8:0]/2, rgb_win1);
-//    win2rom win22(clk, video_on, x/3, y[8:0]/2, rgb_win2);
-    drawrom draw(clk, video_on, x/3, y[8:0]/2, rgb_draw);
     
+    
+    
+    romv2 init(clk, video_on, x/3, y[8:0]/2, rgb_start);
+    easyrom easy(clk, video_on, x/3, y[8:0]/2, rgb_easy);
+    tortrom tort(clk, video_on, x/3, y[8:0]/2, rgb_tort);
+    winrom w1(clk, video_on, x/3, y[8:0]/2, rgb_win1);
+    win2rom w2(clk, video_on, x/3, y[8:0]/2, rgb_win2);
+    drawrom dr(clk, video_on, x/3, y[8:0]/2, rgb_draw);
 
     always@(posedge clk_25)      
     
@@ -2619,15 +1451,11 @@ selection sl (.clk(clk), .reset(reset3), .button1(S[0]), .button2(S[1]), .out(se
     begin
         if(play)
             ply = 0;
-        else if (reset3)
-            main = 1;
     end
     else if (col == 1)
     begin
             if (reset2)
                 col = 0;
-//            else if (reset3)
-//                main = 1;
     end
     else
     begin
@@ -17707,35 +16535,6 @@ else
     color = color + 1;
 end
 
-
-if (timer_count == 10'd40)
-    bonus = 1;
-
-
-if (bonus == 1)
-begin
-if (sq1_x_next == gr_x_12_12 && sq1_y_next == gr_y_12_12)
-begin
-bonus = 0;
-    if (sel == 2'b10)
-        count_r = count_r - 10'd10;
-    else if (sel == 2'b01)
-        count_b = count_b + 10'd10;
-end
-
-if (sq2_x_next == gr_x_12_12 && sq2_y_next == gr_y_12_12)
-begin
-bonus = 0;
-    if (sel == 2'b10)
-        count_b = count_b - 10'd10;
-    else if (sel == 2'b01)
-        count_r = count_r + 10'd10;
-end
-
-end
-
-
-
 if (timer_count == 10'd0)
     begin
     col = 1;
@@ -17795,26 +16594,18 @@ col = 0;
 ply = 1;
 count_r = 0;
 count_b = 0;
-bonus = 0;
-timer_count = 12'd60;
+timer_count = 10'd60;
 
+
+if (reset3) 
+main = 1;
 
 end
 end
 end
 end
-
-//wire bonus_on; assign bonus_on = (bonus_x <= x) && (x <= bonus+18) && (bonus_y <= y) && (y <= bonus_y+18);
-//always @(posedge timer_clk)
-//    if (timer_count==10'd0)
-//        col=1;
-//    else 
-//        if (ply==0 && col==0)
-//            timer_count=timer_count-1;
-
-
-
-wire [3:0] num0;
+    
+ wire [3:0] num0;
 wire [3:0] num1;
 wire [3:0] num2;
 wire [3:0] num3;
@@ -17824,110 +16615,35 @@ binary_2_bcd b2b (.clk(clk), .num(timer_count), .num0(num0), .num1(num1), .num2(
 
 score_count sc (.clk_100MHz(clk), .reset(en), .ones(num0), .tens(num1), .hundreds(num2), .thousands(num3), .seg(Y), .digit(digit));
     
-wire [3:0] numb0;
-wire [3:0] numb1;
-wire [3:0] numb2;
-wire [3:0] numb3;  
-wire [6:0] asciib_char0;
-wire [6:0] asciib_char1;
-wire [6:0] asciib_char2; 
-binary_2_bcd b2b1 (.clk(clk), .num(count_b), .num0(numb0), .num1(numb1), .num2(numb2), .num3(numb3));
-bcd_2_hex b2h1 (.clk(clk), .bcd(numb0), .hex(asciib_char0));
-bcd_2_hex b2h2 (.clk(clk), .bcd(numb1), .hex(asciib_char1));
-bcd_2_hex b2h3 (.clk(clk), .bcd(numb2), .hex(asciib_char2));
-
-wire [3:0] numr0;
-wire [3:0] numr1;
-wire [3:0] numr2;
-wire [3:0] numr3;  
-wire [6:0] asciir_char0;
-wire [6:0] asciir_char1;
-wire [6:0] asciir_char2; 
-binary_2_bcd b2b2 (.clk(clk), .num(count_r), .num0(numr0), .num1(numr1), .num2(numr2), .num3(numr3));
-bcd_2_hex b2h4 (.clk(clk), .bcd(numr0), .hex(asciir_char0));
-bcd_2_hex b2h5 (.clk(clk), .bcd(numr1), .hex(asciir_char1));
-bcd_2_hex b2h6 (.clk(clk), .bcd(numr2), .hex(asciir_char2));
-
-    
-    
-    
-wire [11:0] ascii_rgb;
-
-wire asciib_on0;
-wire asciib_on1;
-wire asciib_on2; 
-
-wire asciir_on0;
-wire asciir_on1;
-wire asciir_on2; 
-
-ascii_test_1 test1(.ascii_char(asciib_char2),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd15),.y_loc(10'd15), .on(asciib_on3),.rgb(ascii_rgb));    
-ascii_test_1 test2(.ascii_char(asciib_char1),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd23),.y_loc(10'd15), .on(asciib_on2),.rgb(ascii_rgb));    
-ascii_test_1 test3(.ascii_char(asciib_char0),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd31),.y_loc(10'd15), .on(asciib_on1),.rgb(ascii_rgb));    
-  
-ascii_test_1 test4(.ascii_char(asciir_char2),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd567),.y_loc(10'd15), .on(asciir_on3),.rgb(ascii_rgb));    
-ascii_test_1 test5(.ascii_char(asciir_char1),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd575),.y_loc(10'd15), .on(asciir_on2),.rgb(ascii_rgb));    
-ascii_test_1 test6(.ascii_char(asciir_char0),.clk(clk),.video_on(video_on),.x(x),.y(y),.x_loc(10'd583),.y_loc(10'd15), .on(asciir_on1),.rgb(ascii_rgb));    
-   
-
-    
-    
     // RGB control
     always @(posedge clk)
         if(~video_on)
             rgb = 12'h000;          // black(no value) outside display area
         else
             if (main)
-                rgb = b_start;
+                rgb = rgb_start;
             else if (ply)
-                rgb = start;
+                if (sel == 2'b10)
+                    rgb = rgb_tort;
+                else
+                    rgb = rgb_easy;
             else if (col)
                 if (win == 2'd1)
-                    rgb <= SQ1_RGB;
+                    rgb = rgb_win1;
                 else if (win == 2'd2)
-                    rgb = SQ2_RGB;
+                    rgb = rgb_win2;
                 else
-                    rgb = rgb_init;
+                    rgb = rgb_draw;
             else if(sq1_on)
-                if (sel == 2'b10)
-                begin
-                if (color >= 6'd15)
-                    rgb = BG4;
-                else if (color >= 6'd10) 
-                    rgb = BG3; 
-                else if (color >= 6'd5) 
-                    rgb = BG2;
-                else if (color >= 6'd0)
-                    rgb = BG1;
-                end 
-                else
-                    rgb = SQ1_RGB;
+                rgb = SQ1_RGB;
             else if(sq2_on)
-                if (sel == 2'b10)
-                begin
-                if (color >= 6'd15)
-                    rgb = BG3;
-                else if (color >= 6'd10) 
-                    rgb = BG4; 
-                else if (color >= 6'd5) 
-                    rgb = BG1;
-                else if (color >= 6'd0)
-                    rgb = BG2;
-                end 
-                else
-                    rgb = SQ2_RGB;
+                rgb = SQ2_RGB;
             else if(black_on1)
                 rgb = BLACK;
             else if (black_on2)
                 rgb = BLACK;
             else if (black_on)
                 rgb = BLACK;
-            else if (bonus == 1 && tr12_12_on)
-                rgb = bonus_rgb;
-            else if (asciib_on1 | asciib_on2 | asciib_on3)
-                rgb = SQ1_RGB;
-            else if (asciir_on1 | asciir_on2 | asciir_on3)
-                rgb = SQ2_RGB;
             else if ((tr0_0_on && gr0_0_on == 2'd1) | (tr0_1_on && gr0_1_on == 2'd1) | (tr0_2_on && gr0_2_on == 2'd1) | (tr0_3_on && gr0_3_on == 2'd1) | (tr0_4_on && gr0_4_on == 2'd1) | (tr0_5_on && gr0_5_on == 2'd1) | (tr0_6_on && gr0_6_on == 2'd1) | (tr0_7_on && gr0_7_on == 2'd1) | (tr0_8_on && gr0_8_on == 2'd1) | (tr0_9_on && gr0_9_on == 2'd1) | (tr0_10_on && gr0_10_on == 2'd1) | (tr0_11_on && gr0_11_on == 2'd1) | (tr0_12_on && gr0_12_on == 2'd1) | (tr0_13_on && gr0_13_on == 2'd1) | (tr0_14_on && gr0_14_on == 2'd1) | (tr0_15_on && gr0_15_on == 2'd1) | (tr0_16_on && gr0_16_on == 2'd1) | (tr0_17_on && gr0_17_on == 2'd1) | (tr0_18_on && gr0_18_on == 2'd1) | (tr0_19_on && gr0_19_on == 2'd1) | (tr0_20_on && gr0_20_on == 2'd1) | (tr0_21_on && gr0_21_on == 2'd1) | (tr0_22_on && gr0_22_on == 2'd1) | (tr0_23_on && gr0_23_on == 2'd1) | (tr0_24_on && gr0_24_on == 2'd1) | (tr1_0_on && gr1_0_on == 2'd1) | (tr1_1_on && gr1_1_on == 2'd1) | (tr1_2_on && gr1_2_on == 2'd1) | (tr1_3_on && gr1_3_on == 2'd1) | (tr1_4_on && gr1_4_on == 2'd1) | (tr1_5_on && gr1_5_on == 2'd1) | (tr1_6_on && gr1_6_on == 2'd1) | (tr1_7_on && gr1_7_on == 2'd1) | (tr1_8_on && gr1_8_on == 2'd1) | (tr1_9_on && gr1_9_on == 2'd1) | (tr1_10_on && gr1_10_on == 2'd1) | (tr1_11_on && gr1_11_on == 2'd1) | (tr1_12_on && gr1_12_on == 2'd1) | (tr1_13_on && gr1_13_on == 2'd1) | (tr1_14_on && gr1_14_on == 2'd1) | (tr1_15_on && gr1_15_on == 2'd1) | (tr1_16_on && gr1_16_on == 2'd1) | (tr1_17_on && gr1_17_on == 2'd1) | (tr1_18_on && gr1_18_on == 2'd1) | (tr1_19_on && gr1_19_on == 2'd1) | (tr1_20_on && gr1_20_on == 2'd1) | (tr1_21_on && gr1_21_on == 2'd1) | (tr1_22_on && gr1_22_on == 2'd1) | (tr1_23_on && gr1_23_on == 2'd1) | (tr1_24_on && gr1_24_on == 2'd1) | (tr2_0_on && gr2_0_on == 2'd1) | (tr2_1_on && gr2_1_on == 2'd1) | (tr2_2_on && gr2_2_on == 2'd1) | (tr2_3_on && gr2_3_on == 2'd1) | (tr2_4_on && gr2_4_on == 2'd1) | (tr2_5_on && gr2_5_on == 2'd1) | (tr2_6_on && gr2_6_on == 2'd1) | (tr2_7_on && gr2_7_on == 2'd1) | (tr2_8_on && gr2_8_on == 2'd1) | (tr2_9_on && gr2_9_on == 2'd1) | (tr2_10_on && gr2_10_on == 2'd1) | (tr2_11_on && gr2_11_on == 2'd1) | (tr2_12_on && gr2_12_on == 2'd1) | (tr2_13_on && gr2_13_on == 2'd1) | (tr2_14_on && gr2_14_on == 2'd1) | (tr2_15_on && gr2_15_on == 2'd1) | (tr2_16_on && gr2_16_on == 2'd1) | (tr2_17_on && gr2_17_on == 2'd1) | (tr2_18_on && gr2_18_on == 2'd1) | (tr2_19_on && gr2_19_on == 2'd1) | (tr2_20_on && gr2_20_on == 2'd1) | (tr2_21_on && gr2_21_on == 2'd1) | (tr2_22_on && gr2_22_on == 2'd1) | (tr2_23_on && gr2_23_on == 2'd1) | (tr2_24_on && gr2_24_on == 2'd1) | (tr3_0_on && gr3_0_on == 2'd1) | (tr3_1_on && gr3_1_on == 2'd1) | (tr3_2_on && gr3_2_on == 2'd1) | (tr3_3_on && gr3_3_on == 2'd1) | (tr3_4_on && gr3_4_on == 2'd1) | (tr3_5_on && gr3_5_on == 2'd1) | (tr3_6_on && gr3_6_on == 2'd1) | (tr3_7_on && gr3_7_on == 2'd1) | (tr3_8_on && gr3_8_on == 2'd1) | (tr3_9_on && gr3_9_on == 2'd1) | (tr3_10_on && gr3_10_on == 2'd1) | (tr3_11_on && gr3_11_on == 2'd1) | (tr3_12_on && gr3_12_on == 2'd1) | (tr3_13_on && gr3_13_on == 2'd1) | (tr3_14_on && gr3_14_on == 2'd1) | (tr3_15_on && gr3_15_on == 2'd1) | (tr3_16_on && gr3_16_on == 2'd1) | (tr3_17_on && gr3_17_on == 2'd1) | (tr3_18_on && gr3_18_on == 2'd1) | (tr3_19_on && gr3_19_on == 2'd1) | (tr3_20_on && gr3_20_on == 2'd1) | (tr3_21_on && gr3_21_on == 2'd1) | (tr3_22_on && gr3_22_on == 2'd1) | (tr3_23_on && gr3_23_on == 2'd1) | (tr3_24_on && gr3_24_on == 2'd1) | (tr4_0_on && gr4_0_on == 2'd1) | (tr4_1_on && gr4_1_on == 2'd1) | (tr4_2_on && gr4_2_on == 2'd1) | (tr4_3_on && gr4_3_on == 2'd1) | (tr4_4_on && gr4_4_on == 2'd1) | (tr4_5_on && gr4_5_on == 2'd1) | (tr4_6_on && gr4_6_on == 2'd1) | (tr4_7_on && gr4_7_on == 2'd1) | (tr4_8_on && gr4_8_on == 2'd1) | (tr4_9_on && gr4_9_on == 2'd1) | (tr4_10_on && gr4_10_on == 2'd1) | (tr4_11_on && gr4_11_on == 2'd1) | (tr4_12_on && gr4_12_on == 2'd1) | (tr4_13_on && gr4_13_on == 2'd1) | (tr4_14_on && gr4_14_on == 2'd1) | (tr4_15_on && gr4_15_on == 2'd1) | (tr4_16_on && gr4_16_on == 2'd1) | (tr4_17_on && gr4_17_on == 2'd1) | (tr4_18_on && gr4_18_on == 2'd1) | (tr4_19_on && gr4_19_on == 2'd1) | (tr4_20_on && gr4_20_on == 2'd1) | (tr4_21_on && gr4_21_on == 2'd1) | (tr4_22_on && gr4_22_on == 2'd1) | (tr4_23_on && gr4_23_on == 2'd1) | (tr4_24_on && gr4_24_on == 2'd1) | (tr5_0_on && gr5_0_on == 2'd1) | (tr5_1_on && gr5_1_on == 2'd1) | (tr5_2_on && gr5_2_on == 2'd1) | (tr5_3_on && gr5_3_on == 2'd1) | (tr5_4_on && gr5_4_on == 2'd1) | (tr5_5_on && gr5_5_on == 2'd1) | (tr5_6_on && gr5_6_on == 2'd1) | (tr5_7_on && gr5_7_on == 2'd1) | (tr5_8_on && gr5_8_on == 2'd1) | (tr5_9_on && gr5_9_on == 2'd1) | (tr5_10_on && gr5_10_on == 2'd1) | (tr5_11_on && gr5_11_on == 2'd1) | (tr5_12_on && gr5_12_on == 2'd1) | (tr5_13_on && gr5_13_on == 2'd1) | (tr5_14_on && gr5_14_on == 2'd1) | (tr5_15_on && gr5_15_on == 2'd1) | (tr5_16_on && gr5_16_on == 2'd1) | (tr5_17_on && gr5_17_on == 2'd1) | (tr5_18_on && gr5_18_on == 2'd1) | (tr5_19_on && gr5_19_on == 2'd1) | (tr5_20_on && gr5_20_on == 2'd1) | (tr5_21_on && gr5_21_on == 2'd1) | (tr5_22_on && gr5_22_on == 2'd1) | (tr5_23_on && gr5_23_on == 2'd1) | (tr5_24_on && gr5_24_on == 2'd1) | (tr6_0_on && gr6_0_on == 2'd1) | (tr6_1_on && gr6_1_on == 2'd1) | (tr6_2_on && gr6_2_on == 2'd1) | (tr6_3_on && gr6_3_on == 2'd1) | (tr6_4_on && gr6_4_on == 2'd1) | (tr6_5_on && gr6_5_on == 2'd1) | (tr6_6_on && gr6_6_on == 2'd1) | (tr6_7_on && gr6_7_on == 2'd1) | (tr6_8_on && gr6_8_on == 2'd1) | (tr6_9_on && gr6_9_on == 2'd1) | (tr6_10_on && gr6_10_on == 2'd1) | (tr6_11_on && gr6_11_on == 2'd1) | (tr6_12_on && gr6_12_on == 2'd1) | (tr6_13_on && gr6_13_on == 2'd1) | (tr6_14_on && gr6_14_on == 2'd1) | (tr6_15_on && gr6_15_on == 2'd1) | (tr6_16_on && gr6_16_on == 2'd1) | (tr6_17_on && gr6_17_on == 2'd1) | (tr6_18_on && gr6_18_on == 2'd1) | (tr6_19_on && gr6_19_on == 2'd1) | (tr6_20_on && gr6_20_on == 2'd1) | (tr6_21_on && gr6_21_on == 2'd1) | (tr6_22_on && gr6_22_on == 2'd1) | (tr6_23_on && gr6_23_on == 2'd1) | (tr6_24_on && gr6_24_on == 2'd1) | (tr7_0_on && gr7_0_on == 2'd1) | (tr7_1_on && gr7_1_on == 2'd1) | (tr7_2_on && gr7_2_on == 2'd1) | (tr7_3_on && gr7_3_on == 2'd1) | (tr7_4_on && gr7_4_on == 2'd1) | (tr7_5_on && gr7_5_on == 2'd1) | (tr7_6_on && gr7_6_on == 2'd1) | (tr7_7_on && gr7_7_on == 2'd1) | (tr7_8_on && gr7_8_on == 2'd1) | (tr7_9_on && gr7_9_on == 2'd1) | (tr7_10_on && gr7_10_on == 2'd1) | (tr7_11_on && gr7_11_on == 2'd1) | (tr7_12_on && gr7_12_on == 2'd1) | (tr7_13_on && gr7_13_on == 2'd1) | (tr7_14_on && gr7_14_on == 2'd1) | (tr7_15_on && gr7_15_on == 2'd1) | (tr7_16_on && gr7_16_on == 2'd1) | (tr7_17_on && gr7_17_on == 2'd1) | (tr7_18_on && gr7_18_on == 2'd1) | (tr7_19_on && gr7_19_on == 2'd1) | (tr7_20_on && gr7_20_on == 2'd1) | (tr7_21_on && gr7_21_on == 2'd1) | (tr7_22_on && gr7_22_on == 2'd1) | (tr7_23_on && gr7_23_on == 2'd1) | (tr7_24_on && gr7_24_on == 2'd1) | (tr8_0_on && gr8_0_on == 2'd1) | (tr8_1_on && gr8_1_on == 2'd1) | (tr8_2_on && gr8_2_on == 2'd1) | (tr8_3_on && gr8_3_on == 2'd1) | (tr8_4_on && gr8_4_on == 2'd1) | (tr8_5_on && gr8_5_on == 2'd1) | (tr8_6_on && gr8_6_on == 2'd1) | (tr8_7_on && gr8_7_on == 2'd1) | (tr8_8_on && gr8_8_on == 2'd1) | (tr8_9_on && gr8_9_on == 2'd1) | (tr8_10_on && gr8_10_on == 2'd1) | (tr8_11_on && gr8_11_on == 2'd1) | (tr8_12_on && gr8_12_on == 2'd1) | (tr8_13_on && gr8_13_on == 2'd1) | (tr8_14_on && gr8_14_on == 2'd1) | (tr8_15_on && gr8_15_on == 2'd1) | (tr8_16_on && gr8_16_on == 2'd1) | (tr8_17_on && gr8_17_on == 2'd1) | (tr8_18_on && gr8_18_on == 2'd1) | (tr8_19_on && gr8_19_on == 2'd1) | (tr8_20_on && gr8_20_on == 2'd1) | (tr8_21_on && gr8_21_on == 2'd1) | (tr8_22_on && gr8_22_on == 2'd1) | (tr8_23_on && gr8_23_on == 2'd1) | (tr8_24_on && gr8_24_on == 2'd1) | (tr9_0_on && gr9_0_on == 2'd1) | (tr9_1_on && gr9_1_on == 2'd1) | (tr9_2_on && gr9_2_on == 2'd1) | (tr9_3_on && gr9_3_on == 2'd1) | (tr9_4_on && gr9_4_on == 2'd1) | (tr9_5_on && gr9_5_on == 2'd1) | (tr9_6_on && gr9_6_on == 2'd1) | (tr9_7_on && gr9_7_on == 2'd1) | (tr9_8_on && gr9_8_on == 2'd1) | (tr9_9_on && gr9_9_on == 2'd1) | (tr9_10_on && gr9_10_on == 2'd1) | (tr9_11_on && gr9_11_on == 2'd1) | (tr9_12_on && gr9_12_on == 2'd1) | (tr9_13_on && gr9_13_on == 2'd1) | (tr9_14_on && gr9_14_on == 2'd1) | (tr9_15_on && gr9_15_on == 2'd1) | (tr9_16_on && gr9_16_on == 2'd1) | (tr9_17_on && gr9_17_on == 2'd1) | (tr9_18_on && gr9_18_on == 2'd1) | (tr9_19_on && gr9_19_on == 2'd1) | (tr9_20_on && gr9_20_on == 2'd1) | (tr9_21_on && gr9_21_on == 2'd1) | (tr9_22_on && gr9_22_on == 2'd1) | (tr9_23_on && gr9_23_on == 2'd1) | (tr9_24_on && gr9_24_on == 2'd1) | (tr10_0_on && gr10_0_on == 2'd1) | (tr10_1_on && gr10_1_on == 2'd1) | (tr10_2_on && gr10_2_on == 2'd1) | (tr10_3_on && gr10_3_on == 2'd1) | (tr10_4_on && gr10_4_on == 2'd1) | (tr10_5_on && gr10_5_on == 2'd1) | (tr10_6_on && gr10_6_on == 2'd1) | (tr10_7_on && gr10_7_on == 2'd1) | (tr10_8_on && gr10_8_on == 2'd1) | (tr10_9_on && gr10_9_on == 2'd1) | (tr10_10_on && gr10_10_on == 2'd1) | (tr10_11_on && gr10_11_on == 2'd1) | (tr10_12_on && gr10_12_on == 2'd1) | (tr10_13_on && gr10_13_on == 2'd1) | (tr10_14_on && gr10_14_on == 2'd1) | (tr10_15_on && gr10_15_on == 2'd1) | (tr10_16_on && gr10_16_on == 2'd1) | (tr10_17_on && gr10_17_on == 2'd1) | (tr10_18_on && gr10_18_on == 2'd1) | (tr10_19_on && gr10_19_on == 2'd1) | (tr10_20_on && gr10_20_on == 2'd1) | (tr10_21_on && gr10_21_on == 2'd1) | (tr10_22_on && gr10_22_on == 2'd1) | (tr10_23_on && gr10_23_on == 2'd1) | (tr10_24_on && gr10_24_on == 2'd1) | (tr11_0_on && gr11_0_on == 2'd1) | (tr11_1_on && gr11_1_on == 2'd1) | (tr11_2_on && gr11_2_on == 2'd1) | (tr11_3_on && gr11_3_on == 2'd1) | (tr11_4_on && gr11_4_on == 2'd1) | (tr11_5_on && gr11_5_on == 2'd1) | (tr11_6_on && gr11_6_on == 2'd1) | (tr11_7_on && gr11_7_on == 2'd1) | (tr11_8_on && gr11_8_on == 2'd1) | (tr11_9_on && gr11_9_on == 2'd1) | (tr11_10_on && gr11_10_on == 2'd1) | (tr11_11_on && gr11_11_on == 2'd1) | (tr11_12_on && gr11_12_on == 2'd1) | (tr11_13_on && gr11_13_on == 2'd1) | (tr11_14_on && gr11_14_on == 2'd1) | (tr11_15_on && gr11_15_on == 2'd1) | (tr11_16_on && gr11_16_on == 2'd1) | (tr11_17_on && gr11_17_on == 2'd1) | (tr11_18_on && gr11_18_on == 2'd1) | (tr11_19_on && gr11_19_on == 2'd1) | (tr11_20_on && gr11_20_on == 2'd1) | (tr11_21_on && gr11_21_on == 2'd1) | (tr11_22_on && gr11_22_on == 2'd1) | (tr11_23_on && gr11_23_on == 2'd1) | (tr11_24_on && gr11_24_on == 2'd1) | (tr12_0_on && gr12_0_on == 2'd1) | (tr12_1_on && gr12_1_on == 2'd1) | (tr12_2_on && gr12_2_on == 2'd1) | (tr12_3_on && gr12_3_on == 2'd1) | (tr12_4_on && gr12_4_on == 2'd1) | (tr12_5_on && gr12_5_on == 2'd1) | (tr12_6_on && gr12_6_on == 2'd1) | (tr12_7_on && gr12_7_on == 2'd1) | (tr12_8_on && gr12_8_on == 2'd1) | (tr12_9_on && gr12_9_on == 2'd1) | (tr12_10_on && gr12_10_on == 2'd1) | (tr12_11_on && gr12_11_on == 2'd1) | (tr12_12_on && gr12_12_on == 2'd1) | (tr12_13_on && gr12_13_on == 2'd1) | (tr12_14_on && gr12_14_on == 2'd1) | (tr12_15_on && gr12_15_on == 2'd1) | (tr12_16_on && gr12_16_on == 2'd1) | (tr12_17_on && gr12_17_on == 2'd1) | (tr12_18_on && gr12_18_on == 2'd1) | (tr12_19_on && gr12_19_on == 2'd1) | (tr12_20_on && gr12_20_on == 2'd1) | (tr12_21_on && gr12_21_on == 2'd1) | (tr12_22_on && gr12_22_on == 2'd1) | (tr12_23_on && gr12_23_on == 2'd1) | (tr12_24_on && gr12_24_on == 2'd1) | (tr13_0_on && gr13_0_on == 2'd1) | (tr13_1_on && gr13_1_on == 2'd1) | (tr13_2_on && gr13_2_on == 2'd1) | (tr13_3_on && gr13_3_on == 2'd1) | (tr13_4_on && gr13_4_on == 2'd1) | (tr13_5_on && gr13_5_on == 2'd1) | (tr13_6_on && gr13_6_on == 2'd1) | (tr13_7_on && gr13_7_on == 2'd1) | (tr13_8_on && gr13_8_on == 2'd1) | (tr13_9_on && gr13_9_on == 2'd1) | (tr13_10_on && gr13_10_on == 2'd1) | (tr13_11_on && gr13_11_on == 2'd1) | (tr13_12_on && gr13_12_on == 2'd1) | (tr13_13_on && gr13_13_on == 2'd1) | (tr13_14_on && gr13_14_on == 2'd1) | (tr13_15_on && gr13_15_on == 2'd1) | (tr13_16_on && gr13_16_on == 2'd1) | (tr13_17_on && gr13_17_on == 2'd1) | (tr13_18_on && gr13_18_on == 2'd1) | (tr13_19_on && gr13_19_on == 2'd1) | (tr13_20_on && gr13_20_on == 2'd1) | (tr13_21_on && gr13_21_on == 2'd1) | (tr13_22_on && gr13_22_on == 2'd1) | (tr13_23_on && gr13_23_on == 2'd1) | (tr13_24_on && gr13_24_on == 2'd1) | (tr14_0_on && gr14_0_on == 2'd1) | (tr14_1_on && gr14_1_on == 2'd1) | (tr14_2_on && gr14_2_on == 2'd1) | (tr14_3_on && gr14_3_on == 2'd1) | (tr14_4_on && gr14_4_on == 2'd1) | (tr14_5_on && gr14_5_on == 2'd1) | (tr14_6_on && gr14_6_on == 2'd1) | (tr14_7_on && gr14_7_on == 2'd1) | (tr14_8_on && gr14_8_on == 2'd1) | (tr14_9_on && gr14_9_on == 2'd1) | (tr14_10_on && gr14_10_on == 2'd1) | (tr14_11_on && gr14_11_on == 2'd1) | (tr14_12_on && gr14_12_on == 2'd1) | (tr14_13_on && gr14_13_on == 2'd1) | (tr14_14_on && gr14_14_on == 2'd1) | (tr14_15_on && gr14_15_on == 2'd1) | (tr14_16_on && gr14_16_on == 2'd1) | (tr14_17_on && gr14_17_on == 2'd1) | (tr14_18_on && gr14_18_on == 2'd1) | (tr14_19_on && gr14_19_on == 2'd1) | (tr14_20_on && gr14_20_on == 2'd1) | (tr14_21_on && gr14_21_on == 2'd1) | (tr14_22_on && gr14_22_on == 2'd1) | (tr14_23_on && gr14_23_on == 2'd1) | (tr14_24_on && gr14_24_on == 2'd1) | (tr15_0_on && gr15_0_on == 2'd1) | (tr15_1_on && gr15_1_on == 2'd1) | (tr15_2_on && gr15_2_on == 2'd1) | (tr15_3_on && gr15_3_on == 2'd1) | (tr15_4_on && gr15_4_on == 2'd1) | (tr15_5_on && gr15_5_on == 2'd1) | (tr15_6_on && gr15_6_on == 2'd1) | (tr15_7_on && gr15_7_on == 2'd1) | (tr15_8_on && gr15_8_on == 2'd1) | (tr15_9_on && gr15_9_on == 2'd1) | (tr15_10_on && gr15_10_on == 2'd1) | (tr15_11_on && gr15_11_on == 2'd1) | (tr15_12_on && gr15_12_on == 2'd1) | (tr15_13_on && gr15_13_on == 2'd1) | (tr15_14_on && gr15_14_on == 2'd1) | (tr15_15_on && gr15_15_on == 2'd1) | (tr15_16_on && gr15_16_on == 2'd1) | (tr15_17_on && gr15_17_on == 2'd1) | (tr15_18_on && gr15_18_on == 2'd1) | (tr15_19_on && gr15_19_on == 2'd1) | (tr15_20_on && gr15_20_on == 2'd1) | (tr15_21_on && gr15_21_on == 2'd1) | (tr15_22_on && gr15_22_on == 2'd1) | (tr15_23_on && gr15_23_on == 2'd1) | (tr15_24_on && gr15_24_on == 2'd1) | (tr16_0_on && gr16_0_on == 2'd1) | (tr16_1_on && gr16_1_on == 2'd1) | (tr16_2_on && gr16_2_on == 2'd1) | (tr16_3_on && gr16_3_on == 2'd1) | (tr16_4_on && gr16_4_on == 2'd1) | (tr16_5_on && gr16_5_on == 2'd1) | (tr16_6_on && gr16_6_on == 2'd1) | (tr16_7_on && gr16_7_on == 2'd1) | (tr16_8_on && gr16_8_on == 2'd1) | (tr16_9_on && gr16_9_on == 2'd1) | (tr16_10_on && gr16_10_on == 2'd1) | (tr16_11_on && gr16_11_on == 2'd1) | (tr16_12_on && gr16_12_on == 2'd1) | (tr16_13_on && gr16_13_on == 2'd1) | (tr16_14_on && gr16_14_on == 2'd1) | (tr16_15_on && gr16_15_on == 2'd1) | (tr16_16_on && gr16_16_on == 2'd1) | (tr16_17_on && gr16_17_on == 2'd1) | (tr16_18_on && gr16_18_on == 2'd1) | (tr16_19_on && gr16_19_on == 2'd1) | (tr16_20_on && gr16_20_on == 2'd1) | (tr16_21_on && gr16_21_on == 2'd1) | (tr16_22_on && gr16_22_on == 2'd1) | (tr16_23_on && gr16_23_on == 2'd1) | (tr16_24_on && gr16_24_on == 2'd1) | (tr17_0_on && gr17_0_on == 2'd1) | (tr17_1_on && gr17_1_on == 2'd1) | (tr17_2_on && gr17_2_on == 2'd1) | (tr17_3_on && gr17_3_on == 2'd1) | (tr17_4_on && gr17_4_on == 2'd1) | (tr17_5_on && gr17_5_on == 2'd1) | (tr17_6_on && gr17_6_on == 2'd1) | (tr17_7_on && gr17_7_on == 2'd1) | (tr17_8_on && gr17_8_on == 2'd1) | (tr17_9_on && gr17_9_on == 2'd1) | (tr17_10_on && gr17_10_on == 2'd1) | (tr17_11_on && gr17_11_on == 2'd1) | (tr17_12_on && gr17_12_on == 2'd1) | (tr17_13_on && gr17_13_on == 2'd1) | (tr17_14_on && gr17_14_on == 2'd1) | (tr17_15_on && gr17_15_on == 2'd1) | (tr17_16_on && gr17_16_on == 2'd1) | (tr17_17_on && gr17_17_on == 2'd1) | (tr17_18_on && gr17_18_on == 2'd1) | (tr17_19_on && gr17_19_on == 2'd1) | (tr17_20_on && gr17_20_on == 2'd1) | (tr17_21_on && gr17_21_on == 2'd1) | (tr17_22_on && gr17_22_on == 2'd1) | (tr17_23_on && gr17_23_on == 2'd1) | (tr17_24_on && gr17_24_on == 2'd1) | (tr18_0_on && gr18_0_on == 2'd1) | (tr18_1_on && gr18_1_on == 2'd1) | (tr18_2_on && gr18_2_on == 2'd1) | (tr18_3_on && gr18_3_on == 2'd1) | (tr18_4_on && gr18_4_on == 2'd1) | (tr18_5_on && gr18_5_on == 2'd1) | (tr18_6_on && gr18_6_on == 2'd1) | (tr18_7_on && gr18_7_on == 2'd1) | (tr18_8_on && gr18_8_on == 2'd1) | (tr18_9_on && gr18_9_on == 2'd1) | (tr18_10_on && gr18_10_on == 2'd1) | (tr18_11_on && gr18_11_on == 2'd1) | (tr18_12_on && gr18_12_on == 2'd1) | (tr18_13_on && gr18_13_on == 2'd1) | (tr18_14_on && gr18_14_on == 2'd1) | (tr18_15_on && gr18_15_on == 2'd1) | (tr18_16_on && gr18_16_on == 2'd1) | (tr18_17_on && gr18_17_on == 2'd1) | (tr18_18_on && gr18_18_on == 2'd1) | (tr18_19_on && gr18_19_on == 2'd1) | (tr18_20_on && gr18_20_on == 2'd1) | (tr18_21_on && gr18_21_on == 2'd1) | (tr18_22_on && gr18_22_on == 2'd1) | (tr18_23_on && gr18_23_on == 2'd1) | (tr18_24_on && gr18_24_on == 2'd1) | (tr19_0_on && gr19_0_on == 2'd1) | (tr19_1_on && gr19_1_on == 2'd1) | (tr19_2_on && gr19_2_on == 2'd1) | (tr19_3_on && gr19_3_on == 2'd1) | (tr19_4_on && gr19_4_on == 2'd1) | (tr19_5_on && gr19_5_on == 2'd1) | (tr19_6_on && gr19_6_on == 2'd1) | (tr19_7_on && gr19_7_on == 2'd1) | (tr19_8_on && gr19_8_on == 2'd1) | (tr19_9_on && gr19_9_on == 2'd1) | (tr19_10_on && gr19_10_on == 2'd1) | (tr19_11_on && gr19_11_on == 2'd1) | (tr19_12_on && gr19_12_on == 2'd1) | (tr19_13_on && gr19_13_on == 2'd1) | (tr19_14_on && gr19_14_on == 2'd1) | (tr19_15_on && gr19_15_on == 2'd1) | (tr19_16_on && gr19_16_on == 2'd1) | (tr19_17_on && gr19_17_on == 2'd1) | (tr19_18_on && gr19_18_on == 2'd1) | (tr19_19_on && gr19_19_on == 2'd1) | (tr19_20_on && gr19_20_on == 2'd1) | (tr19_21_on && gr19_21_on == 2'd1) | (tr19_22_on && gr19_22_on == 2'd1) | (tr19_23_on && gr19_23_on == 2'd1) | (tr19_24_on && gr19_24_on == 2'd1) | (tr20_0_on && gr20_0_on == 2'd1) | (tr20_1_on && gr20_1_on == 2'd1) | (tr20_2_on && gr20_2_on == 2'd1) | (tr20_3_on && gr20_3_on == 2'd1) | (tr20_4_on && gr20_4_on == 2'd1) | (tr20_5_on && gr20_5_on == 2'd1) | (tr20_6_on && gr20_6_on == 2'd1) | (tr20_7_on && gr20_7_on == 2'd1) | (tr20_8_on && gr20_8_on == 2'd1) | (tr20_9_on && gr20_9_on == 2'd1) | (tr20_10_on && gr20_10_on == 2'd1) | (tr20_11_on && gr20_11_on == 2'd1) | (tr20_12_on && gr20_12_on == 2'd1) | (tr20_13_on && gr20_13_on == 2'd1) | (tr20_14_on && gr20_14_on == 2'd1) | (tr20_15_on && gr20_15_on == 2'd1) | (tr20_16_on && gr20_16_on == 2'd1) | (tr20_17_on && gr20_17_on == 2'd1) | (tr20_18_on && gr20_18_on == 2'd1) | (tr20_19_on && gr20_19_on == 2'd1) | (tr20_20_on && gr20_20_on == 2'd1) | (tr20_21_on && gr20_21_on == 2'd1) | (tr20_22_on && gr20_22_on == 2'd1) | (tr20_23_on && gr20_23_on == 2'd1) | (tr20_24_on && gr20_24_on == 2'd1) | (tr21_0_on && gr21_0_on == 2'd1) | (tr21_1_on && gr21_1_on == 2'd1) | (tr21_2_on && gr21_2_on == 2'd1) | (tr21_3_on && gr21_3_on == 2'd1) | (tr21_4_on && gr21_4_on == 2'd1) | (tr21_5_on && gr21_5_on == 2'd1) | (tr21_6_on && gr21_6_on == 2'd1) | (tr21_7_on && gr21_7_on == 2'd1) | (tr21_8_on && gr21_8_on == 2'd1) | (tr21_9_on && gr21_9_on == 2'd1) | (tr21_10_on && gr21_10_on == 2'd1) | (tr21_11_on && gr21_11_on == 2'd1) | (tr21_12_on && gr21_12_on == 2'd1) | (tr21_13_on && gr21_13_on == 2'd1) | (tr21_14_on && gr21_14_on == 2'd1) | (tr21_15_on && gr21_15_on == 2'd1) | (tr21_16_on && gr21_16_on == 2'd1) | (tr21_17_on && gr21_17_on == 2'd1) | (tr21_18_on && gr21_18_on == 2'd1) | (tr21_19_on && gr21_19_on == 2'd1) | (tr21_20_on && gr21_20_on == 2'd1) | (tr21_21_on && gr21_21_on == 2'd1) | (tr21_22_on && gr21_22_on == 2'd1) | (tr21_23_on && gr21_23_on == 2'd1) | (tr21_24_on && gr21_24_on == 2'd1) | (tr22_0_on && gr22_0_on == 2'd1) | (tr22_1_on && gr22_1_on == 2'd1) | (tr22_2_on && gr22_2_on == 2'd1) | (tr22_3_on && gr22_3_on == 2'd1) | (tr22_4_on && gr22_4_on == 2'd1) | (tr22_5_on && gr22_5_on == 2'd1) | (tr22_6_on && gr22_6_on == 2'd1) | (tr22_7_on && gr22_7_on == 2'd1) | (tr22_8_on && gr22_8_on == 2'd1) | (tr22_9_on && gr22_9_on == 2'd1) | (tr22_10_on && gr22_10_on == 2'd1) | (tr22_11_on && gr22_11_on == 2'd1) | (tr22_12_on && gr22_12_on == 2'd1) | (tr22_13_on && gr22_13_on == 2'd1) | (tr22_14_on && gr22_14_on == 2'd1) | (tr22_15_on && gr22_15_on == 2'd1) | (tr22_16_on && gr22_16_on == 2'd1) | (tr22_17_on && gr22_17_on == 2'd1) | (tr22_18_on && gr22_18_on == 2'd1) | (tr22_19_on && gr22_19_on == 2'd1) | (tr22_20_on && gr22_20_on == 2'd1) | (tr22_21_on && gr22_21_on == 2'd1) | (tr22_22_on && gr22_22_on == 2'd1) | (tr22_23_on && gr22_23_on == 2'd1) | (tr22_24_on && gr22_24_on == 2'd1) | (tr23_0_on && gr23_0_on == 2'd1) | (tr23_1_on && gr23_1_on == 2'd1) | (tr23_2_on && gr23_2_on == 2'd1) | (tr23_3_on && gr23_3_on == 2'd1) | (tr23_4_on && gr23_4_on == 2'd1) | (tr23_5_on && gr23_5_on == 2'd1) | (tr23_6_on && gr23_6_on == 2'd1) | (tr23_7_on && gr23_7_on == 2'd1) | (tr23_8_on && gr23_8_on == 2'd1) | (tr23_9_on && gr23_9_on == 2'd1) | (tr23_10_on && gr23_10_on == 2'd1) | (tr23_11_on && gr23_11_on == 2'd1) | (tr23_12_on && gr23_12_on == 2'd1) | (tr23_13_on && gr23_13_on == 2'd1) | (tr23_14_on && gr23_14_on == 2'd1) | (tr23_15_on && gr23_15_on == 2'd1) | (tr23_16_on && gr23_16_on == 2'd1) | (tr23_17_on && gr23_17_on == 2'd1) | (tr23_18_on && gr23_18_on == 2'd1) | (tr23_19_on && gr23_19_on == 2'd1) | (tr23_20_on && gr23_20_on == 2'd1) | (tr23_21_on && gr23_21_on == 2'd1) | (tr23_22_on && gr23_22_on == 2'd1) | (tr23_23_on && gr23_23_on == 2'd1) | (tr23_24_on && gr23_24_on == 2'd1) | (tr24_0_on && gr24_0_on == 2'd1) | (tr24_1_on && gr24_1_on == 2'd1) | (tr24_2_on && gr24_2_on == 2'd1) | (tr24_3_on && gr24_3_on == 2'd1) | (tr24_4_on && gr24_4_on == 2'd1) | (tr24_5_on && gr24_5_on == 2'd1) | (tr24_6_on && gr24_6_on == 2'd1) | (tr24_7_on && gr24_7_on == 2'd1) | (tr24_8_on && gr24_8_on == 2'd1) | (tr24_9_on && gr24_9_on == 2'd1) | (tr24_10_on && gr24_10_on == 2'd1) | (tr24_11_on && gr24_11_on == 2'd1) | (tr24_12_on && gr24_12_on == 2'd1) | (tr24_13_on && gr24_13_on == 2'd1) | (tr24_14_on && gr24_14_on == 2'd1) | (tr24_15_on && gr24_15_on == 2'd1) | (tr24_16_on && gr24_16_on == 2'd1) | (tr24_17_on && gr24_17_on == 2'd1) | (tr24_18_on && gr24_18_on == 2'd1) | (tr24_19_on && gr24_19_on == 2'd1) | (tr24_20_on && gr24_20_on == 2'd1) | (tr24_21_on && gr24_21_on == 2'd1) | (tr24_22_on && gr24_22_on == 2'd1) | (tr24_23_on && gr24_23_on == 2'd1) | (tr24_24_on && gr24_24_on == 2'd1))
                 rgb = trail1;
             else if ((tr0_0_on && gr0_0_on == 2'd2) | (tr0_1_on && gr0_1_on == 2'd2) | (tr0_2_on && gr0_2_on == 2'd2) | (tr0_3_on && gr0_3_on == 2'd2) | (tr0_4_on && gr0_4_on == 2'd2) | (tr0_5_on && gr0_5_on == 2'd2) | (tr0_6_on && gr0_6_on == 2'd2) | (tr0_7_on && gr0_7_on == 2'd2) | (tr0_8_on && gr0_8_on == 2'd2) | (tr0_9_on && gr0_9_on == 2'd2) | (tr0_10_on && gr0_10_on == 2'd2) | (tr0_11_on && gr0_11_on == 2'd2) | (tr0_12_on && gr0_12_on == 2'd2) | (tr0_13_on && gr0_13_on == 2'd2) | (tr0_14_on && gr0_14_on == 2'd2) | (tr0_15_on && gr0_15_on == 2'd2) | (tr0_16_on && gr0_16_on == 2'd2) | (tr0_17_on && gr0_17_on == 2'd2) | (tr0_18_on && gr0_18_on == 2'd2) | (tr0_19_on && gr0_19_on == 2'd2) | (tr0_20_on && gr0_20_on == 2'd2) | (tr0_21_on && gr0_21_on == 2'd2) | (tr0_22_on && gr0_22_on == 2'd2) | (tr0_23_on && gr0_23_on == 2'd2) | (tr0_24_on && gr0_24_on == 2'd2) | (tr1_0_on && gr1_0_on == 2'd2) | (tr1_1_on && gr1_1_on == 2'd2) | (tr1_2_on && gr1_2_on == 2'd2) | (tr1_3_on && gr1_3_on == 2'd2) | (tr1_4_on && gr1_4_on == 2'd2) | (tr1_5_on && gr1_5_on == 2'd2) | (tr1_6_on && gr1_6_on == 2'd2) | (tr1_7_on && gr1_7_on == 2'd2) | (tr1_8_on && gr1_8_on == 2'd2) | (tr1_9_on && gr1_9_on == 2'd2) | (tr1_10_on && gr1_10_on == 2'd2) | (tr1_11_on && gr1_11_on == 2'd2) | (tr1_12_on && gr1_12_on == 2'd2) | (tr1_13_on && gr1_13_on == 2'd2) | (tr1_14_on && gr1_14_on == 2'd2) | (tr1_15_on && gr1_15_on == 2'd2) | (tr1_16_on && gr1_16_on == 2'd2) | (tr1_17_on && gr1_17_on == 2'd2) | (tr1_18_on && gr1_18_on == 2'd2) | (tr1_19_on && gr1_19_on == 2'd2) | (tr1_20_on && gr1_20_on == 2'd2) | (tr1_21_on && gr1_21_on == 2'd2) | (tr1_22_on && gr1_22_on == 2'd2) | (tr1_23_on && gr1_23_on == 2'd2) | (tr1_24_on && gr1_24_on == 2'd2) | (tr2_0_on && gr2_0_on == 2'd2) | (tr2_1_on && gr2_1_on == 2'd2) | (tr2_2_on && gr2_2_on == 2'd2) | (tr2_3_on && gr2_3_on == 2'd2) | (tr2_4_on && gr2_4_on == 2'd2) | (tr2_5_on && gr2_5_on == 2'd2) | (tr2_6_on && gr2_6_on == 2'd2) | (tr2_7_on && gr2_7_on == 2'd2) | (tr2_8_on && gr2_8_on == 2'd2) | (tr2_9_on && gr2_9_on == 2'd2) | (tr2_10_on && gr2_10_on == 2'd2) | (tr2_11_on && gr2_11_on == 2'd2) | (tr2_12_on && gr2_12_on == 2'd2) | (tr2_13_on && gr2_13_on == 2'd2) | (tr2_14_on && gr2_14_on == 2'd2) | (tr2_15_on && gr2_15_on == 2'd2) | (tr2_16_on && gr2_16_on == 2'd2) | (tr2_17_on && gr2_17_on == 2'd2) | (tr2_18_on && gr2_18_on == 2'd2) | (tr2_19_on && gr2_19_on == 2'd2) | (tr2_20_on && gr2_20_on == 2'd2) | (tr2_21_on && gr2_21_on == 2'd2) | (tr2_22_on && gr2_22_on == 2'd2) | (tr2_23_on && gr2_23_on == 2'd2) | (tr2_24_on && gr2_24_on == 2'd2) | (tr3_0_on && gr3_0_on == 2'd2) | (tr3_1_on && gr3_1_on == 2'd2) | (tr3_2_on && gr3_2_on == 2'd2) | (tr3_3_on && gr3_3_on == 2'd2) | (tr3_4_on && gr3_4_on == 2'd2) | (tr3_5_on && gr3_5_on == 2'd2) | (tr3_6_on && gr3_6_on == 2'd2) | (tr3_7_on && gr3_7_on == 2'd2) | (tr3_8_on && gr3_8_on == 2'd2) | (tr3_9_on && gr3_9_on == 2'd2) | (tr3_10_on && gr3_10_on == 2'd2) | (tr3_11_on && gr3_11_on == 2'd2) | (tr3_12_on && gr3_12_on == 2'd2) | (tr3_13_on && gr3_13_on == 2'd2) | (tr3_14_on && gr3_14_on == 2'd2) | (tr3_15_on && gr3_15_on == 2'd2) | (tr3_16_on && gr3_16_on == 2'd2) | (tr3_17_on && gr3_17_on == 2'd2) | (tr3_18_on && gr3_18_on == 2'd2) | (tr3_19_on && gr3_19_on == 2'd2) | (tr3_20_on && gr3_20_on == 2'd2) | (tr3_21_on && gr3_21_on == 2'd2) | (tr3_22_on && gr3_22_on == 2'd2) | (tr3_23_on && gr3_23_on == 2'd2) | (tr3_24_on && gr3_24_on == 2'd2) | (tr4_0_on && gr4_0_on == 2'd2) | (tr4_1_on && gr4_1_on == 2'd2) | (tr4_2_on && gr4_2_on == 2'd2) | (tr4_3_on && gr4_3_on == 2'd2) | (tr4_4_on && gr4_4_on == 2'd2) | (tr4_5_on && gr4_5_on == 2'd2) | (tr4_6_on && gr4_6_on == 2'd2) | (tr4_7_on && gr4_7_on == 2'd2) | (tr4_8_on && gr4_8_on == 2'd2) | (tr4_9_on && gr4_9_on == 2'd2) | (tr4_10_on && gr4_10_on == 2'd2) | (tr4_11_on && gr4_11_on == 2'd2) | (tr4_12_on && gr4_12_on == 2'd2) | (tr4_13_on && gr4_13_on == 2'd2) | (tr4_14_on && gr4_14_on == 2'd2) | (tr4_15_on && gr4_15_on == 2'd2) | (tr4_16_on && gr4_16_on == 2'd2) | (tr4_17_on && gr4_17_on == 2'd2) | (tr4_18_on && gr4_18_on == 2'd2) | (tr4_19_on && gr4_19_on == 2'd2) | (tr4_20_on && gr4_20_on == 2'd2) | (tr4_21_on && gr4_21_on == 2'd2) | (tr4_22_on && gr4_22_on == 2'd2) | (tr4_23_on && gr4_23_on == 2'd2) | (tr4_24_on && gr4_24_on == 2'd2) | (tr5_0_on && gr5_0_on == 2'd2) | (tr5_1_on && gr5_1_on == 2'd2) | (tr5_2_on && gr5_2_on == 2'd2) | (tr5_3_on && gr5_3_on == 2'd2) | (tr5_4_on && gr5_4_on == 2'd2) | (tr5_5_on && gr5_5_on == 2'd2) | (tr5_6_on && gr5_6_on == 2'd2) | (tr5_7_on && gr5_7_on == 2'd2) | (tr5_8_on && gr5_8_on == 2'd2) | (tr5_9_on && gr5_9_on == 2'd2) | (tr5_10_on && gr5_10_on == 2'd2) | (tr5_11_on && gr5_11_on == 2'd2) | (tr5_12_on && gr5_12_on == 2'd2) | (tr5_13_on && gr5_13_on == 2'd2) | (tr5_14_on && gr5_14_on == 2'd2) | (tr5_15_on && gr5_15_on == 2'd2) | (tr5_16_on && gr5_16_on == 2'd2) | (tr5_17_on && gr5_17_on == 2'd2) | (tr5_18_on && gr5_18_on == 2'd2) | (tr5_19_on && gr5_19_on == 2'd2) | (tr5_20_on && gr5_20_on == 2'd2) | (tr5_21_on && gr5_21_on == 2'd2) | (tr5_22_on && gr5_22_on == 2'd2) | (tr5_23_on && gr5_23_on == 2'd2) | (tr5_24_on && gr5_24_on == 2'd2) | (tr6_0_on && gr6_0_on == 2'd2) | (tr6_1_on && gr6_1_on == 2'd2) | (tr6_2_on && gr6_2_on == 2'd2) | (tr6_3_on && gr6_3_on == 2'd2) | (tr6_4_on && gr6_4_on == 2'd2) | (tr6_5_on && gr6_5_on == 2'd2) | (tr6_6_on && gr6_6_on == 2'd2) | (tr6_7_on && gr6_7_on == 2'd2) | (tr6_8_on && gr6_8_on == 2'd2) | (tr6_9_on && gr6_9_on == 2'd2) | (tr6_10_on && gr6_10_on == 2'd2) | (tr6_11_on && gr6_11_on == 2'd2) | (tr6_12_on && gr6_12_on == 2'd2) | (tr6_13_on && gr6_13_on == 2'd2) | (tr6_14_on && gr6_14_on == 2'd2) | (tr6_15_on && gr6_15_on == 2'd2) | (tr6_16_on && gr6_16_on == 2'd2) | (tr6_17_on && gr6_17_on == 2'd2) | (tr6_18_on && gr6_18_on == 2'd2) | (tr6_19_on && gr6_19_on == 2'd2) | (tr6_20_on && gr6_20_on == 2'd2) | (tr6_21_on && gr6_21_on == 2'd2) | (tr6_22_on && gr6_22_on == 2'd2) | (tr6_23_on && gr6_23_on == 2'd2) | (tr6_24_on && gr6_24_on == 2'd2) | (tr7_0_on && gr7_0_on == 2'd2) | (tr7_1_on && gr7_1_on == 2'd2) | (tr7_2_on && gr7_2_on == 2'd2) | (tr7_3_on && gr7_3_on == 2'd2) | (tr7_4_on && gr7_4_on == 2'd2) | (tr7_5_on && gr7_5_on == 2'd2) | (tr7_6_on && gr7_6_on == 2'd2) | (tr7_7_on && gr7_7_on == 2'd2) | (tr7_8_on && gr7_8_on == 2'd2) | (tr7_9_on && gr7_9_on == 2'd2) | (tr7_10_on && gr7_10_on == 2'd2) | (tr7_11_on && gr7_11_on == 2'd2) | (tr7_12_on && gr7_12_on == 2'd2) | (tr7_13_on && gr7_13_on == 2'd2) | (tr7_14_on && gr7_14_on == 2'd2) | (tr7_15_on && gr7_15_on == 2'd2) | (tr7_16_on && gr7_16_on == 2'd2) | (tr7_17_on && gr7_17_on == 2'd2) | (tr7_18_on && gr7_18_on == 2'd2) | (tr7_19_on && gr7_19_on == 2'd2) | (tr7_20_on && gr7_20_on == 2'd2) | (tr7_21_on && gr7_21_on == 2'd2) | (tr7_22_on && gr7_22_on == 2'd2) | (tr7_23_on && gr7_23_on == 2'd2) | (tr7_24_on && gr7_24_on == 2'd2) | (tr8_0_on && gr8_0_on == 2'd2) | (tr8_1_on && gr8_1_on == 2'd2) | (tr8_2_on && gr8_2_on == 2'd2) | (tr8_3_on && gr8_3_on == 2'd2) | (tr8_4_on && gr8_4_on == 2'd2) | (tr8_5_on && gr8_5_on == 2'd2) | (tr8_6_on && gr8_6_on == 2'd2) | (tr8_7_on && gr8_7_on == 2'd2) | (tr8_8_on && gr8_8_on == 2'd2) | (tr8_9_on && gr8_9_on == 2'd2) | (tr8_10_on && gr8_10_on == 2'd2) | (tr8_11_on && gr8_11_on == 2'd2) | (tr8_12_on && gr8_12_on == 2'd2) | (tr8_13_on && gr8_13_on == 2'd2) | (tr8_14_on && gr8_14_on == 2'd2) | (tr8_15_on && gr8_15_on == 2'd2) | (tr8_16_on && gr8_16_on == 2'd2) | (tr8_17_on && gr8_17_on == 2'd2) | (tr8_18_on && gr8_18_on == 2'd2) | (tr8_19_on && gr8_19_on == 2'd2) | (tr8_20_on && gr8_20_on == 2'd2) | (tr8_21_on && gr8_21_on == 2'd2) | (tr8_22_on && gr8_22_on == 2'd2) | (tr8_23_on && gr8_23_on == 2'd2) | (tr8_24_on && gr8_24_on == 2'd2) | (tr9_0_on && gr9_0_on == 2'd2) | (tr9_1_on && gr9_1_on == 2'd2) | (tr9_2_on && gr9_2_on == 2'd2) | (tr9_3_on && gr9_3_on == 2'd2) | (tr9_4_on && gr9_4_on == 2'd2) | (tr9_5_on && gr9_5_on == 2'd2) | (tr9_6_on && gr9_6_on == 2'd2) | (tr9_7_on && gr9_7_on == 2'd2) | (tr9_8_on && gr9_8_on == 2'd2) | (tr9_9_on && gr9_9_on == 2'd2) | (tr9_10_on && gr9_10_on == 2'd2) | (tr9_11_on && gr9_11_on == 2'd2) | (tr9_12_on && gr9_12_on == 2'd2) | (tr9_13_on && gr9_13_on == 2'd2) | (tr9_14_on && gr9_14_on == 2'd2) | (tr9_15_on && gr9_15_on == 2'd2) | (tr9_16_on && gr9_16_on == 2'd2) | (tr9_17_on && gr9_17_on == 2'd2) | (tr9_18_on && gr9_18_on == 2'd2) | (tr9_19_on && gr9_19_on == 2'd2) | (tr9_20_on && gr9_20_on == 2'd2) | (tr9_21_on && gr9_21_on == 2'd2) | (tr9_22_on && gr9_22_on == 2'd2) | (tr9_23_on && gr9_23_on == 2'd2) | (tr9_24_on && gr9_24_on == 2'd2) | (tr10_0_on && gr10_0_on == 2'd2) | (tr10_1_on && gr10_1_on == 2'd2) | (tr10_2_on && gr10_2_on == 2'd2) | (tr10_3_on && gr10_3_on == 2'd2) | (tr10_4_on && gr10_4_on == 2'd2) | (tr10_5_on && gr10_5_on == 2'd2) | (tr10_6_on && gr10_6_on == 2'd2) | (tr10_7_on && gr10_7_on == 2'd2) | (tr10_8_on && gr10_8_on == 2'd2) | (tr10_9_on && gr10_9_on == 2'd2) | (tr10_10_on && gr10_10_on == 2'd2) | (tr10_11_on && gr10_11_on == 2'd2) | (tr10_12_on && gr10_12_on == 2'd2) | (tr10_13_on && gr10_13_on == 2'd2) | (tr10_14_on && gr10_14_on == 2'd2) | (tr10_15_on && gr10_15_on == 2'd2) | (tr10_16_on && gr10_16_on == 2'd2) | (tr10_17_on && gr10_17_on == 2'd2) | (tr10_18_on && gr10_18_on == 2'd2) | (tr10_19_on && gr10_19_on == 2'd2) | (tr10_20_on && gr10_20_on == 2'd2) | (tr10_21_on && gr10_21_on == 2'd2) | (tr10_22_on && gr10_22_on == 2'd2) | (tr10_23_on && gr10_23_on == 2'd2) | (tr10_24_on && gr10_24_on == 2'd2) | (tr11_0_on && gr11_0_on == 2'd2) | (tr11_1_on && gr11_1_on == 2'd2) | (tr11_2_on && gr11_2_on == 2'd2) | (tr11_3_on && gr11_3_on == 2'd2) | (tr11_4_on && gr11_4_on == 2'd2) | (tr11_5_on && gr11_5_on == 2'd2) | (tr11_6_on && gr11_6_on == 2'd2) | (tr11_7_on && gr11_7_on == 2'd2) | (tr11_8_on && gr11_8_on == 2'd2) | (tr11_9_on && gr11_9_on == 2'd2) | (tr11_10_on && gr11_10_on == 2'd2) | (tr11_11_on && gr11_11_on == 2'd2) | (tr11_12_on && gr11_12_on == 2'd2) | (tr11_13_on && gr11_13_on == 2'd2) | (tr11_14_on && gr11_14_on == 2'd2) | (tr11_15_on && gr11_15_on == 2'd2) | (tr11_16_on && gr11_16_on == 2'd2) | (tr11_17_on && gr11_17_on == 2'd2) | (tr11_18_on && gr11_18_on == 2'd2) | (tr11_19_on && gr11_19_on == 2'd2) | (tr11_20_on && gr11_20_on == 2'd2) | (tr11_21_on && gr11_21_on == 2'd2) | (tr11_22_on && gr11_22_on == 2'd2) | (tr11_23_on && gr11_23_on == 2'd2) | (tr11_24_on && gr11_24_on == 2'd2) | (tr12_0_on && gr12_0_on == 2'd2) | (tr12_1_on && gr12_1_on == 2'd2) | (tr12_2_on && gr12_2_on == 2'd2) | (tr12_3_on && gr12_3_on == 2'd2) | (tr12_4_on && gr12_4_on == 2'd2) | (tr12_5_on && gr12_5_on == 2'd2) | (tr12_6_on && gr12_6_on == 2'd2) | (tr12_7_on && gr12_7_on == 2'd2) | (tr12_8_on && gr12_8_on == 2'd2) | (tr12_9_on && gr12_9_on == 2'd2) | (tr12_10_on && gr12_10_on == 2'd2) | (tr12_11_on && gr12_11_on == 2'd2) | (tr12_12_on && gr12_12_on == 2'd2) | (tr12_13_on && gr12_13_on == 2'd2) | (tr12_14_on && gr12_14_on == 2'd2) | (tr12_15_on && gr12_15_on == 2'd2) | (tr12_16_on && gr12_16_on == 2'd2) | (tr12_17_on && gr12_17_on == 2'd2) | (tr12_18_on && gr12_18_on == 2'd2) | (tr12_19_on && gr12_19_on == 2'd2) | (tr12_20_on && gr12_20_on == 2'd2) | (tr12_21_on && gr12_21_on == 2'd2) | (tr12_22_on && gr12_22_on == 2'd2) | (tr12_23_on && gr12_23_on == 2'd2) | (tr12_24_on && gr12_24_on == 2'd2) | (tr13_0_on && gr13_0_on == 2'd2) | (tr13_1_on && gr13_1_on == 2'd2) | (tr13_2_on && gr13_2_on == 2'd2) | (tr13_3_on && gr13_3_on == 2'd2) | (tr13_4_on && gr13_4_on == 2'd2) | (tr13_5_on && gr13_5_on == 2'd2) | (tr13_6_on && gr13_6_on == 2'd2) | (tr13_7_on && gr13_7_on == 2'd2) | (tr13_8_on && gr13_8_on == 2'd2) | (tr13_9_on && gr13_9_on == 2'd2) | (tr13_10_on && gr13_10_on == 2'd2) | (tr13_11_on && gr13_11_on == 2'd2) | (tr13_12_on && gr13_12_on == 2'd2) | (tr13_13_on && gr13_13_on == 2'd2) | (tr13_14_on && gr13_14_on == 2'd2) | (tr13_15_on && gr13_15_on == 2'd2) | (tr13_16_on && gr13_16_on == 2'd2) | (tr13_17_on && gr13_17_on == 2'd2) | (tr13_18_on && gr13_18_on == 2'd2) | (tr13_19_on && gr13_19_on == 2'd2) | (tr13_20_on && gr13_20_on == 2'd2) | (tr13_21_on && gr13_21_on == 2'd2) | (tr13_22_on && gr13_22_on == 2'd2) | (tr13_23_on && gr13_23_on == 2'd2) | (tr13_24_on && gr13_24_on == 2'd2) | (tr14_0_on && gr14_0_on == 2'd2) | (tr14_1_on && gr14_1_on == 2'd2) | (tr14_2_on && gr14_2_on == 2'd2) | (tr14_3_on && gr14_3_on == 2'd2) | (tr14_4_on && gr14_4_on == 2'd2) | (tr14_5_on && gr14_5_on == 2'd2) | (tr14_6_on && gr14_6_on == 2'd2) | (tr14_7_on && gr14_7_on == 2'd2) | (tr14_8_on && gr14_8_on == 2'd2) | (tr14_9_on && gr14_9_on == 2'd2) | (tr14_10_on && gr14_10_on == 2'd2) | (tr14_11_on && gr14_11_on == 2'd2) | (tr14_12_on && gr14_12_on == 2'd2) | (tr14_13_on && gr14_13_on == 2'd2) | (tr14_14_on && gr14_14_on == 2'd2) | (tr14_15_on && gr14_15_on == 2'd2) | (tr14_16_on && gr14_16_on == 2'd2) | (tr14_17_on && gr14_17_on == 2'd2) | (tr14_18_on && gr14_18_on == 2'd2) | (tr14_19_on && gr14_19_on == 2'd2) | (tr14_20_on && gr14_20_on == 2'd2) | (tr14_21_on && gr14_21_on == 2'd2) | (tr14_22_on && gr14_22_on == 2'd2) | (tr14_23_on && gr14_23_on == 2'd2) | (tr14_24_on && gr14_24_on == 2'd2) | (tr15_0_on && gr15_0_on == 2'd2) | (tr15_1_on && gr15_1_on == 2'd2) | (tr15_2_on && gr15_2_on == 2'd2) | (tr15_3_on && gr15_3_on == 2'd2) | (tr15_4_on && gr15_4_on == 2'd2) | (tr15_5_on && gr15_5_on == 2'd2) | (tr15_6_on && gr15_6_on == 2'd2) | (tr15_7_on && gr15_7_on == 2'd2) | (tr15_8_on && gr15_8_on == 2'd2) | (tr15_9_on && gr15_9_on == 2'd2) | (tr15_10_on && gr15_10_on == 2'd2) | (tr15_11_on && gr15_11_on == 2'd2) | (tr15_12_on && gr15_12_on == 2'd2) | (tr15_13_on && gr15_13_on == 2'd2) | (tr15_14_on && gr15_14_on == 2'd2) | (tr15_15_on && gr15_15_on == 2'd2) | (tr15_16_on && gr15_16_on == 2'd2) | (tr15_17_on && gr15_17_on == 2'd2) | (tr15_18_on && gr15_18_on == 2'd2) | (tr15_19_on && gr15_19_on == 2'd2) | (tr15_20_on && gr15_20_on == 2'd2) | (tr15_21_on && gr15_21_on == 2'd2) | (tr15_22_on && gr15_22_on == 2'd2) | (tr15_23_on && gr15_23_on == 2'd2) | (tr15_24_on && gr15_24_on == 2'd2) | (tr16_0_on && gr16_0_on == 2'd2) | (tr16_1_on && gr16_1_on == 2'd2) | (tr16_2_on && gr16_2_on == 2'd2) | (tr16_3_on && gr16_3_on == 2'd2) | (tr16_4_on && gr16_4_on == 2'd2) | (tr16_5_on && gr16_5_on == 2'd2) | (tr16_6_on && gr16_6_on == 2'd2) | (tr16_7_on && gr16_7_on == 2'd2) | (tr16_8_on && gr16_8_on == 2'd2) | (tr16_9_on && gr16_9_on == 2'd2) | (tr16_10_on && gr16_10_on == 2'd2) | (tr16_11_on && gr16_11_on == 2'd2) | (tr16_12_on && gr16_12_on == 2'd2) | (tr16_13_on && gr16_13_on == 2'd2) | (tr16_14_on && gr16_14_on == 2'd2) | (tr16_15_on && gr16_15_on == 2'd2) | (tr16_16_on && gr16_16_on == 2'd2) | (tr16_17_on && gr16_17_on == 2'd2) | (tr16_18_on && gr16_18_on == 2'd2) | (tr16_19_on && gr16_19_on == 2'd2) | (tr16_20_on && gr16_20_on == 2'd2) | (tr16_21_on && gr16_21_on == 2'd2) | (tr16_22_on && gr16_22_on == 2'd2) | (tr16_23_on && gr16_23_on == 2'd2) | (tr16_24_on && gr16_24_on == 2'd2) | (tr17_0_on && gr17_0_on == 2'd2) | (tr17_1_on && gr17_1_on == 2'd2) | (tr17_2_on && gr17_2_on == 2'd2) | (tr17_3_on && gr17_3_on == 2'd2) | (tr17_4_on && gr17_4_on == 2'd2) | (tr17_5_on && gr17_5_on == 2'd2) | (tr17_6_on && gr17_6_on == 2'd2) | (tr17_7_on && gr17_7_on == 2'd2) | (tr17_8_on && gr17_8_on == 2'd2) | (tr17_9_on && gr17_9_on == 2'd2) | (tr17_10_on && gr17_10_on == 2'd2) | (tr17_11_on && gr17_11_on == 2'd2) | (tr17_12_on && gr17_12_on == 2'd2) | (tr17_13_on && gr17_13_on == 2'd2) | (tr17_14_on && gr17_14_on == 2'd2) | (tr17_15_on && gr17_15_on == 2'd2) | (tr17_16_on && gr17_16_on == 2'd2) | (tr17_17_on && gr17_17_on == 2'd2) | (tr17_18_on && gr17_18_on == 2'd2) | (tr17_19_on && gr17_19_on == 2'd2) | (tr17_20_on && gr17_20_on == 2'd2) | (tr17_21_on && gr17_21_on == 2'd2) | (tr17_22_on && gr17_22_on == 2'd2) | (tr17_23_on && gr17_23_on == 2'd2) | (tr17_24_on && gr17_24_on == 2'd2) | (tr18_0_on && gr18_0_on == 2'd2) | (tr18_1_on && gr18_1_on == 2'd2) | (tr18_2_on && gr18_2_on == 2'd2) | (tr18_3_on && gr18_3_on == 2'd2) | (tr18_4_on && gr18_4_on == 2'd2) | (tr18_5_on && gr18_5_on == 2'd2) | (tr18_6_on && gr18_6_on == 2'd2) | (tr18_7_on && gr18_7_on == 2'd2) | (tr18_8_on && gr18_8_on == 2'd2) | (tr18_9_on && gr18_9_on == 2'd2) | (tr18_10_on && gr18_10_on == 2'd2) | (tr18_11_on && gr18_11_on == 2'd2) | (tr18_12_on && gr18_12_on == 2'd2) | (tr18_13_on && gr18_13_on == 2'd2) | (tr18_14_on && gr18_14_on == 2'd2) | (tr18_15_on && gr18_15_on == 2'd2) | (tr18_16_on && gr18_16_on == 2'd2) | (tr18_17_on && gr18_17_on == 2'd2) | (tr18_18_on && gr18_18_on == 2'd2) | (tr18_19_on && gr18_19_on == 2'd2) | (tr18_20_on && gr18_20_on == 2'd2) | (tr18_21_on && gr18_21_on == 2'd2) | (tr18_22_on && gr18_22_on == 2'd2) | (tr18_23_on && gr18_23_on == 2'd2) | (tr18_24_on && gr18_24_on == 2'd2) | (tr19_0_on && gr19_0_on == 2'd2) | (tr19_1_on && gr19_1_on == 2'd2) | (tr19_2_on && gr19_2_on == 2'd2) | (tr19_3_on && gr19_3_on == 2'd2) | (tr19_4_on && gr19_4_on == 2'd2) | (tr19_5_on && gr19_5_on == 2'd2) | (tr19_6_on && gr19_6_on == 2'd2) | (tr19_7_on && gr19_7_on == 2'd2) | (tr19_8_on && gr19_8_on == 2'd2) | (tr19_9_on && gr19_9_on == 2'd2) | (tr19_10_on && gr19_10_on == 2'd2) | (tr19_11_on && gr19_11_on == 2'd2) | (tr19_12_on && gr19_12_on == 2'd2) | (tr19_13_on && gr19_13_on == 2'd2) | (tr19_14_on && gr19_14_on == 2'd2) | (tr19_15_on && gr19_15_on == 2'd2) | (tr19_16_on && gr19_16_on == 2'd2) | (tr19_17_on && gr19_17_on == 2'd2) | (tr19_18_on && gr19_18_on == 2'd2) | (tr19_19_on && gr19_19_on == 2'd2) | (tr19_20_on && gr19_20_on == 2'd2) | (tr19_21_on && gr19_21_on == 2'd2) | (tr19_22_on && gr19_22_on == 2'd2) | (tr19_23_on && gr19_23_on == 2'd2) | (tr19_24_on && gr19_24_on == 2'd2) | (tr20_0_on && gr20_0_on == 2'd2) | (tr20_1_on && gr20_1_on == 2'd2) | (tr20_2_on && gr20_2_on == 2'd2) | (tr20_3_on && gr20_3_on == 2'd2) | (tr20_4_on && gr20_4_on == 2'd2) | (tr20_5_on && gr20_5_on == 2'd2) | (tr20_6_on && gr20_6_on == 2'd2) | (tr20_7_on && gr20_7_on == 2'd2) | (tr20_8_on && gr20_8_on == 2'd2) | (tr20_9_on && gr20_9_on == 2'd2) | (tr20_10_on && gr20_10_on == 2'd2) | (tr20_11_on && gr20_11_on == 2'd2) | (tr20_12_on && gr20_12_on == 2'd2) | (tr20_13_on && gr20_13_on == 2'd2) | (tr20_14_on && gr20_14_on == 2'd2) | (tr20_15_on && gr20_15_on == 2'd2) | (tr20_16_on && gr20_16_on == 2'd2) | (tr20_17_on && gr20_17_on == 2'd2) | (tr20_18_on && gr20_18_on == 2'd2) | (tr20_19_on && gr20_19_on == 2'd2) | (tr20_20_on && gr20_20_on == 2'd2) | (tr20_21_on && gr20_21_on == 2'd2) | (tr20_22_on && gr20_22_on == 2'd2) | (tr20_23_on && gr20_23_on == 2'd2) | (tr20_24_on && gr20_24_on == 2'd2) | (tr21_0_on && gr21_0_on == 2'd2) | (tr21_1_on && gr21_1_on == 2'd2) | (tr21_2_on && gr21_2_on == 2'd2) | (tr21_3_on && gr21_3_on == 2'd2) | (tr21_4_on && gr21_4_on == 2'd2) | (tr21_5_on && gr21_5_on == 2'd2) | (tr21_6_on && gr21_6_on == 2'd2) | (tr21_7_on && gr21_7_on == 2'd2) | (tr21_8_on && gr21_8_on == 2'd2) | (tr21_9_on && gr21_9_on == 2'd2) | (tr21_10_on && gr21_10_on == 2'd2) | (tr21_11_on && gr21_11_on == 2'd2) | (tr21_12_on && gr21_12_on == 2'd2) | (tr21_13_on && gr21_13_on == 2'd2) | (tr21_14_on && gr21_14_on == 2'd2) | (tr21_15_on && gr21_15_on == 2'd2) | (tr21_16_on && gr21_16_on == 2'd2) | (tr21_17_on && gr21_17_on == 2'd2) | (tr21_18_on && gr21_18_on == 2'd2) | (tr21_19_on && gr21_19_on == 2'd2) | (tr21_20_on && gr21_20_on == 2'd2) | (tr21_21_on && gr21_21_on == 2'd2) | (tr21_22_on && gr21_22_on == 2'd2) | (tr21_23_on && gr21_23_on == 2'd2) | (tr21_24_on && gr21_24_on == 2'd2) | (tr22_0_on && gr22_0_on == 2'd2) | (tr22_1_on && gr22_1_on == 2'd2) | (tr22_2_on && gr22_2_on == 2'd2) | (tr22_3_on && gr22_3_on == 2'd2) | (tr22_4_on && gr22_4_on == 2'd2) | (tr22_5_on && gr22_5_on == 2'd2) | (tr22_6_on && gr22_6_on == 2'd2) | (tr22_7_on && gr22_7_on == 2'd2) | (tr22_8_on && gr22_8_on == 2'd2) | (tr22_9_on && gr22_9_on == 2'd2) | (tr22_10_on && gr22_10_on == 2'd2) | (tr22_11_on && gr22_11_on == 2'd2) | (tr22_12_on && gr22_12_on == 2'd2) | (tr22_13_on && gr22_13_on == 2'd2) | (tr22_14_on && gr22_14_on == 2'd2) | (tr22_15_on && gr22_15_on == 2'd2) | (tr22_16_on && gr22_16_on == 2'd2) | (tr22_17_on && gr22_17_on == 2'd2) | (tr22_18_on && gr22_18_on == 2'd2) | (tr22_19_on && gr22_19_on == 2'd2) | (tr22_20_on && gr22_20_on == 2'd2) | (tr22_21_on && gr22_21_on == 2'd2) | (tr22_22_on && gr22_22_on == 2'd2) | (tr22_23_on && gr22_23_on == 2'd2) | (tr22_24_on && gr22_24_on == 2'd2) | (tr23_0_on && gr23_0_on == 2'd2) | (tr23_1_on && gr23_1_on == 2'd2) | (tr23_2_on && gr23_2_on == 2'd2) | (tr23_3_on && gr23_3_on == 2'd2) | (tr23_4_on && gr23_4_on == 2'd2) | (tr23_5_on && gr23_5_on == 2'd2) | (tr23_6_on && gr23_6_on == 2'd2) | (tr23_7_on && gr23_7_on == 2'd2) | (tr23_8_on && gr23_8_on == 2'd2) | (tr23_9_on && gr23_9_on == 2'd2) | (tr23_10_on && gr23_10_on == 2'd2) | (tr23_11_on && gr23_11_on == 2'd2) | (tr23_12_on && gr23_12_on == 2'd2) | (tr23_13_on && gr23_13_on == 2'd2) | (tr23_14_on && gr23_14_on == 2'd2) | (tr23_15_on && gr23_15_on == 2'd2) | (tr23_16_on && gr23_16_on == 2'd2) | (tr23_17_on && gr23_17_on == 2'd2) | (tr23_18_on && gr23_18_on == 2'd2) | (tr23_19_on && gr23_19_on == 2'd2) | (tr23_20_on && gr23_20_on == 2'd2) | (tr23_21_on && gr23_21_on == 2'd2) | (tr23_22_on && gr23_22_on == 2'd2) | (tr23_23_on && gr23_23_on == 2'd2) | (tr23_24_on && gr23_24_on == 2'd2) | (tr24_0_on && gr24_0_on == 2'd2) | (tr24_1_on && gr24_1_on == 2'd2) | (tr24_2_on && gr24_2_on == 2'd2) | (tr24_3_on && gr24_3_on == 2'd2) | (tr24_4_on && gr24_4_on == 2'd2) | (tr24_5_on && gr24_5_on == 2'd2) | (tr24_6_on && gr24_6_on == 2'd2) | (tr24_7_on && gr24_7_on == 2'd2) | (tr24_8_on && gr24_8_on == 2'd2) | (tr24_9_on && gr24_9_on == 2'd2) | (tr24_10_on && gr24_10_on == 2'd2) | (tr24_11_on && gr24_11_on == 2'd2) | (tr24_12_on && gr24_12_on == 2'd2) | (tr24_13_on && gr24_13_on == 2'd2) | (tr24_14_on && gr24_14_on == 2'd2) | (tr24_15_on && gr24_15_on == 2'd2) | (tr24_16_on && gr24_16_on == 2'd2) | (tr24_17_on && gr24_17_on == 2'd2) | (tr24_18_on && gr24_18_on == 2'd2) | (tr24_19_on && gr24_19_on == 2'd2) | (tr24_20_on && gr24_20_on == 2'd2) | (tr24_21_on && gr24_21_on == 2'd2) | (tr24_22_on && gr24_22_on == 2'd2) | (tr24_23_on && gr24_23_on == 2'd2) | (tr24_24_on && gr24_24_on == 2'd2))
@@ -17935,17 +16651,16 @@ ascii_test_1 test6(.ascii_char(asciir_char0),.clk(clk),.video_on(video_on),.x(x)
             else
                 if (sel == 2'b10)
                 begin
-                if (color == 6'd15)
+                if (color >= 6'd15)
                     rgb = BG1;
-                else if (color == 6'd10) 
+                else if (color >= 6'd10) 
                     rgb = BG2; 
-                else if (color == 6'd5) 
+                else if (color >= 6'd5) 
                     rgb = BG3;
-                else if (color == 6'd0)
+                else if (color >= 6'd0)
                     rgb = BG4;
                 end 
                 else
                 rgb = BG1;   
     
 endmodule
-

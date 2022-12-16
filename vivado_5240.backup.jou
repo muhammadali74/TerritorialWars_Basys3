@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Dec 13 11:45:23 2022
+# Process ID: 5240
+# Current directory: C:/Users/needs/OneDrive/Desktop/TerritorialWars_Basys3-RegionintheMaking
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19784 C:\Users\needs\OneDrive\Desktop\TerritorialWars_Basys3-RegionintheMaking\test.xpr
+# Log file: C:/Users/needs/OneDrive/Desktop/TerritorialWars_Basys3-RegionintheMaking/vivado.log
+# Journal file: C:/Users/needs/OneDrive/Desktop/TerritorialWars_Basys3-RegionintheMaking\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/needs/OneDrive/Desktop/TerritorialWars_Basys3-RegionintheMaking/test.xpr
+rupdate_compile_order -fileset sources_1
+reset_run synth_1
+aunch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+report_ip_status -name ip_status 
