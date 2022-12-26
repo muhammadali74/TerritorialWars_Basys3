@@ -7,7 +7,7 @@
 - The game takes input using two non-PMOD joysticks and displays VGA output on a VGA supporting monitor at a resolution of 640*480 (which is the native resolution of a non-overclocked Basys3 FPGA)
 
 ## Resource Consumption
-![alt text](https://github.com/muhammadali74/TerritorialWars_Basys3/blob/main/resource.jpg?raw=true)
+![Basys3_resource_consumption](https://github.com/muhammadali74/TerritorialWars_Basys3/blob/main/resource.png?raw=true)
 The figure shows the on-board resouce consumption of the program.
 
 ## References:
