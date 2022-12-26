@@ -8,6 +8,7 @@
 
 ## Resource Consumption
 ![Basys3_resource_consumption](https://github.com/muhammadali74/TerritorialWars_Basys3/blob/main/resource.png?raw=true)
+
 The figure shows the on-board resouce consumption of the program.
 
 ## References:
