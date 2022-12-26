@@ -6,6 +6,9 @@
 - It includes several synchronous state-machines to structure the basic flow of the game and for implementing the game logic.
 - The game takes input using two non-PMOD joysticks and displays VGA output on a VGA supporting monitor at a resolution of 640*480 (which is the native resolution of a non-overclocked Basys3 FPGA)
 
+## Resource Consumption
+![alt text](https://github.com/muhammadali74/TerritorialWars_Basys3/blob/main/resource.jpg?raw=true)
+The figure shows the on-board resouce consumption of the program.
 
 ## References:
 Some parts of the code are borrowed from the following
